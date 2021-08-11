@@ -1,0 +1,64 @@
+.appointments {
+	padding: 30px 40px;
+	background-color: rgb(245,245,220);
+}
+.appointments-header {
+	display: flex;
+	justify-content: center;
+	margin-top: 16px;
+	margin-bottom: 32px;
+}
+
+.appointments-header h1 {
+	font-size: 3rem;
+	font-weight: bold;
+}
+.appointments-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	width: 100%;
+	grid-gap: 20px;
+}
+.appointment-card {
+	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+	border-radius: 4px;
+	padding: 40px 60px;
+	background-color: white;
+}
+
+.company-title {
+	display: flex;
+	justify-content: center;
+}
+
+.company-title h2 {
+	font-size: 2rem;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.street {
+	display: flex;
+	justify-content: flex-start;
+	margin-bottom: 16px;
+	margin-top: 16px;
+}
+
+.city-info, .country-row, .contact-information {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 16px;
+}
+
+.notes {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.notes p {
+	font-size: 17px;
+}
+
+.attribute {
+	font-size: 17px;
+}
