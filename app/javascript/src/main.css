@@ -67,3 +67,12 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+body {
+	background-color: rgb(102,153,204);
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}

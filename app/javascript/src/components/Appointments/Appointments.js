@@ -60,14 +60,15 @@ const Appointments = () => {
 	}
 
 	const appointmentList = appointments.map((appointment, index) => {
-		const { city, company_contact, company_name, country, email, meeting_date, notes, phone,state, street_address, zipcode } = appointment.attributes;
+		const { company_name, meeting_date, slug } = appointment.attributes;
 		return (
 			<Appointment
 				key={index}
-				{...{city, company_contact, company_name, country, email, meeting_date, notes, phone, state, street_address, zipcode}}
+				{...{company_name, meeting_date, slug}}
 				/>
 		)
 	});
+
 	return (
 		<section className="appointments">
 			<div className="appointments-header">
