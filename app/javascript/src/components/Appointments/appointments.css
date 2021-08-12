@@ -13,10 +13,31 @@
 	font-size: 3rem;
 	font-weight: bold;
 }
+
+.new-appointment {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 18px;
+}
+
+.modal-button {
+	font-size: 16px;
+	padding: 5px 10px;
+	border: 5px solid black;
+	border-radius: 4px;
+	background-color: black;
+	color: white;
+}
+
+.modal-button:hover {
+	background-color: white;
+	color: black;
+}
+
 .appointments-grid {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	width: 100%;
+	max-width: 100%;
 	grid-gap: 20px;
 }
 .appointment-card {
@@ -61,4 +82,98 @@
 
 .attribute {
 	font-size: 17px;
+}
+
+/*New Appointment modal */
+
+.appointment-modal {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.5);
+	}
+
+.modal-content {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10;
+	transition: 200ms ease-in-out;
+	width: 800px;
+	max-width: 100%;
+	box-shadow: 0 2px 5px rgba(0,0,0, 0.3);
+	border-radius: 5px;
+	background-color: white;
+	overflow: hidden;
+}
+
+.header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: rgb(127,127,127);
+	border-bottom: rgb(240,240,240);
+	padding: 20px 30px;
+}
+
+.header h2 {
+	font-size: 1.25rem;
+	font-weight: bold;
+}
+
+.close-button button {
+	border: none;
+	background-color: rgb(127,127,127);
+	color: black;
+	font-size: 1.5rem;
+	font-weight: bold;
+	border: 2px solid transparent;
+}
+
+.close-button button:hover {
+	border: 2px solid white;
+	background-color: rgb(127,127,127);
+}
+
+.appointment-form {
+	padding: 30px 40px;
+}
+
+.field {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	position: relative;
+}
+
+.field label {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.field input, .field textarea {
+	border: 2px solid rgb(240,240,240);
+	border-radius: 4px;
+	display: block;
+	width: 100%;
+	padding: 10px;
+	font-size: 14px;
+}
+
+.submit {
+	background-color: rgb(220, 20, 60);
+	border: 2px solid rgb(220,20,60);
+	border-radius: 4px;
+	color: white;
+	display: block;
+	width: 100%;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.submit:hover {
+	background-color: white;
+	color: rgb(220,20,60);
 }
