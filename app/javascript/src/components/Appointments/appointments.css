@@ -57,6 +57,11 @@
 	text-decoration: underline;
 }
 
+.alt-title h2 {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
 .street {
 	display: flex;
 	justify-content: flex-start;
@@ -80,11 +85,49 @@
 }
 
 
-.delete-row {
+.show-row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 16px;
+}
+
+.title-meeting {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	margin-top: 16px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.link-appointment a {
+	color: white;
+	background-color: black;
+	padding: 3px 10px;
+	border-radius: 4px;
+	font-weight: bold;
+	border: 3px solid black;
+}
+
+.link-appointment a:hover {
+	color: black;
+	background-color: white;
+}
+
+.delete-button {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.delete-button button {
+	color: rgb(204,141,102);
+	background-color: transparent;
+	border: 2px solid transparent;
+	padding: 3px 5px;
+}
+
+.delete-button button:hover {
+	border: 2px solid black;
 }
 
 .attribute {

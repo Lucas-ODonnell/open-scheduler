@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import AppointmentModal from './AppointmentModal';
 import axios from 'axios';
 import Appointment from './Appointment';
-import AppointmentModal from './AppointmentModal';
 import './appointments.css';
 
 const Appointments = () => {
@@ -11,7 +11,7 @@ const Appointments = () => {
 		street_address: "",
 		city: "",
 		state: "",
-		zipcode: 0,
+		zipcode: "",
 		country: "",
 		company_contact: "",
 		phone: "",
@@ -28,6 +28,14 @@ const Appointments = () => {
 			})
 			.catch( response => console.log(response));
 	}, [Appointments.length])
+
+	const handleDelete = (slug) => {
+		axios.delete(`/api/v1/appointments/${slug}`)
+			.then( response => {
+			console.log(response)
+				setAppointments(appointments.filter(object => object.attributes.slug !== slug));
+			})
+	}
 
 	const handleChange = (e) => {
 		e.preventDefault();
@@ -46,7 +54,7 @@ const Appointments = () => {
 					street_address: "",
 					city: "",
 					state: "",
-					zipcode: 0,
+					zipcode: "",
 					country: "",
 					company_contact: "",
 					phone: "",
@@ -64,7 +72,7 @@ const Appointments = () => {
 		return (
 			<Appointment
 				key={index}
-				{...{company_name, meeting_date, slug}}
+				{...{company_name, meeting_date, slug, appointments, setAppointments, handleDelete}}
 				/>
 		)
 	});

@@ -25,6 +25,11 @@ class Appointment < ApplicationRecord
   private
 
   def normalize_phone
-    self.phone = Phonelib.parse(phone).full_e164.presence
+    formatted_phone = remove_nondigits(phone)
+    self.phone = Phonelib.parse(formatted_phone).full_e164.presence
+  end
+
+  def remove_nondigits(phone)
+    phone.delete('^0-9')
   end
 end

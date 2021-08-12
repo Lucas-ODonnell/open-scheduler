@@ -1,23 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+library.add(fas)
 
-const Appointment = ({company_name, meeting_date, slug}) => {
+const Appointment = ({company_name, meeting_date, slug, handleDelete}) => {
 	return (
-		<Link to={`/appointments/${slug}`} >
-			<div className="appointment-card">
-				<div className="company-title">
+		<div className="appointment-card">
+			<div className="delete-button">
+				<button onClick={() => handleDelete(slug)}><FontAwesomeIcon  icon="trash" size="lg" /></button>
+			</div>
+			<div className="title-meeting">
+				<div className="alt-title">
 					<h2>{company_name}</h2>
 				</div>
-				<div className="delete-row">
-					<div>
-						<span>Meeting:</span> {meeting_date}
-					</div>
-					<div className="appointment-delete">
-						<button>Delete goes here</button>
-					</div>
+				<div>
+					<span>Meeting:</span> {meeting_date}
 				</div>
 			</div>
-		</Link>
+			<div className="show-row">
+				<div className="link-appointment">
+					<Link to={`/appointments/${slug}`}>View</Link>
+				</div>
+			</div>
+		</div>
 	)
 }
 

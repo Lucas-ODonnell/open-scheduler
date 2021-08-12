@@ -35,7 +35,7 @@ module Api
         if appointment.destroy
           head :no_content
           else
-          render json: {error: airline.errors.messages}
+          render json: {error: appointment.errors.messages}
         end
       end
 
