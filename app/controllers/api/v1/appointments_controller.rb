@@ -3,7 +3,7 @@ module Api
     class AppointmentsController < ApplicationController
       protect_from_forgery with: :null_session
       def index
-        appointments = Appointment.all
+        appointments = Appointment.all.order("created_at DESC")
         render json: AppointmentSerializer.new(appointments).serializable_hash.to_json
       end
 

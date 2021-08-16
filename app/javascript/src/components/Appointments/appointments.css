@@ -198,20 +198,6 @@
 	position: relative;
 }
 
-.field label {
-	display: inline-block;
-	margin-bottom: 5px;
-}
-
-.field input, .field textarea {
-	border: 2px solid rgb(240,240,240);
-	border-radius: 4px;
-	display: block;
-	width: 100%;
-	padding: 10px;
-	font-size: 14px;
-}
-
 .submit {
 	background-color: rgb(220, 20, 60);
 	border: 2px solid rgb(220,20,60);

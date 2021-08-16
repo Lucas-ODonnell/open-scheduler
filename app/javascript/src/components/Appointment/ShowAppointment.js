@@ -1,54 +1,95 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import ViewAppointment from './ViewAppointment';
+import UpdateAppointment from './UpdateAppointment';
 import './appointment.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+library.add(fas)
 
 const ShowAppointment = () => {
 	const { slug } = useParams();
 	const [appointment, setAppointment] = useState({});
 	const [loaded, setLoaded] = useState(false);
+	const [update, setUpdate] = useState(false);
+	const [editedAppointment, setEditedAppointment] = useState({});
 
 	useEffect(() => {
 		const url = `/api/v1/appointments/${slug}`;
 		axios.get(url)
 			.then ( response => {
-			setAppointment(response.data.data)
-			setLoaded(true);
+				setAppointment(response.data.data)
+				setLoaded(true);
 			})
 			.catch( response => console.log(response))
-	}, [])
+	}, [update])
+
+	//The notes should be loaded so we can add to them.
+	const showEdit = (e) => {
+		e.preventDefault();
+		setUpdate(true);
+		setEditedAppointment({
+		street_address: "",
+		city: "",
+		state: "",
+		zipcode: "",
+		country: "",
+		company_contact: "",
+		phone: "",
+		email: "",
+		meeting_date: "",
+		notes: appointment.attributes.notes 
+		})
+	}
+
+	const hideEdit = (e) => {
+		e.preventDefault();
+		setUpdate(false);
+	}
+
+	const handleChange = (e) => {
+		e.preventDefault();
+		setEditedAppointment({...editedAppointment, [e.target.name]: e.target.value});
+	}
+
+	const handleUpdate = (e) => {
+		e.preventDefault();
+		const edited = Object.fromEntries(
+			Object.entries(editedAppointment).filter(([key, value]) => value !== ""))
+		axios.put(`/api/v1/appointments/${slug}`, edited)
+			.then(response => {
+				console.log(response);
+				setEditedAppointment({
+					street_address: "",
+					city: "",
+					state: "",
+					zipcode: "",
+					country: "",
+					company_contact: "",
+					phone: "",
+					email: "",
+					meeting_date: ""
+				})
+				setUpdate(false);
+			})
+			.catch(error => {
+				console.log(error);
+			});
+	}
 
 	return (
 		<section className="show-appointment">
-		{ loaded &&
-		<div className="appointment-card">
-			<div className="company-title">
-				<h2>{appointment.attributes.company_name}</h2>
-			</div>
-			<div className="street">
-				<div className="attribute"><span>Address:</span> {appointment.attributes.street_address}</div>
-			</div>
-			<div className="city-info">
-				<div className="attribute"><span>City:</span> {appointment.attributes.city}</div>
-				<div className="attribute"><span>State:</span> {appointment.attributes.state}</div>
-				<div className="attribute"><span>Zipcode:</span> {appointment.attributes.zipcode}</div>
-			</div>
-			<div className="country-row">
-				<div className="attribute"><span>Country:</span> {appointment.attributes.country}</div>
-				<div className="attribute"><span>Contact:</span> {appointment.attributes.company_contact}</div>
-			</div>
-			<div className="contact-information">
-				<div className="attribute"><span>Phone:</span> {appointment.attributes.phone}</div>
-				<div className="attribute"><span>Email:</span> {appointment.attributes.email}</div>
-				<div className="attribute"><span>Meeting:</span> {appointment.attributes.meeting_date}</div>
-			</div>
-			<div className="notes">
-				<div>
-					<span>Notes:</span><p>{appointment.attributes.notes}</p>
+			{ loaded &&
+				<div className="appointment-card">
+					{!update ?
+					<ViewAppointment {...{appointment, FontAwesomeIcon, showEdit}}/>
+					:
+					<UpdateAppointment {...{hideEdit, handleChange, handleUpdate, editedAppointment, appointment}}/>
+					}
 				</div>
-			</div>
-		</div>
-		}
+			}
 		</section>
 	)
 }

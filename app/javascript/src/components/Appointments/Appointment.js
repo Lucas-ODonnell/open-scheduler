@@ -1,11 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-library.add(fas)
 
-const Appointment = ({company_name, meeting_date, slug, handleDelete}) => {
+
+const Appointment = ({company_name, meeting_date, slug, handleDelete, FontAwesomeIcon}) => {
 	return (
 		<div className="appointment-card">
 			<div className="delete-button">

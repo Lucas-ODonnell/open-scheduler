@@ -3,6 +3,11 @@ import AppointmentModal from './AppointmentModal';
 import axios from 'axios';
 import Appointment from './Appointment';
 import './appointments.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+library.add(fas)
+
 
 const Appointments = () => {
 	const [appointments, setAppointments] = useState([]);
@@ -27,7 +32,7 @@ const Appointments = () => {
 				setAppointments(response.data.data);
 			})
 			.catch( response => console.log(response));
-	}, [Appointments.length])
+	}, [appointments.length])
 
 	const handleDelete = (slug) => {
 		axios.delete(`/api/v1/appointments/${slug}`)
@@ -72,7 +77,7 @@ const Appointments = () => {
 		return (
 			<Appointment
 				key={index}
-				{...{company_name, meeting_date, slug, appointments, setAppointments, handleDelete}}
+				{...{company_name, meeting_date, slug, appointments, setAppointments, handleDelete, FontAwesomeIcon}}
 				/>
 		)
 	});

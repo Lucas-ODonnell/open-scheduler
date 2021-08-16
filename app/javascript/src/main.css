@@ -77,3 +77,20 @@ a {
 	color: black;
 }
 
+label {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+input, textarea {
+	border: 2px solid rgb(220,220,220);
+	border-radius: 4px;
+	display: block;
+	width: 100%;
+	padding: 10px;
+	font-size: 14px;
+}
+
+button {
+	cursor: pointer;
+}
