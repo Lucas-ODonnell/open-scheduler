@@ -1,6 +1,6 @@
 /* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
+v2.0 | 20110126
+License: none (public domain)
 */
 
 html, body, div, span, applet, object, iframe,
@@ -59,18 +59,18 @@ span {
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
 }
 
 /* Firefox */
 input[type=number] {
-  -moz-appearance: textfield;
+	-moz-appearance: textfield;
 }
 
 body {
-	background-color: rgb(102,153,204);
-	padding-left: 170px;
+	background-color: white;
+	padding-left: 220px;
 }
 
 a {
@@ -100,21 +100,51 @@ button {
 
 nav {
 	position: fixed;
-	width: 100%;
 	top: 0;
 	z-index: 2;
 }
 
-.navbar {
+.navigation {
 	height: 100%;
-	width: 160px;
+	background-color: rgb(53,116,179);
 	position: fixed;
+	width: 200px;
 	left: 0;
-	background-color: grey;
 	overflow-x: hidden;
 	padding-top: 20px;
+}
+
+.nav-header {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	border-bottom: 2px solid rgba(150,150,150,.3);
+}
+
+.nav-header h1 {
+	color: white;
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.navbar li {
+	height: 46px;
+	width: 100%;
+	text-align: center;
+	line-height: 46px;
+	font-size: 1.2rem;
+	font-weight: bold;
+	border-bottom: 2px solid rgba(150,150,150,.3);
+}
+
+.navbar li:hover {
+	background-color: rgba(150,150,150,.3);
+}
+
+.navbar a {
+	color: white;
 }
 
