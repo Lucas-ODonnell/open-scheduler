@@ -70,6 +70,7 @@ input[type=number] {
 
 body {
 	background-color: rgb(102,153,204);
+	padding-left: 170px;
 }
 
 a {
@@ -94,3 +95,26 @@ input, textarea {
 button {
 	cursor: pointer;
 }
+
+/*Navbar */
+
+nav {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 2;
+}
+
+.navbar {
+	height: 100%;
+	width: 160px;
+	position: fixed;
+	left: 0;
+	background-color: grey;
+	overflow-x: hidden;
+	padding-top: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
