@@ -11,7 +11,7 @@ appointments = Appointment.create(
       phone: '3312235465',
       email: "bob@bob.com",
       notes: "Set up a meeting with the client. Hopefully they'll buy from us",
-      meeting_date: Time.now.to_datetime
+      meeting_date: Time.now
     },
     {
       company_name: "PBJ Brothers Automotive",
@@ -24,7 +24,7 @@ appointments = Appointment.create(
       phone: '4155556777',
       email: "johnchung@gmail.com",
       notes: "Client seems hesistant. Call back later",
-      meeting_date: Time.now.to_datetime
+      meeting_date: Time.now
     },
     {
       company_name: "Bitsch Towing",
@@ -37,7 +37,7 @@ appointments = Appointment.create(
       phone: '8888885675',
       email: "info@btowing.com",
       notes: "Client isn't interested",
-      meeting_date: Time.now.to_datetime
+      meeting_date: Time.now
     },
     {
       company_name: "Guidos Trash Service",
@@ -50,7 +50,7 @@ appointments = Appointment.create(
       phone: '5556667777',
       email: "lucpav@gmail.com",
       notes: "They expressed interest in our website building services",
-      meeting_date: Time.now.to_datetime
+      meeting_date: Time.now
     },
     {
       company_name: "Main St Subs",
@@ -63,7 +63,7 @@ appointments = Appointment.create(
       phone: '5033334455',
       email: "info@mainst.com",
       notes: "Client offered me a sandwich",
-      meeting_date: Time.now.to_datetime
+      meeting_date: Time.now
     },
     {
       company_name: "Meijers",
@@ -76,7 +76,7 @@ appointments = Appointment.create(
       phone: '6162238485',
       email: "hr@meijer.com",
       notes: "Client is interested",
-      meeting_date: Time.now.to_datetime
+      meeting_date: Time.now
     }
       ]
 )

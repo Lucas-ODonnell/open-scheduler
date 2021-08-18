@@ -9,6 +9,7 @@ module Api
 
       def show
         appointment = Appointment.find_by(slug: params[:slug])
+        appointment.phone = appointment.formatted_phone
         render json: AppointmentSerializer.new(appointment).serializable_hash.to_json
       end
 
@@ -24,6 +25,7 @@ module Api
       def update
         appointment = Appointment.find_by(slug: params[:slug])
         if appointment.update(appointment_params)
+          appointment.phone = appointment.formatted_phone
           render json: AppointmentSerializer.new(appointment).serializable_hash.to_json
           else
           render json: {error: appointment.errors.messages}
@@ -42,7 +44,7 @@ module Api
       private
 
       def appointment_params
-        params.require(:appointment).permit(:company_name, :street_address, :city, :country, :zipcode, :company_contact, :notes, :meeting_date, :state, :phone, :email)
+        params.require(:appointment).permit(:company_name, :street_address, :city, :country, :zipcode, :company_contact, :notes, :meeting_date, :state, :phone, :email, :normalize_date)
       end
     end
   end

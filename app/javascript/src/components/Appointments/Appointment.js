@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const Appointment = ({company_name, meeting_date, slug, handleDelete, FontAwesomeIcon}) => {
+const Appointment = ({company_name, formatted_date, slug, handleDelete, FontAwesomeIcon}) => {
 	return (
 		<div className="appointment-card">
 			<div className="delete-button">
@@ -13,7 +13,7 @@ const Appointment = ({company_name, meeting_date, slug, handleDelete, FontAwesom
 					<h2>{company_name}</h2>
 				</div>
 				<div>
-					<span>Meeting:</span> {meeting_date}
+					<span>Meeting:</span> {formatted_date}
 				</div>
 			</div>
 			<div className="show-row">

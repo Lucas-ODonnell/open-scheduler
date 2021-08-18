@@ -73,11 +73,11 @@ const Appointments = () => {
 	}
 
 	const appointmentList = appointments.map((appointment, index) => {
-		const { company_name, meeting_date, slug } = appointment.attributes;
+		const { company_name, formatted_date, slug } = appointment.attributes;
 		return (
 			<Appointment
 				key={index}
-				{...{company_name, meeting_date, slug, appointments, setAppointments, handleDelete, FontAwesomeIcon}}
+				{...{company_name, formatted_date, slug, appointments, setAppointments, handleDelete, FontAwesomeIcon}}
 				/>
 		)
 	});

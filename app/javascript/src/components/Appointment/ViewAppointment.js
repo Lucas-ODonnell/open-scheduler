@@ -23,7 +23,7 @@ const ViewAppointment = ({appointment, FontAwesomeIcon, showEdit}) => (
 		<div className="contact-information">
 			<div className="attributes"><span>Phone:</span> {appointment.attributes.phone}</div>
 			<div className="attributes"><span>Email:</span> {appointment.attributes.email}</div>
-			<div className="attributes"><span>Meeting:</span> {appointment.attributes.meeting_date}</div>
+			<div className="attributes"><span>Meeting:</span> {appointment.attributes.formatted_date}</div>
 		</div>
 		<div className="notes">
 			<div>
