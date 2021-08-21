@@ -13,7 +13,7 @@ const Nav = () => (
 						<Link to="/">Appointments</Link>
 					</li>
 					<li>
-						<Link to="/user">Username</Link>
+						<Link to="/users/sign_in">Username</Link>
 					</li>
 				</ul>
 			</div>

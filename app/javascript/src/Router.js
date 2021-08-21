@@ -17,7 +17,7 @@ const Router = () => (
 				<Route exact path="/appointments/:slug">
 					<ShowAppointment />
 				</Route>
-				<Route exact path="/user">
+				<Route exact path="/users/sign_in">
 					<User />
 				</Route>
 			</Switch>

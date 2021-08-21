@@ -1,0 +1,29 @@
+.signin-container {
+	position: fixed;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 800px;
+	max-width: 100%;
+	box-shadow: 0 2px 5px rgba(0,0,0, 0.3);
+	border-radius: 5px;
+	background-color: white;
+	overflow: hidden;
+}
+
+.signin-header {
+	background-color: rgb(150,150,150);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 64px;
+}
+
+.signin-header h1 {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.signin-form {
+	padding: 30px 40px;
+}
