@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery with: :null_session
+  respond_to :json
   #Once we make users use this 
   #around_action :set_time_zone
 

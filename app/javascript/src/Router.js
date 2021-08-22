@@ -7,15 +7,15 @@ import Nav from './components/Nav';
 
 	
 
-const Router = () => (
+const Router = ({authorizationToken}) => (
 		<Routes>
 			<Nav />
 			<Switch>
 				<Route exact path="/">
-					<Appointments />
+					<Appointments {...{authorizationToken}}/>
 				</Route>
 				<Route exact path="/appointments/:slug">
-					<ShowAppointment />
+					<ShowAppointment {...{authorizationToken}}/>
 				</Route>
 				<Route exact path="/users/sign_in">
 					<User />

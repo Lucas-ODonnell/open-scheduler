@@ -8,8 +8,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 library.add(fas)
 
-
-const Appointments = () => {
+const Appointments = ({authorizationToken}) => {
 	const [appointments, setAppointments] = useState([]);
 	const [newAppointment, setNewAppointment] = useState({
 		company_name: "",
@@ -27,7 +26,10 @@ const Appointments = () => {
 	const [showModal, setShowModal] = useState(false);
 
 	useEffect(() => {
-		axios.get('/api/v1/appointments.json')
+		const config = {
+			headers: { Authorization: authorizationToken }
+		}
+		axios.get('/api/v1/appointments.json', config)
 			.then( response => {
 				setAppointments(response.data.data);
 			})
@@ -35,7 +37,10 @@ const Appointments = () => {
 	}, [appointments.length])
 
 	const handleDelete = (slug) => {
-		axios.delete(`/api/v1/appointments/${slug}`)
+		const config = {
+			headers: { Authorization: authorizationToken }
+		}
+		axios.delete(`/api/v1/appointments/${slug}`, config)
 			.then( response => {
 			console.log(response)
 				setAppointments(appointments.filter(object => object.attributes.slug !== slug));
@@ -49,9 +54,10 @@ const Appointments = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const csrfToken = document.querySelector('[name=csrf-token]').content;
-		axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
-		axios.post('/api/v1/appointments', newAppointment )
+		const config = {
+			headers: { Authorization: authorizationToken }
+		}
+		axios.post('/api/v1/appointments', newAppointment, config )
 			.then(response => {
 				setAppointments([...appointments, response.data.data])
 				setNewAppointment({

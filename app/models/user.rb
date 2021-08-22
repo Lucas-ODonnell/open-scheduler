@@ -4,5 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable, :jwt_authenticatable, 
     jwt_revocation_strategy: JwtDenylist
-    validates :name, uniqueness: { case_sensitive: false }, presence: true, allow_blank: false
+  self.skip_session_storage = [:http_auth, :params_auth]
+  validates :name, uniqueness: { case_sensitive: false }, presence: true, allow_blank: false
 end

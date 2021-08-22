@@ -30,10 +30,9 @@ gem 'phonelib'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
-gem 'jwt'
 gem 'rexml'
 gem 'devise-jwt'
-gem 'rack-cors'
+gem 'rack-cors', :require => 'rack/cors'
 gem 'figaro'
 
 group :development, :test do

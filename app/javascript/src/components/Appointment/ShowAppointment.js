@@ -9,7 +9,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 library.add(fas)
 
-const ShowAppointment = () => {
+const ShowAppointment = ({authorizationToken}) => {
 	const { slug } = useParams();
 	const [appointment, setAppointment] = useState({});
 	const [loaded, setLoaded] = useState(false);
@@ -18,7 +18,10 @@ const ShowAppointment = () => {
 
 	useEffect(() => {
 		const url = `/api/v1/appointments/${slug}`;
-		axios.get(url)
+		const config = {
+			headers: { Authorization: authorizationToken }
+		}
+		axios.get(url, config)
 			.then ( response => {
 				setAppointment(response.data.data)
 				setLoaded(true);
@@ -31,16 +34,16 @@ const ShowAppointment = () => {
 		e.preventDefault();
 		setUpdate(true);
 		setEditedAppointment({
-		street_address: "",
-		city: "",
-		state: "",
-		zipcode: "",
-		country: "",
-		company_contact: "",
-		phone: "",
-		email: "",
-		meeting_date: "",
-		notes: appointment.attributes.notes 
+			street_address: "",
+			city: "",
+			state: "",
+			zipcode: "",
+			country: "",
+			company_contact: "",
+			phone: "",
+			email: "",
+			meeting_date: "",
+			notes: appointment.attributes.notes 
 		})
 	}
 
@@ -56,9 +59,12 @@ const ShowAppointment = () => {
 
 	const handleUpdate = (e) => {
 		e.preventDefault();
+		const config = {
+			headers: { Authorization: authorizationToken }
+		}
 		const edited = Object.fromEntries(
 			Object.entries(editedAppointment).filter(([key, value]) => value !== ""))
-		axios.put(`/api/v1/appointments/${slug}`, edited)
+		axios.put(`/api/v1/appointments/${slug}`, edited, config)
 			.then(response => {
 				console.log(response);
 				setEditedAppointment({
