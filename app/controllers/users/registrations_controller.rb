@@ -1,5 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   protect_from_forgery with: :null_session
+  skip_before_action :require_no_authentication
   respond_to :json
   private
   def sign_up_params
@@ -16,7 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def register_success
-    render json: { message: 'Sigined up successfully!' }
+    render json: { message: 'Signed up successfully!' }
   end
 
   def register_failed

@@ -34,7 +34,7 @@ const Appointments = ({authorizationToken}) => {
 				setAppointments(response.data.data);
 			})
 			.catch( response => console.log(response));
-	}, [appointments.length])
+	}, [])
 
 	const handleDelete = (slug) => {
 		const config = {
