@@ -3,6 +3,7 @@ class Appointment < ApplicationRecord
   validates :phone, phone: true, presence: true
   before_save :normalize_phone, :normalize_date;
   before_create :slugify
+  belongs_to :user
 
   def slugify
     self.slug = company_name.parameterize

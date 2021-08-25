@@ -4,7 +4,7 @@ module Api
       protect_from_forgery with: :null_session
       before_action :authenticate_user!
       def index
-        appointments = Appointment.all.order("created_at DESC")
+        appointments = Appointment.where(user_id: current_user).order("created_at DESC")
         render json: AppointmentSerializer.new(appointments).serializable_hash.to_json
       end
 
@@ -16,10 +16,11 @@ module Api
 
       def create
         appointment = Appointment.new(appointment_params)
+        appointment.user_id = current_user.id
         if appointment.save
           render json: AppointmentSerializer.new(appointment).serializable_hash.to_json
           else
-          render json: {error: appointment.errors.messages}
+          render json: appointment.errors.full_messages, status: 422
         end
       end
 
@@ -29,7 +30,7 @@ module Api
           appointment.phone = appointment.formatted_phone
           render json: AppointmentSerializer.new(appointment).serializable_hash.to_json
           else
-          render json: {error: appointment.errors.messages}
+          render json: appointment.errors.full_messages, status: 422
         end
       end
 
@@ -38,7 +39,7 @@ module Api
         if appointment.destroy
           head :no_content
           else
-          render json: {error: appointment.errors.messages}
+          render json: appointment.errors.full_messages, status: 422
         end
       end
 

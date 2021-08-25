@@ -12,6 +12,14 @@ const SignUp = ({toggleRegistration, handleSignUpChange, handleSignUpSubmit, new
 					<input onChange={handleSignUpChange} type="text" name="name"  value={newUserData.name}/>
 				</div>
 				<div className="field">
+					<label>Company: </label>
+					<input onChange={handleSignUpChange} type="text" name="company"  value={newUserData.company}/>
+				</div>
+				<div className="field">
+					<label>Position: </label>
+					<input onChange={handleSignUpChange} type="text" name="position"  value={newUserData.position}/>
+				</div>
+				<div className="field">
 					<label>Email: </label>
 					<input onChange={handleSignUpChange} type="email" name="email" value={newUserData.email}/>
 				</div>

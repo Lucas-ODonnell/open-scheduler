@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 import Router from './Router';
 import Devise from './components/Devise/Devise';
 import FakeNav from './components/FakeNav';
@@ -11,13 +12,19 @@ import './app.css';
 
 const App = () => {
 	const [authorizationToken, setAuthorizationToken] = useState()
+	const [currentUser, setCurrentUser] = useState({});
 	const [signedIn, setSignedIn] = useState(false);
 
 	useEffect(() => {
 		if (localStorage.Authorization !== undefined) {
 			const AuthorizedToken = localStorage.getItem('Authorization')
+			const decoded = jwt_decode(AuthorizedToken)
 			setAuthorizationToken(JSON.parse(AuthorizedToken))
 			setSignedIn(true);
+			axios.get(`/api/v1/users/${decoded.sub}`)
+			.then( response => {
+			setCurrentUser(response.data.data)
+			})
 		}
 	}, [authorizationToken])
 
@@ -26,7 +33,7 @@ const App = () => {
 		const config = {
 			headers: { Authorization: authorizationToken }
 		}
-		axios.delete('http://localhost:3000/users/sign_out', config)
+		axios.delete('users/sign_out', config)
 			.then(response => {
 				console.log(response)
 				setSignedIn(false);
@@ -50,7 +57,7 @@ const App = () => {
 				<div className="signout">
 					<button onClick={handleSignOut}><FontAwesomeIcon  icon="sign-out-alt" size="lg" /></button>
 				</div>
-				<Router {...{authorizationToken}}/>
+				<Router {...{authorizationToken, currentUser}}/>
 				</>
 			}
 			</>

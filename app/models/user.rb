@@ -5,5 +5,6 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable, :jwt_authenticatable, 
     jwt_revocation_strategy: JwtDenylist
   self.skip_session_storage = [:http_auth, :params_auth]
-  validates :name, uniqueness: { case_sensitive: false }, presence: true, allow_blank: false
+  validates :name, :email, uniqueness: { case_sensitive: false }, presence: true, allow_blank: false
+  has_many :appointments, dependent: :destroy
 end

@@ -1,6 +1,7 @@
 appointments = Appointment.create(
   [
     {
+      user_id: 1,
       company_name: "ACME Corporation",
       street_address: "123 Main St",
       city: "New York City",
@@ -14,6 +15,7 @@ appointments = Appointment.create(
       meeting_date: Time.now
     },
     {
+      user_id: 1,
       company_name: "PBJ Brothers Automotive",
       street_address: "123 Geary Ave",
       city: "San Francisco",
@@ -27,6 +29,7 @@ appointments = Appointment.create(
       meeting_date: Time.now
     },
     {
+      user_id: 1,
       company_name: "Bitsch Towing",
       street_address: "55 2nd St",
       city: "Philadelphia",
@@ -40,6 +43,7 @@ appointments = Appointment.create(
       meeting_date: Time.now
     },
     {
+      user_id: 1,
       company_name: "Guidos Trash Service",
       street_address: "12345 Sicily Way",
       city: "Atlantic City",
@@ -53,6 +57,7 @@ appointments = Appointment.create(
       meeting_date: Time.now
     },
     {
+      user_id: 1,
       company_name: "Main St Subs",
       street_address: "102 Main St",
       city: "Tigard",
@@ -66,6 +71,7 @@ appointments = Appointment.create(
       meeting_date: Time.now
     },
     {
+      user_id: 1,
       company_name: "Meijers",
       street_address: "123 Christway Rd",
       city: "Standale",

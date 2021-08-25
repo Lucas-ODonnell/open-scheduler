@@ -12,6 +12,8 @@ const Devise = ({setAuthorizationToken, setSignedIn}) => {
 	})
 	const [newUserData, setNewUserData] = useState({
 		name: "",
+		company: "",
+		position: "",
 		email: "",
 		password: "",
 		password_confirmation: ""
@@ -56,6 +58,8 @@ const Devise = ({setAuthorizationToken, setSignedIn}) => {
 				if (response.headers.authorization === undefined) {
 					setNewUserData({
 						name: "",
+						company: "",
+						position: "",
 						email: "",
 						password: "",
 						password_confirmation: ""
@@ -66,6 +70,8 @@ const Devise = ({setAuthorizationToken, setSignedIn}) => {
 				setAuthorizationToken(JSON.parse(localStorage.getItem('Authorization')))
 				setNewUserData({
 					name: "",
+					company: "",
+					position: "",
 					email: "",
 					password: "",
 					password_confirmation: ""

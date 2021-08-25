@@ -5,7 +5,7 @@ import Appointments from './components/Appointments/Appointments';
 import ShowAppointment from './components/Appointment/ShowAppointment';
 import User from './components/User/User';
 
-const Router = ({authorizationToken}) => (
+const Router = ({authorizationToken, currentUser}) => (
 	<Routes>
 		<Nav />
 		<Switch>
@@ -16,7 +16,7 @@ const Router = ({authorizationToken}) => (
 				<ShowAppointment {...{authorizationToken}}/>
 			</Route>
 			<Route exact path="/user">
-				<User />
+				<User {...{currentUser}}/>
 			</Route>
 		</Switch>
 	</Routes>
