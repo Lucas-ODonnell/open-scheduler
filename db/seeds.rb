@@ -1,3 +1,4 @@
+User.create(name: "Tester", email: "test@test.com", password: "password", password_confirmation: "password")
 appointments = Appointment.create(
   [
     {
