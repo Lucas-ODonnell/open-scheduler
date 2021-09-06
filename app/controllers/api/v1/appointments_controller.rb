@@ -1,7 +1,6 @@
 module Api
   module V1
     class AppointmentsController < ApplicationController
-      protect_from_forgery with: :null_session
       before_action :authenticate_user!
       def index
         appointments = Appointment.where(user_id: current_user).order("created_at DESC")

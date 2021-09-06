@@ -7,4 +7,13 @@ class User < ApplicationRecord
   self.skip_session_storage = [:http_auth, :params_auth]
   validates :name, :email, uniqueness: { case_sensitive: false }, presence: true, allow_blank: false
   has_many :appointments, dependent: :destroy
+  has_one :profile, dependent: :destroy
+
+  after_create :build_profile
+
+  private
+
+  def build_profile
+    Profile.create(user_id: self.id, full_name: self.name, position: "", bio: "", department: "")
+  end
 end

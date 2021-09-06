@@ -105,6 +105,10 @@ nav {
 	z-index: 2;
 }
 
+div {
+	border-radius: 4px;
+}
+
 .navigation {
 	height: 100%;
 	background-color: rgb(53,116,179);

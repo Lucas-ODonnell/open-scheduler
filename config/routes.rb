@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :appointments, param: :slug
       resources :users, only: [:show]
+      resources :profiles, only: [:create, :show, :update]
     end
   end
+
+  get '*path' => redirect('/')
 end

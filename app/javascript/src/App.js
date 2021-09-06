@@ -4,6 +4,7 @@ import jwt_decode from 'jwt-decode';
 import Router from './Router';
 import Devise from './components/Devise/Devise';
 import FakeNav from './components/FakeNav';
+import SignOut from './components/SignOut';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -13,6 +14,7 @@ import './app.css';
 const App = () => {
 	const [authorizationToken, setAuthorizationToken] = useState()
 	const [currentUser, setCurrentUser] = useState({});
+	const [profile, setProfile] = useState({})
 	const [signedIn, setSignedIn] = useState(false);
 
 	useEffect(() => {
@@ -22,9 +24,13 @@ const App = () => {
 			setAuthorizationToken(JSON.parse(AuthorizedToken))
 			setSignedIn(true);
 			axios.get(`/api/v1/users/${decoded.sub}`)
-			.then( response => {
-			setCurrentUser(response.data.data)
-			})
+				.then( response => {
+					setCurrentUser(response.data.data)
+					axios.get(`/api/v1/profiles/${response.data.data.id}`)
+						.then(response => {
+							setProfile(response.data.data)
+						})
+				})
 		}
 	}, [authorizationToken])
 
@@ -54,10 +60,8 @@ const App = () => {
 			</section>
 			:
 			<>
-				<div className="signout">
-					<button onClick={handleSignOut}><FontAwesomeIcon  icon="sign-out-alt" size="lg" /></button>
-				</div>
-				<Router {...{authorizationToken, currentUser}}/>
+				<SignOut {...{handleSignOut, FontAwesomeIcon}}/>
+				<Router {...{authorizationToken, currentUser, profile}}/>
 				</>
 			}
 			</>
