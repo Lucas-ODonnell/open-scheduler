@@ -1,4 +1,4 @@
 class ProfileSerializer
   include JSONAPI::Serializer
-  attributes  :full_name, :position, :bio, :department
+  attributes  :position, :bio, :department
 end

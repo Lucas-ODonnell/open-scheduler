@@ -14,6 +14,6 @@ class User < ApplicationRecord
   private
 
   def build_profile
-    Profile.create(user_id: self.id, full_name: self.name, position: "", bio: "", department: "")
+    Profile.create(user_id: self.id, position: "", bio: "", department: "")
   end
 end

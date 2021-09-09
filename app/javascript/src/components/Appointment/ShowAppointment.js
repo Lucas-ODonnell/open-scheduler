@@ -66,7 +66,6 @@ const ShowAppointment = ({authorizationToken}) => {
 			Object.entries(editedAppointment).filter(([key, value]) => value !== ""))
 		axios.put(`/api/v1/appointments/${slug}`, edited, config)
 			.then(response => {
-				console.log(response);
 				setEditedAppointment({
 					street_address: "",
 					city: "",

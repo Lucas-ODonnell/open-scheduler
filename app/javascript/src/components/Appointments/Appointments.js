@@ -42,7 +42,6 @@ const Appointments = ({authorizationToken}) => {
 		}
 		axios.delete(`/api/v1/appointments/${slug}`, config)
 			.then( response => {
-			console.log(response)
 				setAppointments(appointments.filter(object => object.attributes.slug !== slug));
 			})
 	}

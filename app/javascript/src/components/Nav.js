@@ -13,9 +13,6 @@ const Nav = () => (
 						<Link to="/">Appointments</Link>
 					</li>
 					<li>
-						<Link to="/user">User</Link>
-					</li>
-					<li>
 						<Link to="/profile">Profile</Link>
 					</li>
 				</ul>

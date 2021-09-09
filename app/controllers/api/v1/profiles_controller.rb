@@ -19,7 +19,7 @@ module Api
       private
       
       def profile_params
-        params.require(:profile).permit(:full_name, :position, :bio, :department)
+        params.require(:profile).permit(:position, :bio, :department)
       end
     end
   end

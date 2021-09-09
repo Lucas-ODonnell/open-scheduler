@@ -1,0 +1,36 @@
+.profile-card {
+	padding: 20px 30px;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+	background-color: rgb(102,153,204);
+	margin-right: 64px;
+	margin-bottom: 64px;
+}
+
+.header-edit {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.header-title {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.header-title h2 {
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+.header-edit button {
+	background-color: transparent;
+	border: 2px solid transparent;
+	padding: 3px 5px;
+	color: rgb(204,141,102);
+}
+
+.header-edit button:hover {
+	border: 2px solid white;
+}
+
