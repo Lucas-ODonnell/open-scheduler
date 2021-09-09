@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { 
-        sessions: 'users/sessions',
-        registrations: 'users/registrations'
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
   }
   root 'pages#index'
 
@@ -12,6 +12,9 @@ Rails.application.routes.draw do
       resources :profiles, only: [:create, :show, :update]
     end
   end
+
+  post 'api/v1/forgot_password' => "api/v1/passwords#forgot"
+  post 'api/v1/reset_password' => "api/v1/passwords#reset"
 
   get '*path' => redirect('/')
 end

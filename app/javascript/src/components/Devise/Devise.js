@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import Registration from './Registration/Registration';
 import Session from './Session/Session';
 import './devise.css';
 
-const Devise = ({setAuthorizationToken, setSignedIn}) => {
+const Devise = ({setAuthorizationToken}) => {
+	const [ passwordReset, setPasswordReset ] = useState(false)
+	const [ email, setEmail ] = useState({
+		email: ""
+	});
 	const [ register, setRegister ] = useState(false);
 	const [userData, setUserData] = useState({
 		email: "",
@@ -12,8 +16,6 @@ const Devise = ({setAuthorizationToken, setSignedIn}) => {
 	})
 	const [newUserData, setNewUserData] = useState({
 		name: "",
-		company: "",
-		position: "",
 		email: "",
 		password: "",
 		password_confirmation: ""
@@ -58,8 +60,6 @@ const Devise = ({setAuthorizationToken, setSignedIn}) => {
 				if (response.headers.authorization === undefined) {
 					setNewUserData({
 						name: "",
-						company: "",
-						position: "",
 						email: "",
 						password: "",
 						password_confirmation: ""
@@ -70,8 +70,6 @@ const Devise = ({setAuthorizationToken, setSignedIn}) => {
 				setAuthorizationToken(JSON.parse(localStorage.getItem('Authorization')))
 				setNewUserData({
 					name: "",
-					company: "",
-					position: "",
 					email: "",
 					password: "",
 					password_confirmation: ""
@@ -84,15 +82,35 @@ const Devise = ({setAuthorizationToken, setSignedIn}) => {
 		setRegister(!register)
 	}
 
-	return (
-		<section className="sign-container">
-			{register ?
-			<Registration {...{toggleRegistration, handleSignUpChange, handleSignUpSubmit, newUserData}}/>
-			:
-			<Session {...{toggleRegistration, handleSignInChange, handleSignInSubmit, userData}}/>
-			}
+	const toggleReset = (e) => {
+		e.preventDefault();
+		setPasswordReset(!passwordReset);
+	}
+
+	//To send a password reset
+	const handleEmailChange = (e) => {
+		e.preventDefault();
+		setEmail({...email, [e.target.name]: e.target.value})
+	}
+
+	const handlePasswordResetSubmit = (e) => {
+		e.preventDefault();
+		axios.post(`/api/v1/forgot_password`, email)
+		.then(response => {
+			alert(response.alert);
+			setEmail({email: ""});
+		})
+	}
+
+		return (
+			<section className="sign-container">
+				{register ?
+				<Registration {...{toggleRegistration, handleSignUpChange, handleSignUpSubmit, newUserData}}/>
+				:
+				<Session {...{toggleRegistration, handleSignInChange, handleSignInSubmit, userData, toggleReset, passwordReset, handleEmailChange, email, handlePasswordResetSubmit}}/>
+				}
 			</section>
-	)
-}
+		)
+	}
 
 export default Devise;

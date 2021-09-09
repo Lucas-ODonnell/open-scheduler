@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SignIn = ({handleSignInChange, handleSignInSubmit, userData, toggleRegistration}) => {
+const SignIn = ({handleSignInChange, handleSignInSubmit, userData, toggleRegistration, toggleReset, passwordReset, handleEmailChange, email, handlePasswordResetSubmit}) => {
 	return (
 		<section>
 			<div className='sign-header'>
@@ -17,9 +17,23 @@ const SignIn = ({handleSignInChange, handleSignInSubmit, userData, toggleRegistr
 				</div>
 				<button className='submit' type='submit'>Sign In</button>
 				<div className="switcher">
-					<button onClick={toggleRegistration}>Sign Up</button>
+					<div className="switcher-vert" >
+						<button onClick={toggleRegistration}>Sign Up</button>
+						<button onClick={toggleReset}>Reset Password</button>
+					</div>
 				</div>
 			</form>
+			{passwordReset ?
+			<div className="password-reset">
+				<form onSubmit={handlePasswordResetSubmit}>
+					<input onChange={handleEmailChange} type="email" name="email" value={email.email} placeholder="Email"/>
+					<button>Submit</button>
+				</form>
+			</div>
+			:
+			<>
+				</>
+			}
 		</section>
 	)
 }
