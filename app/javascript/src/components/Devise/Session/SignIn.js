@@ -1,6 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
+import PasswordReset from './PasswordReset';
 
-const SignIn = ({handleSignInChange, handleSignInSubmit, userData, toggleRegistration, toggleReset, passwordReset, handleEmailChange, email, handlePasswordResetSubmit}) => {
+const SignIn = ({toggleRegistration, setAuthorizationToken}) => {
+	const [ passwordReset, setPasswordReset ] = useState(false) //for sending token to email
+	const [userData, setUserData] = useState({
+		email: "",
+		password: ""
+	})
+
+	const toggleReset = (e) => {
+		e.preventDefault();
+		setPasswordReset(!passwordReset);
+	}
+
+	const handleSignInChange = (e) => {
+		e.preventDefault();
+		setUserData({...userData, [e.target.name]: e.target.value})
+	}
+
+	const handleSignInSubmit = (e) => {
+		e.preventDefault();
+		const user = { user: userData }
+		axios.post('/users/sign_in', user)
+			.then(response => {
+				if (response.headers.authorization === undefined) {
+					setUserData({
+						email: "",
+						password: ""
+					})
+					return;
+				} 
+				localStorage.setItem('Authorization', JSON.stringify(response.headers.authorization));
+				setAuthorizationToken(JSON.parse(localStorage.getItem('Authorization')))
+				setUserData({
+					email: "",
+					password: ""
+				})
+			})	
+	}
+
 	return (
 		<section>
 			<div className='sign-header'>
@@ -24,12 +63,7 @@ const SignIn = ({handleSignInChange, handleSignInSubmit, userData, toggleRegistr
 				</div>
 			</form>
 			{passwordReset ?
-			<div className="password-reset">
-				<form onSubmit={handlePasswordResetSubmit}>
-					<input onChange={handleEmailChange} type="email" name="email" value={email.email} placeholder="Email"/>
-					<button>Submit</button>
-				</form>
-			</div>
+			<PasswordReset {...{setPasswordReset}}/>
 			:
 			<>
 				</>
