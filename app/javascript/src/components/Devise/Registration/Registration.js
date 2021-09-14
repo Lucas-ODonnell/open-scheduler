@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import AppContext from '../../../context/AppContext';
 import axios from 'axios';
 import SignUp from './SignUp';
 
 const Registration = ({toggleRegistration, setAuthorizationToken}) => {
+	const setError = useContext(AppContext)
 	const [newUserData, setNewUserData] = useState({
 		name: "",
 		email: "",
@@ -10,13 +12,12 @@ const Registration = ({toggleRegistration, setAuthorizationToken}) => {
 		password_confirmation: ""
 	})
 
-	
 	const handleSignUpChange = (e) => {
 		e.preventDefault();
 		setNewUserData({...newUserData, [e.target.name]: e.target.value})
 	}
 
-	
+
 	const handleSignUpSubmit = (e) => {
 		e.preventDefault();
 		const newUser = { user: newUserData }
@@ -40,6 +41,10 @@ const Registration = ({toggleRegistration, setAuthorizationToken}) => {
 					password_confirmation: ""
 				})
 			})	
+			.catch(response => {
+				setError.setError(response.response.data.message)
+				setError.flashError();
+			})
 	}
 
 	return (

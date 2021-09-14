@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import AppContext from '../../context/AppContext';
 import AppointmentModal from './AppointmentModal';
 import axios from 'axios';
 import Appointment from './Appointment';
 import './appointments.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-library.add(fas)
 
-const Appointments = ({authorizationToken}) => {
+const Appointments = () => {
+	const global = useContext(AppContext);
+	const FontAwesomeIcon = global.FontAwesomeIcon;
 	const [appointments, setAppointments] = useState([]);
 	const [newAppointment, setNewAppointment] = useState({
 		company_name: "",
@@ -27,7 +26,7 @@ const Appointments = ({authorizationToken}) => {
 
 	useEffect(() => {
 		const config = {
-			headers: { Authorization: authorizationToken }
+			headers: { Authorization: global.authorizationToken }
 		}
 		axios.get('/api/v1/appointments.json', config)
 			.then( response => {
@@ -38,7 +37,7 @@ const Appointments = ({authorizationToken}) => {
 
 	const handleDelete = (slug) => {
 		const config = {
-			headers: { Authorization: authorizationToken }
+			headers: { Authorization: global.authorizationToken }
 		}
 		axios.delete(`/api/v1/appointments/${slug}`, config)
 			.then( response => {
@@ -54,7 +53,7 @@ const Appointments = ({authorizationToken}) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const config = {
-			headers: { Authorization: authorizationToken }
+			headers: { Authorization: global.authorizationToken }
 		}
 		axios.post('/api/v1/appointments', newAppointment, config )
 			.then(response => {
@@ -74,7 +73,10 @@ const Appointments = ({authorizationToken}) => {
 				})
 				setShowModal(false);
 			})
-			.catch(response => console.log(response));
+			.catch(response => {
+			global.setError(response.response.data[0]);
+			global.flashError();
+			});
 	}
 
 	const appointmentList = appointments.map((appointment, index) => {

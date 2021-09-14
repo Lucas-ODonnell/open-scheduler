@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import AppContext from '../context/AppContext';
 
-const SignOut = ({handleSignOut, FontAwesomeIcon}) => (
-	<div className="signout">
-		<button onClick={handleSignOut}><FontAwesomeIcon  icon="sign-out-alt" size="lg" /></button>
-	</div>
-)
-
+const SignOut = ({handleSignOut}) => {
+	const global = useContext(AppContext);
+	const FontAwesomeIcon = global.FontAwesomeIcon;
+	return (
+		<div className="signout">
+			<button onClick={handleSignOut}><FontAwesomeIcon  icon="sign-out-alt" size="lg" /></button>
+		</div>
+	)
+} 
 export default SignOut;

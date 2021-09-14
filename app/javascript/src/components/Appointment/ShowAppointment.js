@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import AppContext from '../../context/AppContext';
 import ViewAppointment from './ViewAppointment';
 import UpdateAppointment from './UpdateAppointment';
 import './appointment.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-library.add(fas)
 
-const ShowAppointment = ({authorizationToken}) => {
+const ShowAppointment = () => {
+	const global = useContext(AppContext)
+	const FontAwesomeIcon = global.FontAwesomeIcon;
 	const { slug } = useParams();
 	const [appointment, setAppointment] = useState({});
 	const [loaded, setLoaded] = useState(false);
@@ -19,7 +18,7 @@ const ShowAppointment = ({authorizationToken}) => {
 	useEffect(() => {
 		const url = `/api/v1/appointments/${slug}`;
 		const config = {
-			headers: { Authorization: authorizationToken }
+			headers: { Authorization: global.authorizationToken }
 		}
 		axios.get(url, config)
 			.then ( response => {
@@ -60,7 +59,7 @@ const ShowAppointment = ({authorizationToken}) => {
 	const handleUpdate = (e) => {
 		e.preventDefault();
 		const config = {
-			headers: { Authorization: authorizationToken }
+			headers: { Authorization: global.authorizationToken }
 		}
 		const edited = Object.fromEntries(
 			Object.entries(editedAppointment).filter(([key, value]) => value !== ""))
@@ -79,8 +78,9 @@ const ShowAppointment = ({authorizationToken}) => {
 				})
 				setUpdate(false);
 			})
-			.catch(error => {
-				console.log(error);
+			.catch(response => {
+				global.setError(response.response.data[0]);
+				global.flashError();
 			});
 	}
 

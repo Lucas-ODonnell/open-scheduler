@@ -5,18 +5,18 @@ import Appointments from './components/Appointments/Appointments';
 import ShowAppointment from './components/Appointment/ShowAppointment';
 import Profile from './components/Profile/Profile';
 
-const Router = ({authorizationToken, FontAwesomeIcon}) => (
+const Router = () => (
 	<Routes>
 		<Nav />
 		<Switch>
 			<Route exact path="/">
-				<Appointments {...{authorizationToken}}/>
+				<Appointments />
 			</Route>
 			<Route exact path="/appointments/:slug">
-				<ShowAppointment {...{authorizationToken}}/>
+				<ShowAppointment />
 			</Route>
 			<Route exact path="/profile" >
-				<Profile {...{FontAwesomeIcon, authorizationToken}} />
+				<Profile />
 			</Route>
 		</Switch>
 	</Routes>

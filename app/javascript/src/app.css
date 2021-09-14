@@ -172,3 +172,15 @@ div {
 .signout button:hover {
 	border: 1px solid black;
 }
+
+/* Alert Bar */
+.alert {
+	background-color: rgb(136,8,8);
+	color: white;
+	font-size: 1.5rem;
+	padding: 10px 15px;
+	margin-left: -20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

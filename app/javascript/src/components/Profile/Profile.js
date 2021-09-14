@@ -1,13 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
+import AppContext from '../../context/AppContext';
 import LogInShow from './LogInShow';
 import ProfileShow from './ProfileShow';
 import LogInUpdate from './LogInUpdate';
 import ProfileUpdate from './ProfileUpdate';
 import './profile.css';
 
-const Profile = ({authorizationToken, FontAwesomeIcon}) => {
+const Profile = () => {
+	const global = useContext(AppContext);
+	const FontAwesomeIcon = global.FontAwesomeIcon;
 	const [hasLoaded, setHasLoaded] = useState(false);
 	const [currentUser, setCurrentUser] = useState({});
 	const [profile, setProfile] = useState({});
@@ -28,7 +31,7 @@ const Profile = ({authorizationToken, FontAwesomeIcon}) => {
 	}, []) 
 
 	const fetchData = () => {
-		const decoded = jwt_decode(authorizationToken);
+		const decoded = jwt_decode(global.authorizationToken);
 		axios.get(`/api/v1/users/${decoded.sub}`)
 			.then( response => {
 				setCurrentUser(response.data.data)
@@ -48,7 +51,7 @@ const Profile = ({authorizationToken, FontAwesomeIcon}) => {
 	const updateProfile = (e) => {
 		e.preventDefault();
 		const config = {
-			headers: { Authorization: authorizationToken }
+			headers: { Authorization: global.authorizationToken }
 		}
 		const edited = Object.fromEntries(
 			Object.entries(editedProfile).filter(([key, value]) => value !== ""));
@@ -62,8 +65,8 @@ const Profile = ({authorizationToken, FontAwesomeIcon}) => {
 				setProfileUpdate(false);
 				fetchData();
 			})
-			.catch(error => {
-				console.log(error);
+			.catch(response => {
+				console.log(response)
 			});
 	}
 
@@ -75,7 +78,7 @@ const Profile = ({authorizationToken, FontAwesomeIcon}) => {
 	const updateLogIn = (e) => {
 		e.preventDefault();
 		const config = {
-			headers: { Authorization: authorizationToken }
+			headers: { Authorization: global.authorizationToken }
 		}
 		const edited = Object.fromEntries(
 			Object.entries(editedLogIn).filter(([key, value]) => value !== ""));
@@ -87,9 +90,6 @@ const Profile = ({authorizationToken, FontAwesomeIcon}) => {
 				})
 				setLogInUpdate(false);
 				fetchData();
-			})
-			.catch(error => {
-				console.log(error);
 			});
 	}
 
