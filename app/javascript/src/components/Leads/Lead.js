@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Lead = ({name, company, position, phone, email, referrer, FontAwesomeIcon}) => {
+const Lead = ({setCurrent, name, company, position, phone, email, referrer, id, handleDelete, setUpdateModal, FontAwesomeIcon}) => {
 	return (
 		<div className="lead-card">
 			<div className="delete-button">
-				<button><FontAwesomeIcon  icon="trash" size="lg" /></button>
+				<button onClick={()=>handleDelete(id)}><FontAwesomeIcon  icon="trash" /></button>
+				<button onClick={()=>{setUpdateModal(true); setCurrent(id);}}><FontAwesomeIcon icon="edit" /></button>
 			</div>
 			<div className="row-one">
 				<div className="attribute">

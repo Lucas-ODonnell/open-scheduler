@@ -14,12 +14,12 @@ const ShowAppointment = () => {
 	const [loaded, setLoaded] = useState(false);
 	const [update, setUpdate] = useState(false);
 	const [editedAppointment, setEditedAppointment] = useState({});
+	const config = {
+			headers: { Authorization: global.authorizationToken }
+		}
 
 	useEffect(() => {
 		const url = `/api/v1/appointments/${slug}`;
-		const config = {
-			headers: { Authorization: global.authorizationToken }
-		}
 		axios.get(url, config)
 			.then ( response => {
 				setAppointment(response.data.data)
@@ -58,9 +58,6 @@ const ShowAppointment = () => {
 
 	const handleUpdate = (e) => {
 		e.preventDefault();
-		const config = {
-			headers: { Authorization: global.authorizationToken }
-		}
 		const edited = Object.fromEntries(
 			Object.entries(editedAppointment).filter(([key, value]) => value !== ""))
 		axios.put(`/api/v1/appointments/${slug}`, edited, config)

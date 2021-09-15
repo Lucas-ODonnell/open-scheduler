@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 const Appointment = ({company_name, formatted_date, slug, handleDelete, FontAwesomeIcon}) => {
 	return (
 		<div className="appointment-card">

@@ -69,7 +69,7 @@ input[type=number] {
 }
 
 body {
-	background-color: white;
+	background-color: rgb(211,211,211);
 	padding-left: 220px;
 }
 
@@ -165,7 +165,7 @@ div {
 
 .signout button {
 	border: 1px solid transparent;
-	background-color: white;
+	background-color: rgb(211,211,211);
 	padding: 3px 5px;
 }
 

@@ -23,11 +23,11 @@ const Appointments = () => {
 		notes: ""
 	})
 	const [showModal, setShowModal] = useState(false);
+	const config = {
+		headers: { Authorization: global.authorizationToken }
+	}
 
 	useEffect(() => {
-		const config = {
-			headers: { Authorization: global.authorizationToken }
-		}
 		axios.get('/api/v1/appointments.json', config)
 			.then( response => {
 				setAppointments(response.data.data);
@@ -36,13 +36,12 @@ const Appointments = () => {
 	}, [])
 
 	const handleDelete = (slug) => {
-		const config = {
-			headers: { Authorization: global.authorizationToken }
+		if (confirm("Are you sure?")) {
+			axios.delete(`/api/v1/appointments/${slug}`, config)
+				.then( response => {
+					setAppointments(appointments.filter(object => object.attributes.slug !== slug));
+				})
 		}
-		axios.delete(`/api/v1/appointments/${slug}`, config)
-			.then( response => {
-				setAppointments(appointments.filter(object => object.attributes.slug !== slug));
-			})
 	}
 
 	const handleChange = (e) => {
@@ -52,9 +51,6 @@ const Appointments = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const config = {
-			headers: { Authorization: global.authorizationToken }
-		}
 		axios.post('/api/v1/appointments', newAppointment, config )
 			.then(response => {
 				setAppointments([...appointments, response.data.data])
@@ -74,8 +70,8 @@ const Appointments = () => {
 				setShowModal(false);
 			})
 			.catch(response => {
-			global.setError(response.response.data[0]);
-			global.flashError();
+				global.setError(response.response.data[0]);
+				global.flashError();
 			});
 	}
 

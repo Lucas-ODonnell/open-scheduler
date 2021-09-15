@@ -4,15 +4,10 @@ module Api
       before_action :authenticate_user!
       def index
         leads = Lead.where(user_id: current_user).order("created_at DESC")
+        leads.each { |lead| lead.phone = lead.formatted_phone }
         render json: LeadSerializer.new(leads).serializable_hash.to_json
       end
-
-      def show
-        lead = Lead.find(params[:id]);
-        lead.phone = lead.formatted_phone
-        render json: LeadSerializer.new(lead).serializable_hash.to_json
-      end
-
+    
       def create
         lead = Lead.new(lead_params)
         lead.user_id = current_user.id

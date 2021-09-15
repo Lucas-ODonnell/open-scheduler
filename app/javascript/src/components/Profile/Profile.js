@@ -25,6 +25,9 @@ const Profile = () => {
 		name: "",
 		email: ""
 	});
+	const config = {
+			headers: { Authorization: global.authorizationToken }
+		}
 
 	useEffect(() => {
 		fetchData()
@@ -50,9 +53,6 @@ const Profile = () => {
 
 	const updateProfile = (e) => {
 		e.preventDefault();
-		const config = {
-			headers: { Authorization: global.authorizationToken }
-		}
 		const edited = Object.fromEntries(
 			Object.entries(editedProfile).filter(([key, value]) => value !== ""));
 		axios.put(`/api/v1/profiles/${profile.id}`, edited, config)
@@ -77,9 +77,6 @@ const Profile = () => {
 
 	const updateLogIn = (e) => {
 		e.preventDefault();
-		const config = {
-			headers: { Authorization: global.authorizationToken }
-		}
 		const edited = Object.fromEntries(
 			Object.entries(editedLogIn).filter(([key, value]) => value !== ""));
 		axios.put(`/api/v1/users/${currentUser.id}`, edited, config)

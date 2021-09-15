@@ -5,7 +5,7 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   def respond_with(resource, _opts = {})
-    if resource.valid?
+    if current_user
       render json: { message: 'You are logged in.' }, status: 200
       else
       render json: { message: "That is not a valid account" }, status: 401
