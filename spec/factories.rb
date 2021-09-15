@@ -1,4 +1,18 @@
 FactoryBot.define do
+  factory :lead do
+    name { "MyString" }
+    company { "MyString" }
+    position { "MyString" }
+    phone { "MyString" }
+    email { "MyString" }
+    referrer { "MyString" }
+    user { nil }
+  end
+
+  factory :api_key do
+    token {"SomeRandomToken"}
+  end
+
   factory :user do
     name {Faker::Internet.name}
     email {Faker::Internet.email}

@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import Appointments from './components/Appointments/Appointments';
 import ShowAppointment from './components/Appointment/ShowAppointment';
 import Profile from './components/Profile/Profile';
+import Leads from './components/Leads/Leads';
 
 const Router = () => (
 	<Routes>
@@ -14,6 +15,9 @@ const Router = () => (
 			</Route>
 			<Route exact path="/appointments/:slug">
 				<ShowAppointment />
+			</Route>
+			<Route exact path="/leads">
+				<Leads />
 			</Route>
 			<Route exact path="/profile" >
 				<Profile />

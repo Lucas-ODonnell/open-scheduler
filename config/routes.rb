@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :appointments, param: :slug
       resources :users, only: [:show, :update]
       resources :profiles, only: [:create, :show, :update]
+      resources :leads
     end
   end
 

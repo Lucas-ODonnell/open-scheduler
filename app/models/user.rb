@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :name, presence: true, allow_blank: false
   validates :email, uniqueness: { case_sensitive: false }, presence: true, allow_blank: false
   has_many :appointments, dependent: :destroy
+  has_many :leads, dependent: :destroy
   has_one :profile, dependent: :destroy
 
   after_create :build_profile

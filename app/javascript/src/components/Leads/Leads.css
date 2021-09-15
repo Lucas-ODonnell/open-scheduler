@@ -1,0 +1,48 @@
+.leads-header {
+	display: flex;
+	justify-content: center;
+}
+
+.leads-header h1 {
+	font-weight: bold;
+	font-size: 3rem;
+}
+
+.all-leads {
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+	row-gap: 8px;
+}
+
+.new-lead {
+	display: flex;
+	justify-content: center;
+}
+
+.new-lead button {
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
+
+.lead-form {
+	padding: 30px 40px;
+}
+
+.lead-card {
+	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+	background-color: rgb(102,153,204);
+	width: 840px;
+	padding: 30px 40px;
+	border-radius: 4px;
+}
+
+.row-one , .row-two {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 16px;
+}
+
+.row-three {
+	display: flex;
+	justify-content: center;
+}
