@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Appointment = ({company_name, formatted_date, slug, handleDelete, FontAwesomeIcon}) => {
+const Appointment = ({company_name, formatted_date, slug, handleDelete, FontAwesomeIcon, global}) => {
 	return (
 		<div className="appointment-card">
 			<div className="delete-button">
-				<button onClick={() => handleDelete(slug)}><FontAwesomeIcon  icon="trash" size="lg" /></button>
+				<button onClick={() => {global.setShowWarning(true); global.setDeleteFunction(()=>()=> handleDelete(slug))}}><FontAwesomeIcon  icon="trash" size="lg" /></button>
 			</div>
 			<div className="title-meeting">
 				<div className="alt-title">

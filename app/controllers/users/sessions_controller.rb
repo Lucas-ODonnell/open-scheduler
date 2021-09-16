@@ -8,7 +8,7 @@ class Users::SessionsController < Devise::SessionsController
     if current_user
       render json: { message: 'You are logged in.' }, status: 200
       else
-      render json: { message: "That is not a valid account" }, status: 401
+      render json: { message: "That is not a valid" }, status: 401
     end
   end
 

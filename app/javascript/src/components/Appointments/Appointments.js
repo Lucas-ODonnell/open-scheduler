@@ -36,12 +36,10 @@ const Appointments = () => {
 	}, [])
 
 	const handleDelete = (slug) => {
-		if (confirm("Are you sure?")) {
 			axios.delete(`/api/v1/appointments/${slug}`, config)
 				.then( response => {
 					setAppointments(appointments.filter(object => object.attributes.slug !== slug));
 				})
-		}
 	}
 
 	const handleChange = (e) => {
@@ -80,7 +78,7 @@ const Appointments = () => {
 		return (
 			<Appointment
 				key={index}
-				{...{company_name, formatted_date, slug, appointments, setAppointments, handleDelete, FontAwesomeIcon}}
+				{...{company_name, formatted_date, slug, appointments, setAppointments, handleDelete, FontAwesomeIcon, global}}
 				/>
 		)
 	});

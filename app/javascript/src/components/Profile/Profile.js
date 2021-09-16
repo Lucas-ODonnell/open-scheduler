@@ -8,7 +8,7 @@ import LogInUpdate from './LogInUpdate';
 import ProfileUpdate from './ProfileUpdate';
 import './profile.css';
 
-const Profile = () => {
+const Profile = ({setSignedIn}) => {
 	const global = useContext(AppContext);
 	const FontAwesomeIcon = global.FontAwesomeIcon;
 	const [hasLoaded, setHasLoaded] = useState(false);
@@ -90,6 +90,14 @@ const Profile = () => {
 			});
 	}
 
+	const handleDelete = () => {
+		axios.delete(`/api/v1/users/${currentUser.id}`, config)
+			.then(response => {
+			console.log(response);
+			setSignedIn(false);
+			})
+	}
+
 	//Using render, because render will happen before useEffect, this way nothing will render until after the axios request goes through
 	const render = () => {
 		if (!hasLoaded) return null;
@@ -105,6 +113,7 @@ const Profile = () => {
 				:
 				<LogInShow {...{currentUser, FontAwesomeIcon, setLogInUpdate}}/>
 				}
+				<button onClick={()=>{global.setShowWarning(true); global.setDeleteFunction(()=>()=>handleDelete())}} className="delete-account">Delete Account</button>
 			</section>
 		)
 	}

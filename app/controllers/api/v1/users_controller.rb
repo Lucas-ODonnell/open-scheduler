@@ -10,8 +10,17 @@ module Api
         user = User.find(params[:id]);
         if user.update(user_params)
           render json: UserSerializer.new(user).serializable_hash.to_json
-        else
+          else
           render json: appointment.errors.full_messages, status: 422
+        end
+      end
+
+      def destroy 
+        user = User.find(params[:id])
+        if user.destroy
+          head :no_content
+        else
+          render json: user.errors.full_messages, status: 422
         end
       end
 

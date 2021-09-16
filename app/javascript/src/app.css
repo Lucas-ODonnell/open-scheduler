@@ -184,3 +184,54 @@ div {
 	justify-content: center;
 	align-items: center;
 }
+
+/* Warning modal */
+.warning-card {
+	position: fixed;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10;
+}
+
+.warning-container {
+	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+	padding: 30px 40px;
+	background-color: white;
+	border-radius: 0 0 4px 4px;
+}
+
+.warning-header {
+	height: 36px;
+	border-bottom: 1px solid rgb(204,141,102);
+	background-color: rgb(204,141,102);
+	border-radius: 4px 4px 0 0;
+}
+
+.options {
+	display: flex;
+	justify-content: center;
+}
+
+.options button {
+	font-size: 17px;
+	padding: 5px 10px;
+	border-radius: 4px;
+	background-color: black;
+	border: 1px solid black;
+	color: white;
+	margin-top: 16px;
+}
+
+.options button:hover {
+	background-color: white;
+	color: black;
+}
+
+.warning-cancel {
+	margin-right: 5px;
+}
+
+.warning-confirm {
+	margin-left: 5px;
+}

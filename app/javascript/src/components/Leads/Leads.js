@@ -103,19 +103,17 @@ const Leads = () => {
 	}
 
 	const handleDelete = (id) => {
-		if (confirm("Are you sure you want to delete?")) {
 			axios.delete(`/api/v1/leads/${id}`, config)
 				.then(response => {
 					setLeads(leads.filter(object => object.id !== id))
 				})
-		}
 	}
 
 	const indexLeads = leads.map((lead, index) => {
-		const { name, company, position, phone, email, referrer, } = lead.attributes;
+		const { name, company, position, phone, email, referrer } = lead.attributes;
 		const id  = lead.id;
 		return (
-			<Lead key={index} {...{setCurrent,name, company, position, phone, email, referrer, id, handleDelete, setUpdateModal, FontAwesomeIcon}} />
+			<Lead key={index} {...{setCurrent,name, company, position, phone, email, referrer, id, handleDelete, setUpdateModal, FontAwesomeIcon, global}} />
 		)
 	})
 

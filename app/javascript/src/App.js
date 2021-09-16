@@ -5,6 +5,7 @@ import Devise from './components/Devise/Devise';
 import FakeNav from './components/FakeNav';
 import SignOut from './components/SignOut';
 import Alert from './components/Alert';
+import Warning from './components/Warning';
 import AppContext from './context/AppContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -16,6 +17,8 @@ const App = () => {
 	const [authorizationToken, setAuthorizationToken] = useState();
 	const [signedIn, setSignedIn] = useState(false);
 	const [showError, setShowError] = useState(false);
+	const [showWarning, setShowWarning] = useState(false);
+	const [deleteFunction, setDeleteFunction] = useState(() => () => {return}); //writing it like this prevents function from firing before actually clicking on a confirmation button
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
@@ -52,6 +55,10 @@ const App = () => {
 	const global = {
 		error: error,
 		setError: setError,
+		setShowWarning: setShowWarning,
+		showWarning: showWarning,
+		setDeleteFunction: setDeleteFunction,
+		deleteFunction: deleteFunction,
 		flashError: flashError,
 		authorizationToken: authorizationToken,
 		FontAwesomeIcon: FontAwesomeIcon
@@ -59,13 +66,10 @@ const App = () => {
 
 	return (
 		<>
-			{showError ?
 			<AppContext.Provider value={global}>
-				<Alert />
+				<Alert {...{showError}}/>
+				<Warning />
 			</AppContext.Provider>
-			:
-			<div></div>
-			}
 			{!signedIn ?
 			<AppContext.Provider value={global}>
 				<section>
@@ -76,7 +80,7 @@ const App = () => {
 			:
 			<AppContext.Provider value={global}>
 				<SignOut {...{handleSignOut}}/>
-				<Router />
+								<Router {...{setSignedIn}}/>
 			</AppContext.Provider>
 			}
 			</>
