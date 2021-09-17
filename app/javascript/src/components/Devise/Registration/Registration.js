@@ -23,6 +23,7 @@ const Registration = ({toggleRegistration, setAuthorizationToken}) => {
 		const newUser = { user: newUserData }
 		axios.post('/users', newUser)
 			.then(response => {
+			console.log(response)
 				if (response.headers.authorization === undefined) {
 					setNewUserData({
 						name: "",

@@ -11,7 +11,7 @@ module Api
         if user.update(user_params)
           render json: UserSerializer.new(user).serializable_hash.to_json
           else
-          render json: appointment.errors.full_messages, status: 422
+          render json: user.errors.full_messages, status: 422
         end
       end
 
@@ -27,7 +27,7 @@ module Api
       private
 
       def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :email, :current_password)
       end
     end
   end

@@ -40,7 +40,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails'
   gem 'database_cleaner-active_record'
-  gem 'faker'
   gem 'jsonapi-rspec'
 end
 

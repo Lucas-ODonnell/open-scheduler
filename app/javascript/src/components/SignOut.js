@@ -6,7 +6,7 @@ const SignOut = ({handleSignOut}) => {
 	const FontAwesomeIcon = global.FontAwesomeIcon;
 	return (
 		<div className="signout">
-			<button onClick={handleSignOut}><FontAwesomeIcon  icon="sign-out-alt" size="lg" /></button>
+			<button onClick={handleSignOut}><FontAwesomeIcon  icon="sign-out-alt" size="2x" /></button>
 		</div>
 	)
 } 

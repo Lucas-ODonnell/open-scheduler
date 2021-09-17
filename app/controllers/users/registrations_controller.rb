@@ -2,6 +2,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protect_from_forgery with: :null_session
   skip_before_action :require_no_authentication
   respond_to :json
+
   private
   def sign_up_params
     params.require(:user).permit(:name, :email,:password,:password_confirmation)

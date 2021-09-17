@@ -3,7 +3,7 @@ module Api
     class AppointmentsController < ApplicationController
       before_action :authenticate_user!
       def index
-        appointments = Appointment.where(user_id: current_user).order("created_at DESC")
+        appointments = Appointment.where(user_id: current_user).order("meeting_date ASC")
         render json: AppointmentSerializer.new(appointments).serializable_hash.to_json
       end
 

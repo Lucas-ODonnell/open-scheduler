@@ -26,8 +26,8 @@ const Profile = ({setSignedIn}) => {
 		email: ""
 	});
 	const config = {
-			headers: { Authorization: global.authorizationToken }
-		}
+		headers: { Authorization: global.authorizationToken }
+	}
 
 	useEffect(() => {
 		fetchData()
@@ -81,20 +81,24 @@ const Profile = ({setSignedIn}) => {
 			Object.entries(editedLogIn).filter(([key, value]) => value !== ""));
 		axios.put(`/api/v1/users/${currentUser.id}`, edited, config)
 			.then(response => {
-				setEditedProfile({
-					name: currentUser.attributes.name,
-					email: currentUser.attributes.email,
+				setEditedLogIn({
+					name: "",
+					email: ""
 				})
 				setLogInUpdate(false);
 				fetchData();
+			})
+			.catch(response => {
+				global.setError(response.response.data[0]);
+				global.flashError();
 			});
 	}
 
 	const handleDelete = () => {
 		axios.delete(`/api/v1/users/${currentUser.id}`, config)
 			.then(response => {
-			console.log(response);
-			setSignedIn(false);
+				console.log(response);
+				setSignedIn(false);
 			})
 	}
 

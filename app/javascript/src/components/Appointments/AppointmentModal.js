@@ -3,7 +3,7 @@ import React from 'react';
 const AppointmentModal = ({showModal, onClose, handleChange, newAppointment, handleSubmit}) => {
 	if (!showModal) return null;
 	return (
-		<div className="appointment-modal">
+		<div className="modal-background">
 			<div className="modal-content">
 				<div className="header">
 					<div>
@@ -33,7 +33,7 @@ const AppointmentModal = ({showModal, onClose, handleChange, newAppointment, han
 						</div>
 						<div className="field">
 							<label>Zipcode:</label>
-							<input onChange={handleChange} type="number" name="zipcode" value={newAppointment.zipcode} placeholder="10001" />
+							<input onChange={handleChange} type="number" name="zipcode" value={newAppointment.zipcode}  placeholder="10001" />
 						</div>
 					</div>
 					<div className="country-row">

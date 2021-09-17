@@ -80,7 +80,7 @@ const App = () => {
 			:
 			<AppContext.Provider value={global}>
 				<SignOut {...{handleSignOut}}/>
-								<Router {...{setSignedIn}}/>
+				<Router {...{setSignedIn}}/>
 			</AppContext.Provider>
 			}
 			</>

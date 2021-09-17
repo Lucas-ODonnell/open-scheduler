@@ -6,6 +6,10 @@
 .leads-header h1 {
 	font-weight: bold;
 	font-size: 3rem;
+	background: var(--navBarColor);
+	color: white;
+	padding: 30px 40px;
+	border-radius: 15%;
 }
 
 .all-leads {
@@ -30,7 +34,7 @@
 
 .lead-card {
 	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-	background-color: rgb(102,153,204);
+	background: var(--cardColor);
 	width: 840px;
 	padding: 30px 40px;
 	border-radius: 4px;

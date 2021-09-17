@@ -1,22 +1,12 @@
 FactoryBot.define do
-  factory :lead do
-    name { "MyString" }
-    company { "MyString" }
-    position { "MyString" }
-    phone { "MyString" }
-    email { "MyString" }
-    referrer { "MyString" }
-    user { nil }
-  end
-
   factory :api_key do
     token {"SomeRandomToken"}
   end
 
   factory :user do
-    name {Faker::Internet.name}
-    email {Faker::Internet.email}
-    password {Faker::Internet.password}
+    name {"Billy Bob"}
+    email {"billybob@gmail.com"}
+    password {"password"}
   end
 
   factory :appointment do
@@ -38,6 +28,16 @@ FactoryBot.define do
     bio {"I wont say"}
     department {"C Suite"}
     user_id {1}
+    user
+  end
+
+  factory :lead do
+    name {"Red"}
+    company {"Pokemon and More"}
+    position {"CEO"}
+    phone {"423-333-4433"}
+    email {"gotacatchemall@gmail.com"}
+    referrer {"Blue"}
     user
   end
 end

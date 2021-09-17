@@ -7,7 +7,7 @@ const LogInUpdate = ({setLogInUpdate, logInChange, editedLogIn, updateLogIn}) =>
 				<button onClick={() => setLogInUpdate(false)}>&times;</button>
 			</div>
 			<div className="header-title">
-				<h2>Login</h2>
+				<h2>Login Information</h2>
 			</div>
 			<form onSubmit={updateLogIn}>
 				<div className="field">

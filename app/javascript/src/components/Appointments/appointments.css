@@ -11,6 +11,10 @@
 .appointments-header h1 {
 	font-size: 3rem;
 	font-weight: bold;
+	background: var(--navBarColor);
+	color: white;
+	padding: 30px 40px;
+	border-radius: 15%;
 }
 
 .new-appointment {
@@ -22,26 +26,26 @@
 .modal-button {
 	font-size: 16px;
 	padding: 5px 10px;
-	border: 5px solid black;
-	background-color: black;
+	border: 5px solid var(--warning);
+	background: var(--warning);
 	color: white;
 }
 
 .modal-button:hover {
 	background-color: white;
-	color: black;
+	color: var(--warning);
 }
 
 .appointments-grid {
 	display: grid;
-	grid-template-columns: repeat(1, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	max-width: 100%;
 	grid-gap: 20px;
 }
 .appointment-card {
 	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 	padding: 40px 60px;
-	background-color: rgb(102,153,204);
+	background: var(--cardColor);
 }
 
 .company-title {
@@ -100,15 +104,15 @@
 
 .link-appointment a {
 	color: white;
-	background-color: black;
+	background: var(--genericButton);
 	padding: 3px 10px;
 	border-radius: 4px;
 	font-weight: bold;
-	border: 3px solid black;
+	border: 3px solid var(--genericButton);
 }
 
 .link-appointment a:hover {
-	color: black;
+	color: var(--genericButton);
 	background-color: white;
 }
 
@@ -118,7 +122,7 @@
 }
 
 .delete-button button {
-	color: rgb(204,141,102);
+	color: var(--cardColorComplement);
 	background-color: transparent;
 	border: 2px solid transparent;
 	padding: 3px 5px;
@@ -134,15 +138,6 @@
 
 /*New Appointment modal */
 
-.appointment-modal {
-	position: fixed;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	background-color: rgba(0,0,0,0.5);
-	}
-
 .modal-content {
 	position: fixed;
 	top: 50%;
@@ -154,7 +149,6 @@
 	max-width: 100%;
 	box-shadow: 0 2px 5px rgba(0,0,0, 0.3);
 	background-color: white;
-	overflow: hidden;
 }
 
 .header {
@@ -164,6 +158,7 @@
 	background-color: rgb(127,127,127);
 	border-bottom: rgb(240,240,240);
 	padding: 20px 30px;
+	border-radius: 4px 4px 0 0;
 }
 
 .header h2 {
@@ -174,7 +169,7 @@
 .close-button button {
 	border: none;
 	background-color: rgb(127,127,127);
-	color: black;
+	color: var(--genericButton);
 	font-size: 1.5rem;
 	font-weight: bold;
 	border: 2px solid transparent;
@@ -196,8 +191,8 @@
 }
 
 .submit {
-	background-color: rgb(179,102,53);
-	border: 2px solid rgb(179,102,53);
+	background-color: var(--warning);
+	border: 2px solid var(--warning);
 	color: white;
 	display: block;
 	width: 100%;
@@ -207,5 +202,5 @@
 
 .submit:hover {
 	background-color: white;
-	color: rgb(179,102,53);
+	color: var(--warning);
 }
