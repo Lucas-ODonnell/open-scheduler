@@ -41,7 +41,9 @@ const Leads = () => {
 				setLeads(response.data.data);
 			})
 			.catch( response => {
-				console.log(response)
+				if (response.response.status === 401) global.setSignedIn(false); 
+				global.setError("You have been signed out");
+				global.flashError();
 			})
 	}, [updateModal])
 

@@ -4,7 +4,7 @@ import axios from 'axios';
 import SignUp from './SignUp';
 
 const Registration = ({toggleRegistration, setAuthorizationToken}) => {
-	const setError = useContext(AppContext)
+	const global = useContext(AppContext)
 	const [newUserData, setNewUserData] = useState({
 		name: "",
 		email: "",
@@ -23,7 +23,6 @@ const Registration = ({toggleRegistration, setAuthorizationToken}) => {
 		const newUser = { user: newUserData }
 		axios.post('/users', newUser)
 			.then(response => {
-			console.log(response)
 				if (response.headers.authorization === undefined) {
 					setNewUserData({
 						name: "",
@@ -43,8 +42,8 @@ const Registration = ({toggleRegistration, setAuthorizationToken}) => {
 				})
 			})	
 			.catch(response => {
-				setError.setError(response.response.data.message)
-				setError.flashError();
+				global.setError(response.response.data.message)
+				global.flashError();
 			})
 	}
 

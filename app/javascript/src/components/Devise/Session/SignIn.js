@@ -4,7 +4,7 @@ import axios from 'axios';
 import PasswordReset from './PasswordReset';
 
 const SignIn = ({toggleRegistration, setAuthorizationToken}) => {
-	const setError = useContext(AppContext)
+	const global = useContext(AppContext)
 	const [ passwordReset, setPasswordReset ] = useState(false) //for sending token to email
 	const [userData, setUserData] = useState({
 		email: "",
@@ -41,8 +41,8 @@ const SignIn = ({toggleRegistration, setAuthorizationToken}) => {
 				})
 			})	
 			.catch(response => {
-				setError.setError(response.response.data.message);
-				setError.flashError();
+				global.setError(response.response.data.message);
+				global.flashError();
 			})
 	}
 

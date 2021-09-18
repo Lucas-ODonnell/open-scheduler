@@ -32,14 +32,18 @@ const Appointments = () => {
 			.then( response => {
 				setAppointments(response.data.data);
 			})
-			.catch( response => console.log(response));
+			.catch( response => {
+				if (response.response.status === 401) global.setSignedIn(false); 
+				global.setError("You have been signed out");
+				global.flashError();
+			});
 	}, [])
 
 	const handleDelete = (slug) => {
-			axios.delete(`/api/v1/appointments/${slug}`, config)
-				.then( response => {
-					setAppointments(appointments.filter(object => object.attributes.slug !== slug));
-				})
+		axios.delete(`/api/v1/appointments/${slug}`, config)
+			.then( response => {
+				setAppointments(appointments.filter(object => object.attributes.slug !== slug));
+			})
 	}
 
 	const handleChange = (e) => {

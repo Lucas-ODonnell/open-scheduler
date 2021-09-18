@@ -8,7 +8,7 @@ import LogInUpdate from './LogInUpdate';
 import ProfileUpdate from './ProfileUpdate';
 import './profile.css';
 
-const Profile = ({setSignedIn}) => {
+const Profile = () => {
 	const global = useContext(AppContext);
 	const FontAwesomeIcon = global.FontAwesomeIcon;
 	const [hasLoaded, setHasLoaded] = useState(false);
@@ -35,14 +35,19 @@ const Profile = ({setSignedIn}) => {
 
 	const fetchData = () => {
 		const decoded = jwt_decode(global.authorizationToken);
-		axios.get(`/api/v1/users/${decoded.sub}`)
+		axios.get(`/api/v1/users/${decoded.sub}`, config)
 			.then( response => {
 				setCurrentUser(response.data.data)
-				axios.get(`/api/v1/profiles/${response.data.data.id}`)
+				axios.get(`/api/v1/profiles/${response.data.data.id}`, config)
 					.then(response => {
 						setProfile(response.data.data)
 						setHasLoaded(true)
 					})
+			})
+			.catch(response => {
+			if (response.response.status === 401) global.setSignedIn(false); 
+				global.setError("You have been signed out");
+				global.flashError();
 			})
 	}
 
@@ -98,7 +103,7 @@ const Profile = ({setSignedIn}) => {
 		axios.delete(`/api/v1/users/${currentUser.id}`, config)
 			.then(response => {
 				console.log(response);
-				setSignedIn(false);
+				global.setSignedIn(false);
 			})
 	}
 

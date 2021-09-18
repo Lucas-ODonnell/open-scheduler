@@ -6,7 +6,7 @@ import ShowAppointment from './components/Appointment/ShowAppointment';
 import Profile from './components/Profile/Profile';
 import Leads from './components/Leads/Leads';
 
-const Router = ({setSignedIn}) => (
+const Router = () => (
 	<Routes>
 		<Nav />
 		<Switch>
@@ -20,7 +20,7 @@ const Router = ({setSignedIn}) => (
 				<Leads />
 			</Route>
 			<Route exact path="/profile" >
-				<Profile {...{setSignedIn}}/>
+				<Profile />
 			</Route>
 		</Switch>
 	</Routes>

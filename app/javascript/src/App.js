@@ -1,5 +1,4 @@
 import React, {useState, useEffect } from 'react';
-import axios from 'axios';
 import Router from './Router';
 import Devise from './components/Devise/Devise';
 import FakeNav from './components/FakeNav';
@@ -16,8 +15,8 @@ import './app.css';
 const App = () => {
 	const [authorizationToken, setAuthorizationToken] = useState();
 	const [signedIn, setSignedIn] = useState(false);
-	const [showError, setShowError] = useState(false);
-	const [showWarning, setShowWarning] = useState(false);
+	const [showError, setShowError] = useState(false); //flashError, <Alert /> 
+	const [showWarning, setShowWarning] = useState(false); //Warning to delete
 	const [deleteFunction, setDeleteFunction] = useState(() => () => {return}); //writing it like this prevents function from firing before actually clicking on a confirmation button
 	const [error, setError] = useState(null);
 
@@ -26,23 +25,8 @@ const App = () => {
 			const AuthorizedToken = localStorage.getItem('Authorization')
 			setAuthorizationToken(JSON.parse(AuthorizedToken))
 			setSignedIn(true);
-		}}, [authorizationToken])
-
-	const handleSignOut = (e) => {
-		e.preventDefault();
-		const config = {
-			headers: { Authorization: authorizationToken }
 		}
-		axios.delete('users/sign_out', config)
-			.then(response => {
-				setSignedIn(false);
-				localStorage.clear();
-			})
-			.catch(response => {
-				console.log(response);
-				setSignedIn(false);
-			})
-	}
+	}, [authorizationToken])
 
 	const flashError = () => {
 		setShowError(true);
@@ -53,6 +37,7 @@ const App = () => {
 
 	//context
 	const global = {
+		setSignedIn: setSignedIn,
 		error: error,
 		setError: setError,
 		setShowWarning: setShowWarning,
@@ -74,13 +59,13 @@ const App = () => {
 			<AppContext.Provider value={global}>
 				<section>
 					<FakeNav />
-					<Devise {...{setAuthorizationToken, setSignedIn}}/>
+					<Devise {...{setAuthorizationToken}}/>
 				</section>
 			</AppContext.Provider>
 			:
 			<AppContext.Provider value={global}>
-				<SignOut {...{handleSignOut}}/>
-				<Router {...{setSignedIn}}/>
+				<SignOut />
+				<Router />
 			</AppContext.Provider>
 			}
 			</>

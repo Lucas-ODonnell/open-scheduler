@@ -3,7 +3,7 @@ import Registration from './Registration/Registration';
 import SignIn from './Session/SignIn';
 import './devise.css';
 
-const Devise = ({setAuthorizationToken, setError}) => {
+const Devise = ({setAuthorizationToken}) => {
 	const [ register, setRegister ] = useState(false);
 	const toggleRegistration = (e) => {
 		e.preventDefault();
@@ -15,7 +15,7 @@ const Devise = ({setAuthorizationToken, setError}) => {
 			{register ?
 			<Registration {...{toggleRegistration, setAuthorizationToken}}/>
 			:
-			<SignIn {...{toggleRegistration, setAuthorizationToken, setError}}/>
+			<SignIn {...{toggleRegistration, setAuthorizationToken}}/>
 			}
 		</section>
 	)

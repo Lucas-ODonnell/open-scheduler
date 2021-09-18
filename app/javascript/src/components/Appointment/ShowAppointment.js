@@ -15,8 +15,8 @@ const ShowAppointment = () => {
 	const [update, setUpdate] = useState(false);
 	const [editedAppointment, setEditedAppointment] = useState({});
 	const config = {
-			headers: { Authorization: global.authorizationToken }
-		}
+		headers: { Authorization: global.authorizationToken }
+	}
 
 	useEffect(() => {
 		const url = `/api/v1/appointments/${slug}`;
@@ -25,7 +25,11 @@ const ShowAppointment = () => {
 				setAppointment(response.data.data)
 				setLoaded(true);
 			})
-			.catch( response => console.log(response))
+			.catch( response => {
+				if (response.response.status === 401) global.setSignedIn(false); 
+				global.setError("You have been signed out");
+				global.flashError();
+			})
 	}, [update])
 
 	//The notes should be loaded so we can add to them.

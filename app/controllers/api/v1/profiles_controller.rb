@@ -1,7 +1,7 @@
 module Api
   module V1
     class ProfilesController < ApplicationController
-
+      before_action :authenticate_user!
       def show
         profile = Profile.find_by(user_id: params[:id])
         render json: ProfileSerializer.new(profile).serializable_hash.to_json
