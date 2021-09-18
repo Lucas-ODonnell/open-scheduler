@@ -1,3 +1,4 @@
+
 .appointments {
 	padding: 30px 40px;
 }
@@ -43,7 +44,6 @@
 	grid-gap: 20px;
 }
 .appointment-card {
-	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 	padding: 40px 60px;
 	background: var(--cardColor);
 }
@@ -147,7 +147,6 @@
 	transition: 200ms ease-in-out;
 	width: 800px;
 	max-width: 100%;
-	box-shadow: 0 2px 5px rgba(0,0,0, 0.3);
 	background-color: white;
 }
 

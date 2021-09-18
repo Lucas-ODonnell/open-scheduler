@@ -88,7 +88,7 @@ const ShowAppointment = () => {
 	return (
 		<section className="show-appointment">
 			{ loaded &&
-				<div className="appointment-card">
+				<div className="appointment-card shadow-effect">
 					{!update ?
 					<ViewAppointment {...{appointment, FontAwesomeIcon, showEdit}}/>
 					:

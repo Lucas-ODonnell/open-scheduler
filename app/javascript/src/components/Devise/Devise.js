@@ -11,7 +11,7 @@ const Devise = ({setAuthorizationToken}) => {
 	}
 
 	return (
-		<section className="sign-container">
+		<section className="sign-container card-effect">
 			{register ?
 			<Registration {...{toggleRegistration, setAuthorizationToken}}/>
 			:

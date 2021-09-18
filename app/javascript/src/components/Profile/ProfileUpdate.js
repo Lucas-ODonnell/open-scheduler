@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProfileUpdate = ({setProfileUpdate, profileChange, editedProfile, updateProfile}) => {
 	return (
-		<div className="profile-card">
+		<div className="profile-card shadow-effect">
 			<div className="header-edit">
 				<button onClick={()=> setProfileUpdate(false)}>&times;</button>
 			</div>

@@ -5,6 +5,7 @@ import Appointments from './components/Appointments/Appointments';
 import ShowAppointment from './components/Appointment/ShowAppointment';
 import Profile from './components/Profile/Profile';
 import Leads from './components/Leads/Leads';
+import Documents from './components/Documents/Documents';
 
 const Router = () => (
 	<Routes>
@@ -21,6 +22,9 @@ const Router = () => (
 			</Route>
 			<Route exact path="/profile" >
 				<Profile />
+			</Route>
+			<Route exact path="/documents">
+				<Documents />
 			</Route>
 		</Switch>
 	</Routes>

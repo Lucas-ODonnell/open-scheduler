@@ -2,7 +2,7 @@ import React from 'react';
 
 const LogInShow = ({currentUser, FontAwesomeIcon, setLogInUpdate}) => {
 	return (
-		<div className="profile-card">
+		<div className="profile-card shadow-effect">
 			<div className="header-edit">
 				<button onClick={ () => setLogInUpdate(true)}><FontAwesomeIcon icon="edit" size="lg" /></button>
 			</div>

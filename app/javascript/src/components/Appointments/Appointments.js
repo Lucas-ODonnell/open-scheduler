@@ -90,7 +90,7 @@ const Appointments = () => {
 	return (
 		<section className="appointments">
 			<div className="appointments-header">
-				<h1>Appointments</h1>
+				<h1 className="shadow-effect">Appointments</h1>
 			</div>
 			<div className="new-appointment">
 				<button className="modal-button" onClick={() => setShowModal(true)}>New Appointment</button>

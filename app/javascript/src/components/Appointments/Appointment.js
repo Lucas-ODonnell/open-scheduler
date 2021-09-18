@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Appointment = ({company_name, formatted_date, slug, handleDelete, FontAwesomeIcon, global}) => {
 	return (
-		<div className="appointment-card">
+		<div className="appointment-card card-effect">
 			<div className="delete-button">
 				<button onClick={() => {global.setShowWarning(true); global.setDeleteFunction(()=>()=> handleDelete(slug))}}><FontAwesomeIcon  icon="trash" size="lg" /></button>
 			</div>

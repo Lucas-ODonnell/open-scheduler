@@ -122,7 +122,7 @@ const Leads = () => {
 	return (
 		<section>
 			<div className="leads-header">
-				<h1>Leads</h1>
+				<h1 className="shadow-effect">Leads</h1>
 			</div>
 			<div className="new-lead">
 				<button className="modal-button" onClick={()=> setCreateModal(true)}>New Lead</button>

@@ -33,7 +33,6 @@
 }
 
 .lead-card {
-	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 	background: var(--cardColor);
 	width: 840px;
 	padding: 30px 40px;

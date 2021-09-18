@@ -2,7 +2,7 @@ import React from 'react';
 
 const Lead = ({setCurrent, name, company, position, phone, email, referrer, id, handleDelete, setUpdateModal, FontAwesomeIcon, global}) => {
 	return (
-		<div className="lead-card">
+		<div className="lead-card card-effect">
 			<div className="delete-button">
 				<button onClick={()=> {global.setShowWarning(true); global.setDeleteFunction(()=>()=> handleDelete(id))}}><FontAwesomeIcon  icon="trash" /></button>
 				<button onClick={()=>{setUpdateModal(true); setCurrent(id);}}><FontAwesomeIcon icon="edit" /></button>
