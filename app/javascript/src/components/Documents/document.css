@@ -1,0 +1,71 @@
+.files-header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.files-header h1 {
+	font-size: 3rem;
+	font-weight: bold;
+	background: var(--navBarColor);
+	color: white;
+	border-radius: 15%;
+	padding: 30px 40px;
+	margin-bottom: 16px;
+}
+
+.documents-body {
+	display: flex;
+	justify-content: center;
+}
+.file-uploader {
+	background: var(--cardColor);
+	padding: 30px 40px;
+	width: 90%;
+}
+
+.file-uploader label {
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.file-uploader input {
+	margin-bottom: 16px;
+}
+
+.file-submitter {
+	font-size: 1.5rem;
+	padding: 5px 10px;
+	width: 100%;
+	background: var(--warning);
+	border: 1px solid var(--warning);
+	color: white;
+	font-weight: bold;
+}
+
+.file-submitter button:hover {
+	color: var(--warning);
+	background: white;
+}
+
+.file-selector {
+	font-size: 1rem;
+	width: 10%;
+	background-color: black;
+	border: 1px solid black;
+	color: white;
+	padding: 5px 10px;
+	margin-bottom: 16px;
+	border-radius: 4px;
+	display: flex;
+	justify-content: center;
+}
+
+.file-selector:hover {
+	color: black;
+	background-color: white;
+}
+
+.selected-file {
+	margin-bottom: 8px;
+}
