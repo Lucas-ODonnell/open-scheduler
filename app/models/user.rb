@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :appointments, dependent: :destroy
   has_many :leads, dependent: :destroy
   has_one :profile, dependent: :destroy
+  has_many :documents, dependent: :destroy
 
   after_create :build_profile
 

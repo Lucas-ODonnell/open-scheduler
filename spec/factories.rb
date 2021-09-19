@@ -1,4 +1,9 @@
 FactoryBot.define do
+  factory :document do
+    title { "MyString" }
+    description { "MyString" }
+  end
+
   factory :api_key do
     token {"SomeRandomToken"}
   end

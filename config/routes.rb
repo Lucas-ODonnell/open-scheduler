@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :users, only: [:show, :update, :destroy]
       resources :profiles, only: [:create, :show, :update]
       resources :leads, except: [:show]
+      resources :documents, only: [:index, :create, :update, :destroy]
     end
   end
 
