@@ -83,7 +83,7 @@
 	padding: 30px 40px;
 	width: 90%;
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 15px;
 	max-width: 100%;
 }
@@ -95,11 +95,23 @@
 
 .file-header {
 	background-color: rgb(215,215,215);
-	height: 30px;
+	height: 64px;
 	padding: 5px 10px;
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
+}
+
+.file-header button {
+	background: transparent;
+	border: 1px solid transparent;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 4px;
+}
+
+.file-header button:hover {
+	border: 1px solid black;
 }
 
 .file-header h2 {
@@ -120,8 +132,14 @@
 .file-download a {
 	color: white;
 	background-color: black;
+	border: 1px solid black;
 	border-radius: 4px;
 	padding: 5px 10px;
 	font-weight: bold;
+}
+
+.file-download a:hover {
+	color: black;
+	background-color: white;
 }
 

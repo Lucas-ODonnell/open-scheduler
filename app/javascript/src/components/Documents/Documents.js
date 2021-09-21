@@ -8,18 +8,12 @@ import './document.css';
 const Documents = () => {
 	const global = useContext(AppContext);
 	const [documents, setDocuments] = useState([]);
+	//fileinfo and file comprise the multipart form data
 	const [file, setFile] = useState(null);
 	const [fileInfo, setFileInfo] = useState({
 		title: '',
 		description: ''
 	})
-
-	const config = {
-		headers: {
-			Authorization: global.authorizationToken,
-			'content-type': 'multipart/form-data'
-		}
-	}
 
 	useEffect(()=> {
 		const config = {
@@ -43,8 +37,18 @@ const Documents = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		const config = {
+			headers: {
+				Authorization: global.authorizationToken,
+				'content-type': 'multipart/form-data'
+			}
+		}
 		const formData = new FormData();
-		if (file === null) return;
+		if (file === null) {
+			global.setError("A file is required");
+			global.flashError();
+			return;
+		};
 		formData.append('document[title]', fileInfo.title);
 		formData.append('document[description]', fileInfo.description);
 		formData.append('document[file]', file);
@@ -57,16 +61,27 @@ const Documents = () => {
 				setFile(null);
 			})
 			.catch(response=> {
-				global.setError(response.response.data);
+				global.setError(response.response.data[0]);
 				global.flashError();
+			})
+	}
+
+	const handleFileDelete = (id) => {
+		const config = {
+			headers: { Authorization: global.authorizationToken }
+		}
+		axios.delete(`/api/v1/documents/${id}`, config)
+			.then(response => {
+				console.log(response)
+				setDocuments(documents.filter(document => document.id !== id))
 			})
 	}
 
 	const documentList = documents.map((thisDocument, index) => {
 		const { title, description, file } = thisDocument.attributes;
-		console.log(thisDocument.attributes.file)
+		const id = thisDocument.id
 		return (
-			<Document key={index} {...{title, description, file}} />
+			<Document key={index} {...{title, description, file, id, handleFileDelete, global}} />
 		)
 	})
 

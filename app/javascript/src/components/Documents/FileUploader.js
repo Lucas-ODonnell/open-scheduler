@@ -3,7 +3,7 @@ import Dropzone from 'react-dropzone';
 
 const FileUploader = ({fileInfo, handleInputChange, file, onFileSelection, handleSubmit}) => {
 	return (
-		<div className="file-uploader shadow-effect">
+		<div className="file-uploader card-effect">
 			<form onSubmit={handleSubmit}>
 				<div>
 					<label>Title</label>
