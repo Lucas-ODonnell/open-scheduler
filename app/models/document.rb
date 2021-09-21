@@ -6,7 +6,7 @@ class Document < ApplicationRecord
 
   def acceptable_file
     return unless file.attached?
-    unless document.byte_size <= 5.megabyte
+    unless file.byte_size <= 5.megabyte
     errors.add(:file, "is too big")
     end
   end

@@ -1,10 +1,10 @@
 import React from 'react';
 import Dropzone from 'react-dropzone';
 
-const FileUploader = ({fileInfo, handleInputChange, file, onFileSelection}) => {
+const FileUploader = ({fileInfo, handleInputChange, file, onFileSelection, handleSubmit}) => {
 	return (
 		<div className="file-uploader shadow-effect">
-			<form>
+			<form onSubmit={handleSubmit}>
 				<div>
 					<label>Title</label>
 					<input onChange={handleInputChange} type="text" name="title" value={fileInfo.title} placeholder="Title"/>

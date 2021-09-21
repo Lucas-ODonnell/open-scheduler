@@ -22,7 +22,7 @@ module Api
         document = Document.find(params[:id])
         if document.update(document_params)
           render json: DocumentSerializer.new(document).serializable_hash.to_json
-        else
+          else
           render json: document.errors.full_messages, status: 422
         end
       end
@@ -35,10 +35,9 @@ module Api
           render json: document.errors.full_messages, status: 422
         end
       end
-
       private
 
-      def document_params 
+      def document_params
         params.require(:document).permit(:title, :description, :file)
       end
 

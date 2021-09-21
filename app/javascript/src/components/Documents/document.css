@@ -69,3 +69,59 @@
 .selected-file {
 	margin-bottom: 8px;
 }
+
+/*files*/
+
+.all-documents {
+	display: flex;
+	justify-content: center;
+	padding-top: 16px;
+}
+
+.document-container {
+	background: var(--cardColor);
+	padding: 30px 40px;
+	width: 90%;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 15px;
+	max-width: 100%;
+}
+
+.each-file {
+	background-color: white;
+	border: 2px solid black;
+}
+
+.file-header {
+	background-color: rgb(215,215,215);
+	height: 30px;
+	padding: 5px 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.file-header h2 {
+	font-weight: bold;
+	font: 24px;
+}
+
+.file-body {
+	padding: 10px 20px;
+}
+
+.file-download {
+	display: flex;
+	justify-content: center;
+	margin-top: 16px;
+}
+
+.file-download a {
+	color: white;
+	background-color: black;
+	border-radius: 4px;
+	padding: 5px 10px;
+	font-weight: bold;
+}
+
