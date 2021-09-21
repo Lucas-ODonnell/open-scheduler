@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Routes, Route, Switch } from 'react-router-dom';
+import { HashRouter as Routes, Route, Switch } from 'react-router-dom';
 import Nav from './components/Nav';
 import Appointments from './components/Appointments/Appointments';
 import ShowAppointment from './components/Appointment/ShowAppointment';

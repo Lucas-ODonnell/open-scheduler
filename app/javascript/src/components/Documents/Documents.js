@@ -44,6 +44,7 @@ const Documents = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const formData = new FormData();
+		if (file === null) return;
 		formData.append('document[title]', fileInfo.title);
 		formData.append('document[description]', fileInfo.description);
 		formData.append('document[file]', file);
@@ -63,6 +64,7 @@ const Documents = () => {
 
 	const documentList = documents.map((thisDocument, index) => {
 		const { title, description, file } = thisDocument.attributes;
+		console.log(thisDocument.attributes.file)
 		return (
 			<Document key={index} {...{title, description, file}} />
 		)

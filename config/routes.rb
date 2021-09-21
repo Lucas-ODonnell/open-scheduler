@@ -12,11 +12,10 @@ Rails.application.routes.draw do
       resources :profiles, only: [:create, :show, :update]
       resources :leads, except: [:show]
       resources :documents, only: [:index, :create, :update, :destroy]
+
     end
   end
-
   post 'api/v1/forgot_password' => "api/v1/passwords#forgot"
   post 'api/v1/reset_password' => "api/v1/passwords#reset"
 
-  get '*path' => redirect('/')
 end
