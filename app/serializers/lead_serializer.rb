@@ -1,4 +1,4 @@
 class LeadSerializer
   include JSONAPI::Serializer
-  attributes  :name, :company, :position, :phone, :email, :referrer
+  attributes  :name, :company, :position, :phone, :email, :referrer, :notes
 end

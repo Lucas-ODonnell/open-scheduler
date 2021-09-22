@@ -40,7 +40,7 @@ module Api
       private
 
       def lead_params
-        params.require(:lead).permit(:name, :company, :position, :phone, :email, :referrer)
+        params.require(:lead).permit(:name, :company, :position, :phone, :email, :referrer, :notes)
       end
     end
   end

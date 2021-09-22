@@ -39,6 +39,10 @@ const UpdateLead = ({onClose, updateModal, handleUpdateChange, handleUpdateSubmi
 							<label>Referrer: </label>
 							<input onChange={handleUpdateChange} type="text" name="referrer" value={updateLead.referrer} placeholder="Referrer" />
 						</div>
+						<div className="field">
+							<label>Notes: </label>
+							<textarea onChange={handleUpdateChange} type="text" name="notes" value={updateLead.notes} placeholder="Notes" />
+						</div>
 						<button className='submit' type='submit'>Update</button>
 					</form>
 				</div>

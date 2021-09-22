@@ -1,7 +1,11 @@
 FactoryBot.define do
   factory :document do
-    title { "MyString" }
-    description { "MyString" }
+    title { "Test String" }
+    description { "Test String" }
+    after(:build) do |document|
+      document.file.attach(io: File.open(Rails.root.join('spec', 'models', 'files', 'test.jpg')), filename: 'test.jpg', content_type: 'image/jpg')
+    end
+    user
   end
 
   factory :api_key do
@@ -25,6 +29,7 @@ FactoryBot.define do
     company_contact {"Ronald McDonald"}
     email {"hr@mcdonald.com"}
     notes {"Client is interested"}
+    meeting_date {Time.now}
     user
   end
 

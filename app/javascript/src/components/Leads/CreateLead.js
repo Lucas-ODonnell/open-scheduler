@@ -39,6 +39,11 @@ const CreateLead = ({onClose, createModal,handleChange, handleSubmit, newLead}) 
 							<label>Referrer: </label>
 							<input onChange={handleChange} type="text" name="referrer" value={newLead.referrer} placeholder="Referrer" />
 						</div>
+						<div className="field">
+							<label>Notes: </label>
+							<textarea onChange={handleChange} type="text" name="notes" value={newLead.notes} placeholder="Notes" />
+						</div>
+
 						<button className='submit' type='submit'>Submit</button>
 					</form>
 				</div>

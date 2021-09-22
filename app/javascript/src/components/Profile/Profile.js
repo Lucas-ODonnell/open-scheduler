@@ -6,7 +6,7 @@ import LogInShow from './LogInShow';
 import ProfileShow from './ProfileShow';
 import LogInUpdate from './LogInUpdate';
 import ProfileUpdate from './ProfileUpdate';
-import './profile.css';
+import './Profile.css';
 
 const Profile = () => {
 	const global = useContext(AppContext);

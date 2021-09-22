@@ -1,0 +1,59 @@
+.show-appointment {
+	width: 900px;
+	max-width: 100%;
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	transform: translate(-50%);
+}
+
+.exit {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.exit button {
+	border: 2px solid transparent;
+	background-color: var(--cardColor);
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.exit button:hover {
+	border: 2px solid white;
+}
+
+.update-appointment h2 {
+	text-align: center;
+	font-size: 2rem;
+	font-weight: bold;
+	margin-bottom: 16px;
+}
+
+.attributes {
+	margin-bottom: 16px;
+}
+
+.update-btn {
+	margin-top: 16px;
+}
+
+.show-edit {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.show-edit button {
+	border: 2px solid transparent;
+	background-color: var(--cardColor);
+	color: var(--cardColorComplement);
+	padding: 3px 5px;
+}
+
+.show-edit button:hover {
+	border: 2px solid white;
+}
+
+.appointment_notes {
+	white-space: pre;
+}

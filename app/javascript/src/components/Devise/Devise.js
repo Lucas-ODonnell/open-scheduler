@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Registration from './Registration/Registration';
 import SignIn from './Session/SignIn';
-import './devise.css';
+import './Devise.css';
 
 const Devise = ({setAuthorizationToken}) => {
 	const [ register, setRegister ] = useState(false);

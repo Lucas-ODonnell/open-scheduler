@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Lead = ({setCurrent, name, company, position, phone, email, referrer, id, handleDelete, setUpdateModal, FontAwesomeIcon, global}) => {
+const Lead = ({setCurrent, name, company, position, phone, email, referrer, notes, id, handleDelete, setUpdateModal, FontAwesomeIcon, global}) => {
 	return (
 		<div className="lead-card card-effect">
 			<div className="delete-button">
@@ -9,27 +9,30 @@ const Lead = ({setCurrent, name, company, position, phone, email, referrer, id, 
 			</div>
 			<div className="row-one">
 				<div className="attribute">
-					<span>Name:</span>{name}
+					<span>Name:</span> {name}
 				</div>
 				<div className="attribute">
-					<span>Company:</span>{company}
+					<span>Company:</span> {company}
 				</div>
 				<div className="attribute">
-					<span>Position:</span>{position}
+					<span>Position:</span> {position}
 				</div>
 			</div>
 			<div className="row-two">
 				<div className="attribute">
-					<span>Phone:</span>{phone}
+					<span>Phone:</span> {phone}
 				</div>
 				<div className="attribute">
-					<span>Email:</span>{email}
+					<span>Email:</span> {email}
 				</div>
 			</div>
 			<div className="row-three">
 				<div className="attribute">
-					<span>Refererrer:</span>{referrer}
+					<span>Refererrer:</span> {referrer}
 				</div>
+			</div>
+			<div>
+				<span>Notes:</span> {notes}
 			</div>
 		</div>
 	)

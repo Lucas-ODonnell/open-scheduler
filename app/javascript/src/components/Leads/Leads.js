@@ -21,7 +21,8 @@ const Leads = () => {
 		position: "",
 		phone: "",
 		email: "",
-		referrer: ""
+		referrer: "",
+		notes: ""
 	})
 
 	const [updateLead, setUpdateLead] = useState({
@@ -30,7 +31,8 @@ const Leads = () => {
 		position: "",
 		phone: "",
 		email: "",
-		referrer: ""
+		referrer: "",
+		notes: ""
 	})
 
 	const [current, setCurrent] = useState();
@@ -63,7 +65,8 @@ const Leads = () => {
 					position: "",
 					phone: "",
 					email: "",
-					referrer: ""
+					referrer: "",
+					notes: ""
 				})
 				setCreateModal(false);
 			})
@@ -94,7 +97,8 @@ const Leads = () => {
 					position: "",
 					phone: "",
 					email: "",
-					referrer: ""
+					referrer: "",
+					notes: ""
 				})
 				setUpdateModal(false);
 			})
@@ -112,10 +116,10 @@ const Leads = () => {
 	}
 
 	const indexLeads = leads.map((lead, index) => {
-		const { name, company, position, phone, email, referrer } = lead.attributes;
+		const { name, company, position, phone, email, referrer, notes } = lead.attributes;
 		const id  = lead.id;
 		return (
-			<Lead key={index} {...{setCurrent,name, company, position, phone, email, referrer, id, handleDelete, setUpdateModal, FontAwesomeIcon, global}} />
+			<Lead key={index} {...{setCurrent,name, company, position, phone, email, referrer, notes, id, handleDelete, setUpdateModal, FontAwesomeIcon, global}} />
 		)
 	})
 

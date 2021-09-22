@@ -3,7 +3,7 @@ import AppContext from '../../context/AppContext';
 import AppointmentModal from './AppointmentModal';
 import axios from 'axios';
 import Appointment from './Appointment';
-import './appointments.css';
+import './Appointments.css';
 
 const Appointments = () => {
 	const global = useContext(AppContext);

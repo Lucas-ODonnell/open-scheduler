@@ -3,7 +3,7 @@ import axios from 'axios';
 import AppContext from '../../context/AppContext';
 import Document from './Document';
 import FileUploader from './FileUploader';
-import './document.css';
+import './Document.css';
 
 const Documents = () => {
 	const global = useContext(AppContext);

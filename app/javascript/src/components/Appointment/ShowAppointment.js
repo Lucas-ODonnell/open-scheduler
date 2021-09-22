@@ -4,7 +4,7 @@ import axios from 'axios';
 import AppContext from '../../context/AppContext';
 import ViewAppointment from './ViewAppointment';
 import UpdateAppointment from './UpdateAppointment';
-import './appointment.css';
+import './Appointment.css';
 
 const ShowAppointment = () => {
 	const global = useContext(AppContext)
