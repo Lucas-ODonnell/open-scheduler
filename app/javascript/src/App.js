@@ -54,20 +54,18 @@ const App = () => {
 			<AppContext.Provider value={global}>
 				<Alert {...{showError}}/>
 				<Warning />
-			</AppContext.Provider>
-			{!signedIn ?
-			<AppContext.Provider value={global}>
+				{!signedIn ?
 				<section>
 					<FakeNav />
 					<Devise {...{setAuthorizationToken}}/>
 				</section>
+				:
+				<>
+					<SignOut />
+					<Router />
+					</>
+				}
 			</AppContext.Provider>
-			:
-			<AppContext.Provider value={global}>
-				<SignOut />
-				<Router />
-			</AppContext.Provider>
-			}
 			</>
 	)
 }

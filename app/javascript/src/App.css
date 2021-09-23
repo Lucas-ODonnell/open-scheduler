@@ -101,6 +101,7 @@ input, textarea {
 	width: 100%;
 	padding: 10px;
 	font-size: 14px;
+	z-index: -1;
 }
 
 button {
@@ -166,6 +167,7 @@ div {
 	top: 0;
 	bottom: 0;
 	background-color: rgba(0,0,0,0.5);
+	z-index: 10;
 }
 
 .navigation {
@@ -249,7 +251,6 @@ div {
 	top: 30%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	z-index: 10;
 }
 
 .warning-container {
