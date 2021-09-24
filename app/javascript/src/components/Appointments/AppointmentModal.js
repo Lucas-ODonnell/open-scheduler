@@ -1,6 +1,7 @@
 import React from 'react';
+import SearchLeads from './SearchLeads';
 
-const AppointmentModal = ({showModal, onClose, handleChange, newAppointment, handleSubmit}) => {
+const AppointmentModal = ({showModal, onClose, handleChange, newAppointment, handleSubmit, leads, showLeads, setShowLeads}) => {
 	if (!showModal) return null;
 	return (
 		<div className="modal-background">
@@ -43,7 +44,8 @@ const AppointmentModal = ({showModal, onClose, handleChange, newAppointment, han
 						</div>
 						<div className="field">
 							<label>Contact:</label>
-							<input onChange={handleChange} type="text" name="company_contact" value={newAppointment.company_contact} placeholder="Davy Crockett" />
+							<input onChange={handleChange} type="text" name="company_contact" value={newAppointment.company_contact} placeholder="Davy Crockett" autoComplete="chrome-off"/>
+							<SearchLeads {...{leads, newAppointment, showLeads}} />
 						</div>
 					</div>
 					<div className="contact-information">

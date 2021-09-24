@@ -5,7 +5,7 @@ class Appointment < ApplicationRecord
   before_save :normalize_phone, :normalize_date;
   before_create :slugify
   belongs_to :user
-  has_one :lead
+  has_one :lead, dependent: :destroy
 
   def slugify
     self.slug = company_name.parameterize
