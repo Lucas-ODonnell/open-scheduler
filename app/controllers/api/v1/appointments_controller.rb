@@ -3,7 +3,7 @@ module Api
     class AppointmentsController < ApplicationController
       before_action :authenticate_user!
       def index
-        appointments = Appointment.where(user_id: current_user).order("meeting_date ASC")
+        appointments = Appointment.where(user_id: current_user).order("meeting_date ASC").includes(:lead)
         render json: AppointmentSerializer.new(appointments).serializable_hash.to_json
       end
 
@@ -11,9 +11,9 @@ module Api
         appointment = Appointment.find_by(slug: params[:slug])
         appointment.phone = appointment.formatted_phone
         options = {
-          include: [:lead]
+          include: [:lead, :'lead.name', :'lead.position', :'lead.notes']
         }
-        render json: AppointmentSerializer.new(appointment, options).serializable_hash.to_json(includes: :lead)
+        render json: AppointmentSerializer.new(appointment, options).serializable_hash.to_json
       end
 
       def create

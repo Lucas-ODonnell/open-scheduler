@@ -36,6 +36,7 @@ const Appointments = () => {
 	useEffect(() => {
 		axios.get('/api/v1/appointments.json', config)
 			.then( response => {
+			console.log(response)
 				setAppointments(response.data.data);
 			})
 			.catch( response => {
@@ -43,15 +44,7 @@ const Appointments = () => {
 				global.setError("You have been signed out");
 				global.flashError();
 			});
-		getLeads();
-	}, [])
-
-	const getLeads = () => {
-		axios.get('/api/v1/leads.json', config)
-			.then( response => {
-				setLeads(response.data.data)
-			});
-	}
+			}, [])
 
 	const handleChange = (e) => {
 		e.preventDefault();
