@@ -3,6 +3,7 @@ import axios from 'axios';
 import AppContext from '../../context/AppContext';
 import Document from './Document';
 import FileUploader from './FileUploader';
+import Filter from '../Filter';
 import './Document.css';
 
 const Documents = () => {
@@ -11,6 +12,7 @@ const Documents = () => {
 	const [errorMessage, setErrorMessage] = useState();
 	//fileinfo and file comprise the multipart form data
 	const [file, setFile] = useState(null);
+	const [filterDocument, setFilterDocument] = useState('');
 	const [fileInfo, setFileInfo] = useState({
 		title: '',
 		description: ''
@@ -29,6 +31,11 @@ const Documents = () => {
 	const handleInputChange = (e) => {
 		e.preventDefault();
 		setFileInfo({...fileInfo, [e.target.name]: e.target.value});
+	}
+
+	const handleFilterChange = (e) => {
+		e.preventDefault();
+		setFilterDocument(e.target.value);
 	}
 
 	const onFileSelection = (files) => {
@@ -61,7 +68,7 @@ const Documents = () => {
 				setFile(null);
 			})
 			.catch(response=> {
-			setErrorMessage(response.response.data[0]);
+				setErrorMessage(response.response.data[0]);
 			})
 	}
 
@@ -76,7 +83,14 @@ const Documents = () => {
 			})
 	}
 
-	const documentList = documents.map((thisDocument, index) => {
+	const documentList = documents.filter((thisDocument) => {
+		if (filterDocument === "") {
+			return thisDocument;
+		} else if (thisDocument.attributes.title.toLowerCase().includes(filterDocument.toLowerCase())) {
+		return thisDocument;
+		}
+	})
+	.map((thisDocument, index) => {
 		const { title, description, file } = thisDocument.attributes;
 		const id = thisDocument.id
 		return (
@@ -90,6 +104,7 @@ const Documents = () => {
 				<div className="files-header">
 					<h1 className="shadow-effect">Documents</h1>
 				</div>
+				<Filter {...{handleFilterChange, filterDocument}}/>
 				<div className="documents-body">
 					<FileUploader {...{fileInfo, handleInputChange, file, onFileSelection, handleSubmit, errorMessage}}/>
 				</div>

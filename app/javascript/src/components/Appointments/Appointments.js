@@ -3,6 +3,7 @@ import AppContext from '../../context/AppContext';
 import AppointmentModal from './AppointmentModal';
 import axios from 'axios';
 import Appointment from './Appointment';
+import Filter from '../Filter';
 import './Appointments.css';
 
 const Appointments = () => {
@@ -11,6 +12,7 @@ const Appointments = () => {
 	const [showPossibleLeads, setShowPossibleLeads] = useState(false);
 	const [appointments, setAppointments] = useState([]);
 	const [leads, setLeads] = useState([]);
+	const [appointmentFilter, setAppointmentFilter] = useState("");
 	const [newAppointment, setNewAppointment] = useState({
 		company_name: "",
 		street_address: "",
@@ -54,6 +56,11 @@ const Appointments = () => {
 		e.preventDefault();
 		setNewAppointment({...newAppointment, [e.target.name]: e.target.value})
 	}
+	/*This is for the filter appointments input*/
+	const handleFilterChange = (e) => {
+		e.preventDefault();
+		setAppointmentFilter(e.target.value)
+	}
 
 	/*This updates a lead with an appointment_id if you make a new appointment where the lead is the contact of the appointment*/
 	const updateLead = (response,newAppointment) => {
@@ -90,7 +97,7 @@ const Appointments = () => {
 				getLeads();
 			})
 			.catch(response => {
-			console.log(response.response)
+				console.log(response.response)
 				setErrorMessage(response.response.data[0]);
 			});
 	}
@@ -102,12 +109,20 @@ const Appointments = () => {
 			})
 	}
 
-	const appointmentList = appointments.map((appointment, index) => {
+	const appointmentList = appointments.filter((appointment) => {
+		if (appointmentFilter == "") {
+			return appointment;
+		} else if (appointment.attributes.company_name.toLowerCase().includes(appointmentFilter.toLowerCase())){
+			return appointment
+		}
+	})
+	.map((appointment, index) => {
 		const { company_name, formatted_date, slug } = appointment.attributes;
 		return (
 			<Appointment
 				key={index}
-				{...{company_name, formatted_date, slug, appointments, setAppointments, handleDelete, FontAwesomeIcon, global}}
+				{...{company_name, formatted_date, slug, appointments, 
+					setAppointments, handleDelete, FontAwesomeIcon, global}}
 				/>
 		)
 	});
@@ -119,8 +134,15 @@ const Appointments = () => {
 			</div>
 			<div className="new-appointment">
 				<button className="modal-button" onClick={() => setShowModal(true)}>New Appointment</button>
-				<AppointmentModal onClose={() => setShowModal(false)} {...{showModal, handleChange, newAppointment, handleSubmit, leads, showPossibleLeads, setShowPossibleLeads, errorMessage}} />
+				<AppointmentModal 
+					onClose={() => 
+					setShowModal(false)} 
+					{...{showModal, handleChange, newAppointment, 
+						handleSubmit, leads, showPossibleLeads, 
+						setShowPossibleLeads, errorMessage}} 
+					/>
 			</div>
+			<Filter {...{handleFilterChange, appointmentFilter}}/>
 			<div className="appointments-grid">
 				{appointmentList}
 			</div>

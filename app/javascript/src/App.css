@@ -149,6 +149,17 @@ button {
 	box-shadow: 0 10px 6px -6px #777;
 }
 
+/*search filter */
+.filter {
+	display: flex;
+	justify-content: center;
+}
+
+.filter input {
+	margin-bottom: 16px;
+	background-color: rgb(215,215,215);
+}
+
 /*Navbar */
 
 nav {
@@ -245,6 +256,11 @@ div {
 	justify-content: center;
 	align-items: center;
 	z-index: 11;
+}
+
+.input-error {
+	font-size: 12px;
+	color: var(--warning);
 }
 
 /* Warning modal */

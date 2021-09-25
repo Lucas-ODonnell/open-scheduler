@@ -36,6 +36,7 @@ const App = () => {
 	}
 
 	//context
+	//dont delete setDeleteFunction and deleteFunction. It is used to set up a warning before delete
 	const global = {
 		setSignedIn: setSignedIn,
 		error: error,

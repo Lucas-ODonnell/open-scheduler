@@ -25,7 +25,6 @@ class Appointment < ApplicationRecord
     formatted.gsub!(";", " x")
     formatted
   end
-
   
   private
 
@@ -40,6 +39,6 @@ class Appointment < ApplicationRecord
 
   def normalize_date
     return if self.meeting_date == nil
-    self.formatted_date = self.meeting_date.strftime("%B %d, %Y at %I:%M %p")
+    self.formatted_date = self.meeting_date.strftime('%B %d, %Y at %I:%M %p')
   end
 end

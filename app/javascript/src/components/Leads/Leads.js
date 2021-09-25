@@ -4,6 +4,7 @@ import AppContext from '../../context/AppContext';
 import Lead from './Lead';
 import CreateLead from './CreateLead';
 import UpdateLead from './UpdateLead';
+import Filter from '../Filter';
 import './Leads.css';
 
 const Leads = () => {
@@ -16,6 +17,7 @@ const Leads = () => {
 	const [updateModal, setUpdateModal] = useState(false);
 	const [leads, setLeads] = useState([]);
 	const [errorMessage, setErrorMessage] = useState();
+	const [filterLead, setFilterLead] = useState("");
 	const [newLead, setNewLead] = useState({
 		name: "",
 		company: "",
@@ -53,6 +55,11 @@ const Leads = () => {
 	const handleChange = (e) => {
 		e.preventDefault();
 		setNewLead({...newLead, [e.target.name]: e.target.value})
+	}
+
+	const handleFilterChange = (e) => {
+		e.preventDefault();
+		setFilterLead(e.target.value);
 	}
 
 	const handleSubmit = (e) => {
@@ -114,11 +121,23 @@ const Leads = () => {
 			})
 	}
 
-	const indexLeads = leads.map((lead, index) => {
+	const indexLeads = leads.filter((lead) => {
+		if (filterLead === "") {
+			return lead;
+		} else if (lead.attributes.name.toLowerCase().includes(filterLead.toLowerCase())) {
+			return lead;
+		}
+	})
+	.map((lead, index) => {
 		const { name, company, position, phone, email, referrer, notes } = lead.attributes;
 		const id  = lead.id;
 		return (
-			<Lead key={index} {...{setCurrent,name, company, position, phone, email, referrer, notes, id, handleDelete, setUpdateModal, FontAwesomeIcon, global}} />
+			<Lead 
+				key={index} 
+				{...{setCurrent,name, company, position, phone, 
+					email, referrer, notes, id, 
+					handleDelete, setUpdateModal, 
+					FontAwesomeIcon, global}} />
 		)
 	})
 
@@ -129,9 +148,16 @@ const Leads = () => {
 			</div>
 			<div className="new-lead">
 				<button className="modal-button" onClick={()=> setCreateModal(true)}>New Lead</button>
-				<CreateLead onClose={()=> setCreateModal(false)} {...{createModal, handleChange, handleSubmit, newLead, errorMessage}} />
+				<CreateLead 
+					onClose={()=> setCreateModal(false)} 
+					{...{createModal, handleChange, handleSubmit, newLead, errorMessage}} 
+					/>
 			</div>
-			<UpdateLead onClose={()=> setUpdateModal(false)} {...{updateModal, handleUpdateChange, handleUpdateSubmit, updateLead, errorMessage}} />
+			<Filter {...{handleFilterChange, filterLead}}/>
+			<UpdateLead 
+				onClose={()=> setUpdateModal(false)} 
+				{...{updateModal, handleUpdateChange, handleUpdateSubmit, updateLead, errorMessage}} 
+				/>
 			<div className="all-leads">
 				{indexLeads}
 			</div>
