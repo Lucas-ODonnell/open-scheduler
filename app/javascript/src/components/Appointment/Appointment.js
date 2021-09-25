@@ -7,7 +7,7 @@ import UpdateAppointment from './UpdateAppointment';
 import AppointmentLead from './AppointmentLead';
 import './Appointment.css';
 
-const ShowAppointment = () => {
+const Appointment = () => {
 	const global = useContext(AppContext)
 	const FontAwesomeIcon = global.FontAwesomeIcon;
 	const { slug } = useParams();
@@ -26,8 +26,8 @@ const ShowAppointment = () => {
 		const url = `/api/v1/appointments/${slug}`;
 		axios.get(url, config)
 			.then ( response => {
-				validateLead(response);
 				setAppointment(response.data.data)
+				setLead(response.data.included[0])
 				setLoaded(true);
 			})
 			.catch( response => {
@@ -36,13 +36,6 @@ const ShowAppointment = () => {
 				global.flashError();
 			})
 	}, [update])
-/*Validate lead set the lead if the appointment has a relationship with a lead*/
-	const validateLead = (response) => {
-		if (response.data.data.relationships.lead.data !== null) {
-			axios.get(`/api/v1/leads/${response.data.data.relationships.lead.data.id}`, config)
-				.then(response => {setLead(response.data.data)})
-		}
-	}
 
 	//The notes should be loaded so we can add to them.
 	const showEdit = (e) => {
@@ -114,4 +107,4 @@ const ShowAppointment = () => {
 	)
 }
 
-export default ShowAppointment;
+export default Appointment;

@@ -8,6 +8,7 @@ import './Appointments.css';
 
 const Appointments = () => {
 	const global = useContext(AppContext);
+	const string = "appointments";
 	const FontAwesomeIcon = global.FontAwesomeIcon;
 	const [showPossibleLeads, setShowPossibleLeads] = useState(false);
 	const [appointments, setAppointments] = useState([]);
@@ -142,7 +143,7 @@ const Appointments = () => {
 						setShowPossibleLeads, errorMessage}} 
 					/>
 			</div>
-			<Filter {...{handleFilterChange, appointmentFilter}}/>
+			<Filter {...{handleFilterChange, appointmentFilter, string}}/>
 			<div className="appointments-grid">
 				{appointmentList}
 			</div>

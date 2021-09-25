@@ -9,6 +9,7 @@ import './Leads.css';
 
 const Leads = () => {
 	const global = useContext(AppContext);
+	const string = "leads";
 	const FontAwesomeIcon = global.FontAwesomeIcon;
 	const config = {
 		headers: { Authorization: global.authorizationToken }
@@ -153,7 +154,7 @@ const Leads = () => {
 					{...{createModal, handleChange, handleSubmit, newLead, errorMessage}} 
 					/>
 			</div>
-			<Filter {...{handleFilterChange, filterLead}}/>
+			<Filter {...{handleFilterChange, filterLead, string}}/>
 			<UpdateLead 
 				onClose={()=> setUpdateModal(false)} 
 				{...{updateModal, handleUpdateChange, handleUpdateSubmit, updateLead, errorMessage}} 

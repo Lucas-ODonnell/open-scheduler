@@ -10,7 +10,10 @@ module Api
       def show
         appointment = Appointment.find_by(slug: params[:slug])
         appointment.phone = appointment.formatted_phone
-        render json: AppointmentSerializer.new(appointment).serializable_hash.to_json
+        options = {
+          include: [:lead]
+        }
+        render json: AppointmentSerializer.new(appointment, options).serializable_hash.to_json(includes: :lead)
       end
 
       def create

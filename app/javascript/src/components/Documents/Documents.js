@@ -8,6 +8,7 @@ import './Document.css';
 
 const Documents = () => {
 	const global = useContext(AppContext);
+	const string = "documents";
 	const [documents, setDocuments] = useState([]);
 	const [errorMessage, setErrorMessage] = useState();
 	//fileinfo and file comprise the multipart form data
@@ -104,7 +105,7 @@ const Documents = () => {
 				<div className="files-header">
 					<h1 className="shadow-effect">Documents</h1>
 				</div>
-				<Filter {...{handleFilterChange, filterDocument}}/>
+				<Filter {...{handleFilterChange, filterDocument, string}}/>
 				<div className="documents-body">
 					<FileUploader {...{fileInfo, handleInputChange, file, onFileSelection, handleSubmit, errorMessage}}/>
 				</div>

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const AppointmentLead = ({lead,showLead}) => {
-	if (!showLead || Object.keys(lead).length === 0) return null;
+	if (!showLead || lead === undefined) return null;
 	return (
 		<div className="show-lead">
 			<div className="lead-container">
