@@ -56,7 +56,8 @@ table {
 	--cardColor: radial-gradient(rgb(102,153,204), rgb(53,116,179));
 	--cardColorComplement: rgb(204,141,102);
 	--genericButton: rgb(0,0,0);
-	--warning: rgb(122,8,8)
+	--warning: rgb(122,8,8);
+	--manila: rgb(231,201,169);
 }
 
 span {
@@ -235,7 +236,7 @@ div {
 
 /* Alert Bar */
 .alert {
-	background-color: rgb(136,8,8);
+	background: var(--warning);
 	color: white;
 	font-size: 1.5rem;
 	padding: 10px 15px;
@@ -243,6 +244,7 @@ div {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	z-index: 11;
 }
 
 /* Warning modal */

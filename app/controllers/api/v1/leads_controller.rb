@@ -17,6 +17,12 @@ module Api
           render json: lead.errors.full_messages, status: 422
         end
       end
+      
+      def show
+        lead = Lead.find(params[:id])
+        lead.phone = lead.formatted_phone
+        render json: LeadSerializer.new(lead).serializable_hash.to_json
+      end
 
       def update
         lead = Lead.find(params[:id])

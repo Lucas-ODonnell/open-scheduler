@@ -8,6 +8,7 @@ import './Document.css';
 const Documents = () => {
 	const global = useContext(AppContext);
 	const [documents, setDocuments] = useState([]);
+	const [errorMessage, setErrorMessage] = useState();
 	//fileinfo and file comprise the multipart form data
 	const [file, setFile] = useState(null);
 	const [fileInfo, setFileInfo] = useState({
@@ -45,8 +46,7 @@ const Documents = () => {
 		}
 		const formData = new FormData();
 		if (file === null) {
-			global.setError("A file is required");
-			global.flashError();
+			setErrorMessage("A File is required");
 			return;
 		};
 		formData.append('document[title]', fileInfo.title);
@@ -61,8 +61,7 @@ const Documents = () => {
 				setFile(null);
 			})
 			.catch(response=> {
-				global.setError(response.response.data[0]);
-				global.flashError();
+			setErrorMessage(response.response.data[0]);
 			})
 	}
 
@@ -92,7 +91,7 @@ const Documents = () => {
 					<h1 className="shadow-effect">Documents</h1>
 				</div>
 				<div className="documents-body">
-					<FileUploader {...{fileInfo, handleInputChange, file, onFileSelection, handleSubmit}}/>
+					<FileUploader {...{fileInfo, handleInputChange, file, onFileSelection, handleSubmit, errorMessage}}/>
 				</div>
 			</div>
 			<div className="all-documents">

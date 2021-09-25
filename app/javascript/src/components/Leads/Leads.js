@@ -15,6 +15,7 @@ const Leads = () => {
 	const [createModal, setCreateModal] = useState(false);
 	const [updateModal, setUpdateModal] = useState(false);
 	const [leads, setLeads] = useState([]);
+	const [errorMessage, setErrorMessage] = useState();
 	const [newLead, setNewLead] = useState({
 		name: "",
 		company: "",
@@ -71,8 +72,7 @@ const Leads = () => {
 				setCreateModal(false);
 			})
 			.catch(response => {
-				global.setError(response.response.data[0]);
-				global.flashError();
+				setErrorMessage(response.response.data[0]);
 			});
 	}
 
@@ -103,16 +103,15 @@ const Leads = () => {
 				setUpdateModal(false);
 			})
 			.catch(response => {
-				global.setError(response.response.data[0]);
-				global.flashError();
+				setErrorMessage(response.response.data[0]);
 			})
 	}
 
 	const handleDelete = (id) => {
-			axios.delete(`/api/v1/leads/${id}`, config)
-				.then(response => {
-					setLeads(leads.filter(object => object.id !== id))
-				})
+		axios.delete(`/api/v1/leads/${id}`, config)
+			.then(response => {
+				setLeads(leads.filter(object => object.id !== id))
+			})
 	}
 
 	const indexLeads = leads.map((lead, index) => {
@@ -130,9 +129,9 @@ const Leads = () => {
 			</div>
 			<div className="new-lead">
 				<button className="modal-button" onClick={()=> setCreateModal(true)}>New Lead</button>
-				<CreateLead onClose={()=> setCreateModal(false)} {...{createModal, handleChange, handleSubmit, newLead}} />
+				<CreateLead onClose={()=> setCreateModal(false)} {...{createModal, handleChange, handleSubmit, newLead, errorMessage}} />
 			</div>
-			<UpdateLead onClose={()=> setUpdateModal(false)} {...{updateModal, handleUpdateChange, handleUpdateSubmit, updateLead}} />
+			<UpdateLead onClose={()=> setUpdateModal(false)} {...{updateModal, handleUpdateChange, handleUpdateSubmit, updateLead, errorMessage}} />
 			<div className="all-leads">
 				{indexLeads}
 			</div>

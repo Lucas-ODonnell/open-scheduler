@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UpdateLead = ({onClose, updateModal, handleUpdateChange, handleUpdateSubmit, updateLead}) => {
+const UpdateLead = ({onClose, updateModal, handleUpdateChange, handleUpdateSubmit, updateLead, errorMessage}) => {
 	if (!updateModal) return null;
 	return (
 		<div className="modal-background">
@@ -30,6 +30,12 @@ const UpdateLead = ({onClose, updateModal, handleUpdateChange, handleUpdateSubmi
 						<div className="field">
 							<label>Phone: </label>
 							<input  onChange={handleUpdateChange} type="text" name="phone" value={updateLead.phone} placeholder="Phone" />
+							{errorMessage !== undefined && errorMessage.includes("Phone")
+							?
+								<span className="input-error">{errorMessage}</span >
+								:
+						null
+								}
 						</div>
 						<div className="field">
 							<label>Email: </label>

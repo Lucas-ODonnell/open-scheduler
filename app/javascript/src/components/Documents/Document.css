@@ -18,6 +18,7 @@
 	display: flex;
 	justify-content: center;
 }
+
 .file-uploader {
 	background: var(--cardColor);
 	padding: 30px 40px;
@@ -29,8 +30,8 @@
 	font-weight: bold;
 }
 
-.file-uploader input {
-	margin-bottom: 16px;
+.form-input {
+	margin-bottom: 32px;
 }
 
 .file-submitter {
@@ -48,23 +49,35 @@
 	background: white;
 }
 
+.upload-section {
+	pointer-events: none;
+}
+
 .file-selector {
+	margin-bottom: 16px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+}
+
+.button-like {
 	font-size: 1rem;
-	width: 10%;
+	width: 5%;
 	background-color: black;
 	border: 1px solid black;
 	color: white;
 	padding: 5px 10px;
-	margin-bottom: 16px;
 	border-radius: 4px;
-	display: flex;
-	justify-content: center;
+	pointer-events: auto;
+	cursor: pointer;
 }
 
-.file-selector:hover {
+.button-like:hover {
 	color: black;
 	background-color: white;
 }
+
 
 .selected-file {
 	margin-bottom: 8px;

@@ -10,12 +10,11 @@ Rails.application.routes.draw do
       resources :appointments, param: :slug
       resources :users, only: [:show, :update, :destroy]
       resources :profiles, only: [:create, :show, :update]
-      resources :leads, except: [:show]
+      resources :leads
       resources :documents, only: [:index, :create, :destroy]
 
     end
   end
   post 'api/v1/forgot_password' => "api/v1/passwords#forgot"
   post 'api/v1/reset_password' => "api/v1/passwords#reset"
-
 end

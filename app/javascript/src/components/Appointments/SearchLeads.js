@@ -1,10 +1,14 @@
 import React from 'react';
 
-const SearchLeads = ({leads, newAppointment}) => {
+const SearchLeads = ({leads, newAppointment, showPossibleLeads}) => {
+	if (!showPossibleLeads) return null;
 	const leadList = leads.filter((lead) => {
-		if (newAppointment.company_contact === "") {
+		if (newAppointment.company_contact === "" && lead.attributes.appointment_id === null) {
 			return lead;
-		} else if (lead.attributes.name.toLowerCase().includes(newAppointment.company_contact.toLowerCase())) {
+		} else if (
+			lead.attributes.appointment_id === null && 
+				lead.attributes.name.toLowerCase().includes(newAppointment.company_contact.toLowerCase())) 
+		{
 			return lead;
 		}
 	}).map((lead, index) => {

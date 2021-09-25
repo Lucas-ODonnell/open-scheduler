@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ViewAppointment = ({appointment, FontAwesomeIcon, showEdit}) => (
+const ViewAppointment = ({appointment, FontAwesomeIcon, showEdit, setShowLead}) => (
 	<div className="view-appointment">
 		<div className="show-edit">
 			<button onClick={showEdit}><FontAwesomeIcon icon="edit" size="lg" /></button>
@@ -18,7 +18,11 @@ const ViewAppointment = ({appointment, FontAwesomeIcon, showEdit}) => (
 		</div>
 		<div className="country-row">
 			<div className="attributes"><span>Country:</span> {appointment.attributes.country}</div>
-			<div className="attributes"><span>Contact:</span> {appointment.attributes.company_contact}</div>
+			<div onMouseEnter={()=>setShowLead(true)} 
+				onMouseLeave={()=> setShowLead(false)}
+				className="attributes hoverable">
+				<span>Contact:</span> {appointment.attributes.company_contact}
+			</div>
 		</div>
 		<div className="contact-information">
 			<div className="attributes"><span>Phone:</span> {appointment.attributes.phone}</div>

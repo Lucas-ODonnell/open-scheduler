@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchLeads from './SearchLeads';
 
-const AppointmentModal = ({showModal, onClose, handleChange, newAppointment, handleSubmit, leads, showLeads, setShowLeads}) => {
+const AppointmentModal = ({showModal, onClose, handleChange, newAppointment, handleSubmit, leads, showPossibleLeads, setShowPossibleLeads, errorMessage}) => {
 	if (!showModal) return null;
 	return (
 		<div className="modal-background">
@@ -18,15 +18,33 @@ const AppointmentModal = ({showModal, onClose, handleChange, newAppointment, han
 					<div className="field">
 						<label>Company Name: </label>
 						<input onChange={handleChange} type="text" name="company_name" value={newAppointment.company_name} placeholder="Company Name" />
+						{errorMessage !== undefined && errorMessage.includes("Company name")
+							?
+								<span className="input-error">{errorMessage}</span >
+								:
+						null
+						}
 					</div>
 					<div className="field">
 						<label>Address:</label>
 						<input onChange={handleChange} type="text" name="street_address" value={newAppointment.street_address} placeholder="Main St" />
-					</div>
+						{errorMessage !== undefined && errorMessage.includes("Street address")
+							?
+								<span className="input-error">{errorMessage}</span >
+								:
+						null
+						}
+																		</div>
 					<div className="city-info">
 						<div className="field">
 							<label>City:</label>
 							<input onChange={handleChange} type="text" name="city" value={newAppointment.city} placeholder="NYC" />
+							{errorMessage !== undefined && errorMessage.includes("City")
+							?
+								<span className="input-error">{errorMessage}</span >
+								:
+						null
+						}
 						</div>
 						<div className="field">
 							<label>State:</label>
@@ -35,23 +53,46 @@ const AppointmentModal = ({showModal, onClose, handleChange, newAppointment, han
 						<div className="field">
 							<label>Zipcode:</label>
 							<input onChange={handleChange} type="number" name="zipcode" value={newAppointment.zipcode}  placeholder="10001" />
+							{errorMessage !== undefined && errorMessage.includes("Zipcode")
+							?
+								<span className="input-error">{errorMessage}</span >
+								:
+						null
+						}
 						</div>
 					</div>
 					<div className="country-row">
 						<div className="field">
 							<label>Country:</label>
 							<input onChange={handleChange} type="text" name="country" value={newAppointment.country} placeholder="USA" />
+							{errorMessage !== undefined && errorMessage.includes("Country")
+							?
+								<span className="input-error">{errorMessage}</span >
+								:
+						null
+						}
 						</div>
 						<div className="field">
 							<label>Contact:</label>
-							<input onChange={handleChange} type="text" name="company_contact" value={newAppointment.company_contact} placeholder="Davy Crockett" autoComplete="chrome-off"/>
-							<SearchLeads {...{leads, newAppointment, showLeads}} />
+							<input onFocus={()=>setShowPossibleLeads(true)} 
+								onBlur={()=>setShowPossibleLeads(false)} 
+								onChange={handleChange} 
+								type="text" name="company_contact" 
+								value={newAppointment.company_contact} placeholder="Davy Crockett" autoComplete="chrome-off"
+								/>
+							<SearchLeads {...{leads, newAppointment, showPossibleLeads}} />
 						</div>
 					</div>
 					<div className="contact-information">
 						<div className="field">
 							<label>Phone:</label>
 							<input onChange={handleChange} type="text" name="phone" value={newAppointment.phone} placeholder="555-555-5555" />
+							{errorMessage !== undefined && errorMessage.includes("Phone")
+							?
+								<span className="input-error">{errorMessage}</span >
+								:
+						null
+						}
 						</div>
 						<div className="field">
 							<label>Email:</label>
@@ -60,6 +101,12 @@ const AppointmentModal = ({showModal, onClose, handleChange, newAppointment, han
 						<div className="field">
 							<label>Meeting:</label>
 							<input onChange={handleChange} type="datetime-local" name="meeting_date" value={newAppointment.meeting_date} />
+							{errorMessage !== undefined && errorMessage.includes("Meeting")
+							?
+								<span className="input-error">{errorMessage}</span>
+								:
+						null
+						}
 						</div>
 					</div>
 					<div className="field">

@@ -34,6 +34,10 @@
 	margin-bottom: 16px;
 }
 
+.hoverable {
+	cursor: pointer;
+}
+
 .update-btn {
 	margin-top: 16px;
 }
@@ -56,4 +60,22 @@
 
 .appointment_notes {
 	white-space: pre;
+}
+
+.show-lead {
+	display: flex;
+	justify-content: center;
+	margin-top: 32px;
+}
+
+.lead-container {
+	background-color: var(--manila);
+	padding: 30px 40px;
+	width: 90%;
+}
+
+.name-row {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 32px;
 }

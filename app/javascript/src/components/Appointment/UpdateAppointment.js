@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UpdateAppointment = ({hideEdit, handleChange, handleUpdate, editedAppointment, appointment}) => (
+const UpdateAppointment = ({hideEdit, handleChange, handleUpdate, editedAppointment, appointment, errorMessage}) => (
 	<div className="update-appointment">
 		<div className="exit">
 			<button onClick={hideEdit}>&times;</button>
@@ -23,6 +23,12 @@ const UpdateAppointment = ({hideEdit, handleChange, handleUpdate, editedAppointm
 				<div className="field">
 					<label>Zipcode:</label>
 					<input onChange={handleChange} value={editedAppointment.zipcode} type="number" name="zipcode"  />
+					{errorMessage !== undefined && errorMessage.includes("Zipcode")
+							?
+								<span className="input-error">{errorMessage}</span >
+								:
+						null
+						}
 				</div>
 			</div>
 			<div className="country-row">
@@ -30,15 +36,17 @@ const UpdateAppointment = ({hideEdit, handleChange, handleUpdate, editedAppointm
 					<label>Country:</label>
 					<input onChange={handleChange} value={editedAppointment.country} type="text" name="country" />
 				</div>
-				<div className="field">
-					<label>Contact:</label>
-					<input onChange={handleChange} value={editedAppointment.company_contact} type="text" name="company_contact" />
-				</div>
-			</div>
+							</div>
 			<div className="contact-information">
 				<div className="field">
 					<label>Phone:</label>
 					<input onChange={handleChange} value={editedAppointment.phone} type="text" name="phone" />
+					{errorMessage !== undefined && errorMessage.includes("Phone")
+							?
+								<span className="input-error">{errorMessage}</span >
+								:
+						null
+						}
 				</div>
 				<div className="field">
 					<label>Email:</label>

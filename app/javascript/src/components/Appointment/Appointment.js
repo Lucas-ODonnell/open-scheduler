@@ -4,6 +4,7 @@ import axios from 'axios';
 import AppContext from '../../context/AppContext';
 import ViewAppointment from './ViewAppointment';
 import UpdateAppointment from './UpdateAppointment';
+import AppointmentLead from './AppointmentLead';
 import './Appointment.css';
 
 const ShowAppointment = () => {
@@ -11,9 +12,12 @@ const ShowAppointment = () => {
 	const FontAwesomeIcon = global.FontAwesomeIcon;
 	const { slug } = useParams();
 	const [appointment, setAppointment] = useState({});
+	const [lead, setLead] = useState({});
 	const [loaded, setLoaded] = useState(false);
 	const [update, setUpdate] = useState(false);
+	const [showLead, setShowLead] = useState(false);
 	const [editedAppointment, setEditedAppointment] = useState({});
+	const [errorMessage, setErrorMessage] = useState();
 	const config = {
 		headers: { Authorization: global.authorizationToken }
 	}
@@ -22,6 +26,7 @@ const ShowAppointment = () => {
 		const url = `/api/v1/appointments/${slug}`;
 		axios.get(url, config)
 			.then ( response => {
+				validateLead(response);
 				setAppointment(response.data.data)
 				setLoaded(true);
 			})
@@ -31,6 +36,13 @@ const ShowAppointment = () => {
 				global.flashError();
 			})
 	}, [update])
+/*Validate lead set the lead if the appointment has a relationship with a lead*/
+	const validateLead = (response) => {
+		if (response.data.data.relationships.lead.data !== null) {
+			axios.get(`/api/v1/leads/${response.data.data.relationships.lead.data.id}`, config)
+				.then(response => {setLead(response.data.data)})
+		}
+	}
 
 	//The notes should be loaded so we can add to them.
 	const showEdit = (e) => {
@@ -80,8 +92,7 @@ const ShowAppointment = () => {
 				setUpdate(false);
 			})
 			.catch(response => {
-				global.setError(response.response.data[0]);
-				global.flashError();
+				setErrorMessage(response.response.data[0])
 			});
 	}
 
@@ -90,9 +101,12 @@ const ShowAppointment = () => {
 			{ loaded &&
 				<div className="appointment-card shadow-effect">
 					{!update ?
-					<ViewAppointment {...{appointment, FontAwesomeIcon, showEdit}}/>
+						<>
+					<ViewAppointment {...{appointment, FontAwesomeIcon, showEdit, setShowLead}}/>
+					<AppointmentLead {...{lead, showLead}} />
+					</>
 					:
-					<UpdateAppointment {...{hideEdit, handleChange, handleUpdate, editedAppointment, appointment}}/>
+					<UpdateAppointment {...{hideEdit, handleChange, handleUpdate, editedAppointment, appointment, errorMessage}}/>
 					}
 				</div>
 			}
