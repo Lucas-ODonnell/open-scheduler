@@ -3,8 +3,10 @@ module Api
     class AppointmentsController < ApplicationController
       before_action :authenticate_user!
       def index
-        appointments = Appointment.where(user_id: current_user).order("meeting_date ASC").includes(:lead)
-        render json: AppointmentSerializer.new(appointments).serializable_hash.to_json
+        appointments = Appointment.where(user_id: current_user).order("meeting_date ASC")
+        #calling the full AppointmentSerializer is redundant since I don't need the lead relationships
+        #and I need company_name formatted_date, and slug
+        render json: AppointmentIndexSerializer.new(appointments).serializable_hash.to_json
       end
 
       def show
