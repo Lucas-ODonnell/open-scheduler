@@ -29,6 +29,49 @@
 
 ## **Sample**
 
+The user creates some leads.
+
+<img src='https://i.imgur.com/KRZ3IaS.png' >
+<img src='https://i.imgur.com/vCJETqP.png' >
+
+
+The user creates some appointments, filter by name, and delete appointments
+
+
+<img src='https://i.imgur.com/90XKpEW.png' >
+<img src='https://i.imgur.com/bxxNXFf.png' >
+<img src='https://i.imgur.com/mS0AGKF.png' >
+<img src='https://i.imgur.com/f7pii6O.png'
+
+
+User can show an appointment and update an appointment
+
+<img src='https://i.imgur.com/br74X54.png' >
+<img src='https://i.imgur.com/MBRNgz0.png' >
+
+
+Appointments don't need a contact from the lead page. However, if you do choose a lead from
+the lead page you can get the information by hovering over contact on the show page.
+
+<img src='https://i.imgur.com/zqFvtxn.png' >
+
+
+User has a profile. The Delete Account button will delete their account.
+
+<img src='https://i.imgur.com/CZK0cRl.png' >
+
+User can reset their password
+
+<img src='https://i.imgur.com/zFwJOMk.png' >
+<img src='https://i.imgur.com/raHN2Vr.png' >
+<img src='https://i.imgur.com/SyMKZli.png' >
+
+
+User can upload documents under 5mb to keep important things organized on multiple computers.
+
+<img src='https://i.imgur.com/cBDgjtF.png' >
+
+
 
 
 
