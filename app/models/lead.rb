@@ -1,7 +1,7 @@
 class Lead < ApplicationRecord
   belongs_to :user
   belongs_to :appointment, optional: true
-  validates :name, :company, :referrer, presence: true
+  validates :name, :company, presence: true
   validates :phone, phone: true
   before_save :normalize_phone
 

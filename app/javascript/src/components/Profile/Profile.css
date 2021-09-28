@@ -33,6 +33,25 @@
 	border: 2px solid white;
 }
 
+.header-x {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.header-x button {
+	background-color: transparent;
+	border: 2px solid transparent;
+	padding: 3px 5px;
+	color: var(--cardColorComplement);
+	padding: 3px 5px;
+	font-size: 30px;
+}
+
+.header-x button:hover {
+	border: 2px solid white;
+}
+
 .delete-account {
 	background-color: var(--warning);
 	color: white;

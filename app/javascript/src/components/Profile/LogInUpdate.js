@@ -3,7 +3,7 @@ import React from 'react';
 const LogInUpdate = ({setLogInUpdate, logInChange, editedLogIn, updateLogIn}) => {
 	return (
 		<div className="profile-card shadow-effect">
-			<div className="header-edit">
+			<div className="header-x">
 				<button onClick={() => setLogInUpdate(false)}>&times;</button>
 			</div>
 			<div className="header-title">

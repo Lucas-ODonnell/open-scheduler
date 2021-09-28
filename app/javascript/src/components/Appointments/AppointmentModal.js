@@ -52,7 +52,7 @@ const AppointmentModal = ({showModal, onClose, handleChange, newAppointment, han
 						</div>
 						<div className="field">
 							<label>Zipcode:</label>
-							<input onChange={handleChange} type="number" name="zipcode" value={newAppointment.zipcode}  placeholder="10001" />
+							<input onChange={handleChange} type="text" name="zipcode" value={newAppointment.zipcode}  placeholder="10001" />
 							{errorMessage !== undefined && errorMessage.includes("Zipcode")
 							?
 								<span className="input-error">{errorMessage}</span >

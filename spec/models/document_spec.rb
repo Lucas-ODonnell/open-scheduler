@@ -30,7 +30,7 @@ RSpec.describe Document, type: :model do
 
   it "doesn't accept files over 5mb" do
     @document2 = build(:document)
-    @document2.file.attach(io: File.open(Rails.root.join('spec', 'models', 'files', 'test2.jpg')), filename: 'test2.jpg', content_type: 'image/jpg')
+    @document2.file.attach(io: File.open(Rails.root.join('spec', 'models', 'files', 'big-file.pdf')), filename: 'big-file.pdf', content_type: 'pdf')
     expect(@document2.errors[:file]).to include { :file => "is too big" }
   end
 end

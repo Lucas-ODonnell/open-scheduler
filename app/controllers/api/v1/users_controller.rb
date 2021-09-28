@@ -17,7 +17,7 @@ module Api
       end
 
       def destroy 
-        user = User.find(params[:id])
+        user = User.includes([documents: [file_attachment: :blob]]).find(params[:id])        
         if user.destroy
           head :no_content
         else

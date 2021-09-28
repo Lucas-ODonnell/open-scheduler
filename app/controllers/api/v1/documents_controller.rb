@@ -4,7 +4,7 @@ module Api
       before_action :authenticate_user!
 
       def index
-        documents = Document.where(user_id: current_user).order("created_at ASC").includes([file_attachment: :blob])
+        documents = Document.where(user_id: current_user).order("created_at ASC").with_attached_file
         render json: DocumentSerializer.new(documents).serializable_hash.to_json
       end
 

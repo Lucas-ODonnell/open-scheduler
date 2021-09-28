@@ -3,9 +3,12 @@ import React from 'react';
 const Lead = ({setCurrent, name, company, position, phone, email, referrer, notes, id, handleDelete, setUpdateModal, FontAwesomeIcon, global}) => {
 	return (
 		<div className="lead-card">
-			<div className="delete-button">
+			<div className="lead-buttons">
 				<button onClick={()=> {global.setShowWarning(true); global.setDeleteFunction(()=>()=> handleDelete(id))}}><FontAwesomeIcon  icon="trash" /></button>
 				<button onClick={()=>{setUpdateModal(true); setCurrent(id);}}><FontAwesomeIcon icon="edit" /></button>
+			</div>
+			<div className="lead-icon">
+				<FontAwesomeIcon icon="user" />
 			</div>
 			<div className="lead-name">
 				<div className="attribute">

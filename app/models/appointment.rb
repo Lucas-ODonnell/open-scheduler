@@ -1,9 +1,8 @@
 class Appointment < ApplicationRecord
   validates :company_name, :street_address, :city, :country, :meeting_date, presence: true
   validates :company_name, uniqueness: { case_sensitive: false }
-  validates :zipcode, length: {minimum:5, maximum: 5}, allow_blank: true
   validates :phone, phone: true, presence: true
-  before_save :normalize_phone, :normalize_date;
+  before_save :normalize_phone, :normalize_date
   before_create :slugify
   belongs_to :user
   has_one :lead, dependent: :destroy

@@ -12,6 +12,28 @@
 	border-radius: 15%;
 }
 
+.lead-icon {
+	font-size: 30px;
+	color: var(--cardColorComplement)
+}
+
+.lead-buttons {
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+}
+
+.lead-buttons button {
+	border: none;
+	background-color: transparent;
+	border: 1px solid transparent;
+	padding: 3px 5px;
+}
+
+.lead-buttons button:hover {
+	border: 1px solid white;
+}
+
 .new-lead {
 	display: flex;
 	justify-content: center;
@@ -36,7 +58,7 @@
 	background: var(--cardColor);
 	margin: 20px;
 	padding: 20px;
-	width: 375px;
+	width: 385px;
 	border-radius: 4px;
 	box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
 	transition: all 0.2s;

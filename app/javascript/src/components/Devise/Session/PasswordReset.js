@@ -82,8 +82,10 @@ const PasswordReset = ({setPasswordReset}) => {
 			<div className="password-reset">
 				<form onSubmit={handlePasswordTokenSubmit}>
 					<label>Receive reset token</label>
-					<input onChange={handleEmailChange} type="email" name="email" value={email.email} placeholder="Email"/>
-					<button>Submit</button>
+					<div className="reset">
+						<input onChange={handleEmailChange} type="email" name="email" value={email.email} placeholder="Email"/>
+						<button>Submit</button>
+					</div>
 				</form>
 			</div>
 			<div className="password-change">
