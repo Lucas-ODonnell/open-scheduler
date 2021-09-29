@@ -1,0 +1,65 @@
+nav {
+	position: fixed;
+	top: 0;
+	z-index: 2;
+}
+
+div {
+	border-radius: 4px;
+}
+
+.modal-background {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 10;
+}
+
+.navigation {
+	height: 100%;
+	background: var(--navBarColor); 	
+	position: fixed;
+	width: 200px;
+	left: 0;
+	overflow-x: hidden;
+	padding-top: 20px;
+}
+
+.nav-header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 2px solid rgba(150,150,150,.3);
+}
+
+.nav-header h1 {
+	color: white;
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.navbar li {
+	height: 46px;
+	width: 100%;
+	text-align: center;
+	line-height: 46px;
+	font-size: 1.2rem;
+	font-weight: bold;
+	border-bottom: 2px solid rgba(150,150,150,.3);
+}
+
+.navbar li:hover {
+	background-color: rgba(150,150,150,.3);
+}
+
+.navbar a {
+	color: white;
+}
+
+

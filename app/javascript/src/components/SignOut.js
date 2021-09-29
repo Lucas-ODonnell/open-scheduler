@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import axios from 'axios';
 import AppContext from '../context/AppContext';
+import './SignOut.css'
 
 const SignOut = () => {
 	const global = useContext(AppContext);

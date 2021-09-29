@@ -1,0 +1,18 @@
+/* Sign out button */
+
+.signout {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 8px;
+	margin-right: 8px;
+}
+
+.signout button {
+	border: 1px solid transparent;
+	background-color: transparent;
+	padding: 3px 5px;
+}
+
+.signout button:hover {
+	border: 1px solid var(--genericButton);
+}
