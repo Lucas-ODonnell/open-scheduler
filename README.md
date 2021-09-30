@@ -74,7 +74,7 @@ User can upload documents under 5mb to keep important things organized on multip
 
 <img src='https://i.imgur.com/cBDgjtF.png' >
 
-**[Live Demo](https://open-scheduler.herokuapp.com/) **
+**[Live Demo](https://open-scheduler.herokuapp.com/)**
 
 
 
