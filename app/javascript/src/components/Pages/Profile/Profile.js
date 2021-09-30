@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
-import AppContext from '../../context/AppContext';
+import AppContext from '../../../context/AppContext';
 import LogInShow from './LogInShow';
 import ProfileShow from './ProfileShow';
 import LogInUpdate from './LogInUpdate';

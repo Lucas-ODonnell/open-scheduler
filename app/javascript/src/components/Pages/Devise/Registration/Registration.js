@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react';
-import AppContext from '../../../context/AppContext';
+import AppContext from '../../../../context/AppContext';
 import axios from 'axios';
 import SignUp from './SignUp';
 

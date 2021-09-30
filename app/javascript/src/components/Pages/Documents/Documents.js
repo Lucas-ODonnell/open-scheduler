@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import AppContext from '../../context/AppContext';
+import AppContext from '../../../context/AppContext';
 import Document from './Document';
 import FileUploader from './FileUploader';
-import Filter from '../Filter';
+import Filter from '../../Filter';
 import './Document.css';
 
 const Documents = () => {

@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
-import AppContext from '../../context/AppContext';
+import AppContext from '../../../context/AppContext';
 import AppointmentModal from './AppointmentModal';
 import axios from 'axios';
 import Appointment from './Appointment';
-import Filter from '../Filter';
+import Filter from '../../Filter';
 import './Appointments.css';
 
 const Appointments = () => {

@@ -1,4 +1,7 @@
-# **Open Scheduler** is an app for scheduling appointments. 
+# **Open Scheduler** is a desktop app for scheduling appointments. 
+
+
+**This app is not designed for mobile. This application ideally would be used with a desktop computer and a phone.**
 
 * **User** can:
   * Get Leads

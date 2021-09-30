@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import AppContext from '../../context/AppContext';
+import AppContext from '../../../context/AppContext';
 import ViewAppointment from './ViewAppointment';
 import UpdateAppointment from './UpdateAppointment';
 import AppointmentLead from './AppointmentLead';

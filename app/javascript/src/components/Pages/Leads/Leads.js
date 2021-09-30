@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import AppContext from '../../context/AppContext';
+import AppContext from '../../../context/AppContext';
 import Lead from './Lead';
 import CreateLead from './CreateLead';
 import UpdateLead from './UpdateLead';
-import Filter from '../Filter';
+import Filter from '../../Filter';
 import './Leads.css';
 
 const Leads = () => {

@@ -1,6 +1,12 @@
 import React, {useState, useEffect } from 'react';
-import Router from './Router';
-import Devise from './components/Devise/Devise';
+import { HashRouter as Routes, Route, Switch } from 'react-router-dom';
+import Nav from './components/Nav';
+import Appointments from './components/Pages/Appointments/Appointments';
+import Appointment from './components/Pages/Appointment/Appointment';
+import Profile from './components/Pages/Profile/Profile';
+import Leads from './components/Pages/Leads/Leads';
+import Documents from './components/Pages/Documents/Documents';
+import Devise from './components/Pages/Devise/Devise';
 import FakeNav from './components/FakeNav';
 import SignOut from './components/SignOut';
 import Alert from './components/Alert';
@@ -63,7 +69,16 @@ const App = () => {
 				:
 				<>
 					<SignOut />
-					<Router />
+					<Routes>
+						<Nav />
+						<Switch>
+							<Route exact path="/" component={Appointments}/>
+							<Route exact path="/appointments/:slug" component={Appointment}/>
+							<Route exact path="/leads" component={Leads} />
+							<Route exact path="/profile" component={Profile} />
+							<Route exact path="/documents" component={Documents} />
+						</Switch>
+					</Routes>
 					</>
 				}
 			</AppContext.Provider>
