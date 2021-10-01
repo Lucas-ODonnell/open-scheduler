@@ -144,23 +144,25 @@ const Leads = () => {
 
 	return (
 		<section>
-			<div className="leads-header">
-				<h1 className="shadow-effect">Leads</h1>
-			</div>
-			<div className="new-lead">
-				<button className="modal-button" onClick={()=> setCreateModal(true)}>New Lead</button>
-				<CreateLead 
-					onClose={()=> setCreateModal(false)} 
-					{...{createModal, handleChange, handleSubmit, newLead, errorMessage}} 
+			<div className="leads">
+				<div className="leads-header">
+					<h1 className="shadow-effect">Leads</h1>
+					<div className="new-lead">
+						<button className="modal-button" onClick={()=> setCreateModal(true)}>New Lead</button>
+						<CreateLead 
+							onClose={()=> setCreateModal(false)} 
+							{...{createModal, handleChange, handleSubmit, newLead, errorMessage}} 
+							/>
+					</div>
+					<Filter {...{handleFilterChange, filterLead, string}}/>
+				</div>
+				<UpdateLead 
+					onClose={()=> setUpdateModal(false)} 
+					{...{updateModal, handleUpdateChange, handleUpdateSubmit, updateLead, errorMessage}} 
 					/>
-			</div>
-			<Filter {...{handleFilterChange, filterLead, string}}/>
-			<UpdateLead 
-				onClose={()=> setUpdateModal(false)} 
-				{...{updateModal, handleUpdateChange, handleUpdateSubmit, updateLead, errorMessage}} 
-				/>
-			<div className="all-leads">
-				{indexLeads}
+				<div className="all-leads">
+					{indexLeads}
+				</div>
 			</div>
 		</section>
 	)

@@ -61,7 +61,7 @@ table {
 }
 
 span {
-	font-size: 18px;
+	font-size: 1rem;
 	font-weight: bold;
 }
 
@@ -82,7 +82,8 @@ body {
 	background-image:  linear-gradient(rgb(211,211,211) 2px, transparent 2px), linear-gradient(90deg, rgb(211,211,211) 2px, transparent 2px), linear-gradient(rgb(211,211,211) 1px, transparent 1px), linear-gradient(90deg, rgb(211,211,211) 1px, white 1px);
 	background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
 	background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
-	padding-left: 220px;
+	padding-left: 10%;
+	overflow: auto;
 }
 
 a {
@@ -92,21 +93,21 @@ a {
 
 label {
 	display: inline-block;
-	margin-bottom: 5px;
+	margin-bottom: .3125rem;
 }
 
 input, textarea {
 	border: 2px solid rgb(220,220,220);
-	border-radius: 4px;
+	border-radius: .25rem;
 	display: block;
 	width: 100%;
-	padding: 10px;
-	font-size: 14px;
+	padding: .625rem;
+	font-size: .875rem;
 }
 
 button {
 	cursor: pointer;
-	border-radius: 4px;
+	border-radius: .25rem;
 }
 
 .shadow-effect

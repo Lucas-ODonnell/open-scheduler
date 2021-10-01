@@ -1,7 +1,16 @@
 .files-header {
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
 	align-items: center;
+	width: 100%;
+	word-break: break-all;
+}
+.files-header-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 30%;
+	min-width: 10rem;
 }
 
 .files-header h1 {
@@ -10,34 +19,34 @@
 	background: var(--navBarColor);
 	color: white;
 	border-radius: 15%;
-	padding: 30px 40px;
+	padding: 1.875rem 2.5rem;
 	margin-bottom: 16px;
 }
 
 .documents-body {
 	display: flex;
 	justify-content: center;
+	width: 100%;
 }
 
 .file-uploader {
 	background: var(--cardColor);
-	padding: 30px 40px;
-	width: 90%;
+	padding: 1.875rem 2.5rem;
+	width: 80%;
 }
 
 .file-uploader label {
-	font-size: 17px;
+	font-size: 1rem;
 	font-weight: bold;
 }
 
 .form-input {
-	margin-bottom: 32px;
+	margin-bottom: 2rem;
 }
 
 .file-submitter {
 	font-size: 1.5rem;
-	padding: 5px 10px;
-	width: 100%;
+	padding: .3125rem .625rem;
 	background: var(--warning);
 	border: 1px solid var(--warning);
 	color: white;
@@ -54,7 +63,7 @@
 }
 
 .file-selector {
-	margin-bottom: 16px;
+	margin-bottom: 1rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -64,23 +73,21 @@
 .button-like {
 	font-size: 1rem;
 	width: 5%;
-	background-color: black;
-	border: 1px solid black;
 	color: white;
-	padding: 5px 10px;
-	border-radius: 4px;
+	padding: .3125rem .625rem;
+	border-radius: .25rem;
 	pointer-events: auto;
 	cursor: pointer;
 }
 
 .button-like:hover {
 	color: black;
-	background-color: white;
 }
 
 
+
 .selected-file {
-	margin-bottom: 8px;
+	margin-bottom: .5rem;
 }
 
 /*files*/
@@ -88,17 +95,17 @@
 .all-documents {
 	display: flex;
 	justify-content: center;
-	padding-top: 16px;
+	padding-top: 1rem;
+	width: 100%;
 }
 
 .document-container {
 	background: var(--cardColor);
-	padding: 30px 40px;
-	width: 90%;
+	padding: 1.875rem 2.5rem;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 15px;
-	max-width: 100%;
+	grid-gap: 1.3125rem;
+	width: 80%;
 }
 
 .each-file {
@@ -108,8 +115,8 @@
 
 .file-header {
 	background-color: rgb(215,215,215);
-	height: 64px;
-	padding: 5px 10px;
+	height: 4rem;
+	padding: .3125rem .625rem;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -118,9 +125,9 @@
 .file-header button {
 	background: transparent;
 	border: 1px solid transparent;
-	font-size: 16px;
+	font-size: 1rem;
 	font-weight: bold;
-	border-radius: 4px;
+	border-radius: .25rem;
 }
 
 .file-header button:hover {
@@ -129,17 +136,17 @@
 
 .file-header h2 {
 	font-weight: bold;
-	font: 24px;
+	font: 1.5rem;
 }
 
 .file-body {
-	padding: 10px 20px;
+	padding: .625rem 20px;
 }
 
 .file-download {
 	display: flex;
 	justify-content: center;
-	margin-top: 16px;
+	margin-top: 1rem;
 }
 
 .file-download a {
@@ -147,7 +154,7 @@
 	background-color: black;
 	border: 1px solid black;
 	border-radius: 4px;
-	padding: 5px 10px;
+	padding: .3125rem .625rem;
 	font-weight: bold;
 }
 

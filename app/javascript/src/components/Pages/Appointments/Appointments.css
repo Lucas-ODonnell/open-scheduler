@@ -1,32 +1,39 @@
 .appointments {
-	padding: 30px 40px;
-}
-.appointments-header {
+	padding: 1.875rem 2.5rem;
 	display: flex;
-	justify-content: center;
-	margin-top: 16px;
-	margin-bottom: 32px;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.appointments-header {
+	width: 30%;
+	min-width: 5rem;
+	margin: 0 auto;
 }
 
 .appointments-header h1 {
+	display: flex;
+	justify-content: center;
 	font-size: 3rem;
 	font-weight: bold;
 	background: var(--navBarColor);
 	color: white;
-	padding: 30px 40px;
+	padding: 1.875rem 2.5rem;
 	border-radius: 15%;
+	word-break: break-all;
 }
 
 .new-appointment {
 	display: flex;
 	justify-content: center;
-	margin-bottom: 18px;
+	margin: 1rem 0;
 }
 
 .modal-button {
-	font-size: 16px;
-	padding: 5px 10px;
-	border: 5px solid var(--warning);
+	font-size: 1rem;
+	padding: .3125rem .625rem;
+	border: .3125rem solid var(--warning);
 	background: var(--warning);
 	color: white;
 }
@@ -51,19 +58,19 @@
   min-height: 200px;
   display: grid;
   grid-template-rows: 20px 50px 1fr 50px;
-  border-radius: 10px;
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  border-radius: .625rem;
+  box-shadow: 0px 6px .625rem rgba(0, 0, 0, 0.25);
   transition: all 0.2s;
 }
 
 .each-card:hover {
-	box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+	box-shadow: 0px 6px .625rem rgba(0, 0, 0, 0.4);
   transform: scale(1.01);
 }
 
 .appointments-icon  {
 	color: var(--cardColorComplement);
-	font-size: 30px;
+	font-size: 1.875rem;
 }
 
 .each-title {
@@ -91,7 +98,7 @@
 
 .link-appointment a::after {
 	position: absolute;
-  top: 25px;
+  top: 2.3125rem;
   left: 0;
   content: "";
   width: 0%;
@@ -107,7 +114,7 @@
 
 /*show page */
 .appointment-card {
-	padding: 40px 60px;
+	padding: 2.5rem 60px;
 	background: var(--cardColor);
 }
 
@@ -165,7 +172,7 @@
 	color: var(--cardColorComplement);
 	background-color: transparent;
 	border: 2px solid transparent;
-	padding: 3px 5px;
+	padding: 3px .3125rem;
 }
 
 .delete-button button:hover {
@@ -196,7 +203,7 @@
 	align-items: center;
 	background-color: rgb(127,127,127);
 	border-bottom: rgb(240,240,240);
-	padding: 20px 30px;
+	padding: 20px 1.875rem;
 	border-radius: 4px 4px 0 0;
 }
 
@@ -220,12 +227,12 @@
 }
 
 .appointment-form {
-	padding: 30px 40px;
+	padding: 1.875rem 2.5rem;
 }
 
 .field {
-	margin-bottom: 10px;
-	padding-bottom: 10px;
+	margin-bottom: .625rem;
+	padding-bottom: .625rem;
 	position: relative;
 }
 
@@ -235,7 +242,7 @@
 	color: white;
 	display: block;
 	width: 100%;
-	padding: 10px;
+	padding: .625rem;
 	font-size: 16px;
 }
 
@@ -248,7 +255,7 @@
 
 .leads-search {
 	background: var(--manila);
-	padding: 5px 10px;
+	padding: .3125rem .625rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

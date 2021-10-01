@@ -3,11 +3,10 @@
 	top: 10%;
 	left: 50%;
 	transform: translate(-50%);
-	width: 800px;
-	max-width: 100%;
-	border-radius: 4px;
+	width: 40%;
+	min-width: 2rem;
+	border-radius: .25rem;
 	background-color: white;
-	overflow: hidden;
 }
 
 .sign-header {
@@ -15,8 +14,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 64px;
-	border-radius: 4px 4px 0 0;
+	border-radius: .25rem .25rem 0 0;
+	padding: 1rem 0;
 }
 
 .sign-header h1 {
@@ -25,13 +24,13 @@
 }
 
 .sign-form {
-	padding: 30px 40px;
+	padding: 1.875rem 2.5rem;
 }
 
 .switcher {
 	display: flex;
 	justify-content: flex-end;
-	margin-top: 16px;
+	margin-top: 1rem;
 }
 
 .switcher-vert {
@@ -41,8 +40,8 @@
 }
 
 .switcher button {
-	font-size: 16px;
-	padding: 3px 5px;
+	font-size: 1rem;
+	padding: .1875rem .3125rem;
 	border: 1px solid transparent;
 	background-color: white;
 }
@@ -54,12 +53,12 @@
 .password-reset {
 	display: flex;
 	justify-content: flex-end;
-	margin-top: -35px;
+	margin-top: -2.1875;
 }
 
 .password-reset form {
 	width: 70%;
-	padding: 30px 40px;
+	padding: 1.875rem 2.5rem;
 	display: flex;
 	flex-direction: column;
 }
@@ -70,8 +69,8 @@
 }
 
 .reset button {
-	font-size: 17px;
-	padding: 3px 5px;
+	font-size: 1rem;
+	padding: .1875rem .3125rem;
 	color: white;
 	background-color: rgb(53,116,179);
 	border: 1px solid rgb(53,116,179);
@@ -97,7 +96,7 @@
 	color: white;
 	background-color: rgb(53, 116, 179);
 	border: 1px solid rgb(53,116,179);
-	padding: 10px 15px;
+	padding: 10px 1.3125rem;
 }
 
 .password-change button:hover {

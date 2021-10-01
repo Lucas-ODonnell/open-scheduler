@@ -1,8 +1,16 @@
+.profile-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	word-break: break-all;
+}
+
 .profile-card {
-	padding: 20px 30px;
+	padding: 1.25rem 1.875rem;
 	background: var(--cardColor);
-	margin-right: 64px;
-	margin-bottom: 64px;
+	margin-right: 4rem;
+	margin-bottom: 4rem;
+	width: 80%;
 }
 
 .header-edit {
@@ -24,13 +32,13 @@
 
 .header-edit button {
 	background-color: transparent;
-	border: 2px solid transparent;
-	padding: 3px 5px;
+	border: .125rem solid transparent;
+	padding: .1875rem .3125rem;
 	color: var(--cardColorComplement);
 }
 
 .header-edit button:hover {
-	border: 2px solid white;
+	border: .125rem solid white;
 }
 
 .header-x {
@@ -41,27 +49,32 @@
 
 .header-x button {
 	background-color: transparent;
-	border: 2px solid transparent;
-	padding: 3px 5px;
+	border: .125rem solid transparent;
+	padding: .1875rem .3125rem;
 	color: var(--cardColorComplement);
-	padding: 3px 5px;
-	font-size: 30px;
+	padding: .1875rem .3125rem;
+	font-size: 1.875rem;
 }
 
 .header-x button:hover {
-	border: 2px solid white;
+	border: .125rem solid white;
 }
 
 .delete-account {
 	background-color: var(--warning);
 	color: white;
 	font-size: 1.5rem;
-	padding: 10px 15px;
-	border-radius: 4px;
+	padding: .625rem .9375rem;
+	border-radius: .25rem;
 	border: 1px solid var(--warning);
 }
 
 .delete-account:hover {
 	background-color: white;
 	color: var(--warning);
+}
+
+.delete-container {
+	align-self: flex-start;
+	margin-left: 8%;
 }

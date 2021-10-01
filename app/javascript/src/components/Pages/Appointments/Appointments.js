@@ -43,7 +43,7 @@ const Appointments = () => {
 				global.setError("You have been signed out");
 				global.flashError();
 			});
-			getLeads();
+		getLeads();
 	}, [])
 
 
@@ -130,23 +130,25 @@ const Appointments = () => {
 	});
 
 	return (
-		<section className="appointments">
-			<div className="appointments-header">
-				<h1 className="shadow-effect">Appointments</h1>
-			</div>
-			<div className="new-appointment">
-				<button className="modal-button" onClick={() => setShowModal(true)}>New Appointment</button>
-				<AppointmentModal 
-					onClose={() => 
-					setShowModal(false)} 
-					{...{showModal, handleChange, newAppointment, 
-						handleSubmit, leads, showPossibleLeads, 
-						setShowPossibleLeads, errorMessage}} 
-					/>
-			</div>
-			<Filter {...{handleFilterChange, appointmentFilter, string}}/>
-			<div className="appointments-grid">
-				{appointmentList}
+		<section>
+			<div className="appointments">
+				<div className="appointments-header">
+					<h1 className="shadow-effect">Appointments</h1>
+					<div className="new-appointment">
+						<button className="modal-button" onClick={() => setShowModal(true)}>New Appointment</button>
+						<AppointmentModal 
+							onClose={() => 
+							setShowModal(false)} 
+							{...{showModal, handleChange, newAppointment, 
+								handleSubmit, leads, showPossibleLeads, 
+								setShowPossibleLeads, errorMessage}} 
+							/>
+					</div>
+					<Filter {...{handleFilterChange, appointmentFilter, string}}/>
+				</div>
+				<div className="appointments-grid">
+					{appointmentList}
+				</div>
 			</div>
 		</section>
 	)

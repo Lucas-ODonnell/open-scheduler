@@ -112,6 +112,7 @@ const Profile = () => {
 		if (!hasLoaded) return null;
 		return (
 			<section>
+				<div className="profile-container">
 				{profileUpdate ?
 				<ProfileUpdate {...{setProfileUpdate, profileChange, editedProfile, updateProfile}} />
 				:
@@ -122,7 +123,10 @@ const Profile = () => {
 				:
 				<LogInShow {...{currentUser, FontAwesomeIcon, setLogInUpdate}}/>
 				}
+				<div className="delete-container">
 				<button onClick={()=>{global.setShowWarning(true); global.setDeleteFunction(()=>()=>handleDelete())}} className="delete-account">Delete Account</button>
+				</div>
+				</div>
 			</section>
 		)
 	}

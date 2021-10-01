@@ -1,9 +1,12 @@
 .filter {
 	display: flex;
 	justify-content: center;
+	width: 100%;
+	min-width: 2rem;
+	overflow-wrap: break-word;
 }
 
 .filter input {
-	margin-bottom: 16px;
+	margin-bottom: 1rem;
 	background-color: rgb(215,215,215);
 }

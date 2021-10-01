@@ -88,7 +88,7 @@ const Documents = () => {
 		if (filterDocument === "") {
 			return thisDocument;
 		} else if (thisDocument.attributes.title.toLowerCase().includes(filterDocument.toLowerCase())) {
-		return thisDocument;
+			return thisDocument;
 		}
 	})
 	.map((thisDocument, index) => {
@@ -101,20 +101,22 @@ const Documents = () => {
 
 	return (
 		<section>
-			<div className="files">
-				<div className="files-header">
+			<div className="files-header">
+				<div className="files-header-container">
 					<h1 className="shadow-effect">Documents</h1>
+					<div>
+						<Filter {...{handleFilterChange, filterDocument, string}}/>
+					</div>
 				</div>
-				<Filter {...{handleFilterChange, filterDocument, string}}/>
+			</div>
 				<div className="documents-body">
 					<FileUploader {...{fileInfo, handleInputChange, file, onFileSelection, handleSubmit, errorMessage}}/>
 				</div>
-			</div>
-			<div className="all-documents">
-				<div className="document-container shadow-effect" >
-					{documentList}
+				<div className="all-documents">
+					<div className="document-container shadow-effect" >
+						{documentList}
+					</div>
 				</div>
-			</div>
 		</section>
 	)
 }
