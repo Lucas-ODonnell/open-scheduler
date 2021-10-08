@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'jsonapi-serializer'
 gem 'phonelib'
 gem "aws-sdk-s3", require: false
+gem 'rename'
 
 
 # Use Active Storage variant

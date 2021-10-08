@@ -109,14 +109,16 @@ const Documents = () => {
 					</div>
 				</div>
 			</div>
-				<div className="documents-body">
-					<FileUploader {...{fileInfo, handleInputChange, file, onFileSelection, handleSubmit, errorMessage}}/>
-				</div>
-				<div className="all-documents">
+			<div className="documents-body">
+				<FileUploader {...{fileInfo, handleInputChange, file, onFileSelection, handleSubmit, errorMessage}}/>
+			</div>
+			<div className="all-documents">
 					<div className="document-container shadow-effect" >
+										<div className="documents-grid">
 						{documentList}
 					</div>
 				</div>
+			</div>
 		</section>
 	)
 }

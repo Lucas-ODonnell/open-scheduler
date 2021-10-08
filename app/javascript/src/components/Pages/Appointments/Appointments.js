@@ -136,18 +136,24 @@ const Appointments = () => {
 					<h1 className="shadow-effect">Appointments</h1>
 					<div className="new-appointment">
 						<button className="modal-button" onClick={() => setShowModal(true)}>New Appointment</button>
-						<AppointmentModal 
-							onClose={() => 
-							setShowModal(false)} 
-							{...{showModal, handleChange, newAppointment, 
-								handleSubmit, leads, showPossibleLeads, 
-								setShowPossibleLeads, errorMessage}} 
-							/>
+					</div>
+					<div className="modal-container">
+						<div className="appointment-modal">
+							<AppointmentModal 
+								onClose={() => 
+								setShowModal(false)} 
+								{...{showModal, handleChange, newAppointment, 
+									handleSubmit, leads, showPossibleLeads, 
+									setShowPossibleLeads, errorMessage}} 
+								/>
+						</div>
 					</div>
 					<Filter {...{handleFilterChange, appointmentFilter, string}}/>
 				</div>
-				<div className="appointments-grid">
-					{appointmentList}
+				<div className="all-appointments">
+					<div className="appointments-grid">
+						{appointmentList}
+					</div>
 				</div>
 			</div>
 		</section>

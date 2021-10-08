@@ -5,12 +5,15 @@
 	word-break: break-all;
 }
 
+.profile-content {
+	width: 100%;
+	max-width: 62.5rem;
+}
+
 .profile-card {
-	padding: 1.25rem 1.875rem;
+	padding: 1em 2em;
 	background: var(--cardColor);
-	margin-right: 4rem;
-	margin-bottom: 4rem;
-	width: 80%;
+	margin-bottom: 3em;
 }
 
 .header-edit {
@@ -32,13 +35,13 @@
 
 .header-edit button {
 	background-color: transparent;
-	border: .125rem solid transparent;
-	padding: .1875rem .3125rem;
+	border: 1px solid transparent;
+	padding: .2em .3em;
 	color: var(--cardColorComplement);
 }
 
 .header-edit button:hover {
-	border: .125rem solid white;
+	border: 1px solid white;
 }
 
 .header-x {
@@ -49,23 +52,22 @@
 
 .header-x button {
 	background-color: transparent;
-	border: .125rem solid transparent;
-	padding: .1875rem .3125rem;
+	border: 1px solid transparent;
+	padding: .2em .3em;
 	color: var(--cardColorComplement);
-	padding: .1875rem .3125rem;
-	font-size: 1.875rem;
+	font-size: 2rem;
 }
 
 .header-x button:hover {
-	border: .125rem solid white;
+	border: 1px solid white;
 }
 
 .delete-account {
 	background-color: var(--warning);
 	color: white;
 	font-size: 1.5rem;
-	padding: .625rem .9375rem;
-	border-radius: .25rem;
+	padding: .5em 1em;
+	border-radius: 4px;
 	border: 1px solid var(--warning);
 }
 
@@ -76,5 +78,4 @@
 
 .delete-container {
 	align-self: flex-start;
-	margin-left: 8%;
 }

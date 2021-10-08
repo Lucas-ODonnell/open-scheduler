@@ -1,4 +1,5 @@
 .warning-card {
+	z-index: 100;
 	position: fixed;
 	top: 30%;
 	left: 50%;
@@ -7,13 +8,13 @@
 
 .warning-container {
 	box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-	padding: 30px 40px;
+	padding: 2em 2.5em;
 	background-color: white;
 	border-radius: 0 0 4px 4px;
 }
 
 .warning-header {
-	height: 36px;
+	padding: 1em 0;
 	border-bottom: 1px solid var(--cardColorComplement);
 	background-color: var(--cardColorComplement);
 	border-radius: 4px 4px 0 0;
@@ -25,13 +26,14 @@
 }
 
 .options button {
-	font-size: 17px;
-	padding: 5px 10px;
+	font-size: 1rem;
+	padding: .3em .5em;
 	border-radius: 4px;
 	background-color: var(--genericButton);
 	border: 1px solid var(--genericButton);
 	color: white;
-	margin-top: 16px;
+	margin: 0 .5em;
+	margin-top: 2em;
 }
 
 .options button:hover {
@@ -39,10 +41,3 @@
 	color: var(--genericButton);
 }
 
-.warning-cancel {
-	margin-right: 5px;
-}
-
-.warning-confirm {
-	margin-left: 5px;
-}

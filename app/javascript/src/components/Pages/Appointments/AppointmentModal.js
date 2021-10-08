@@ -4,7 +4,6 @@ import SearchLeads from './SearchLeads';
 const AppointmentModal = ({showModal, onClose, handleChange, newAppointment, handleSubmit, leads, showPossibleLeads, setShowPossibleLeads, errorMessage}) => {
 	if (!showModal) return null;
 	return (
-		<div className="modal-background">
 			<div className="modal-content">
 				<div className="header">
 					<div>
@@ -35,7 +34,7 @@ const AppointmentModal = ({showModal, onClose, handleChange, newAppointment, han
 						null
 						}
 																		</div>
-					<div className="city-info">
+					<div className="multi-input">
 						<div className="field">
 							<label>City:</label>
 							<input onChange={handleChange} type="text" name="city" value={newAppointment.city} placeholder="NYC" />
@@ -61,7 +60,7 @@ const AppointmentModal = ({showModal, onClose, handleChange, newAppointment, han
 						}
 						</div>
 					</div>
-					<div className="country-row">
+					<div className="multi-input">
 						<div className="field">
 							<label>Country:</label>
 							<input onChange={handleChange} type="text" name="country" value={newAppointment.country} placeholder="USA" />
@@ -83,7 +82,7 @@ const AppointmentModal = ({showModal, onClose, handleChange, newAppointment, han
 							<SearchLeads {...{leads, newAppointment, showPossibleLeads}} />
 						</div>
 					</div>
-					<div className="contact-information">
+					<div className="multi-input">
 						<div className="field">
 							<label>Phone:</label>
 							<input onChange={handleChange} type="text" name="phone" value={newAppointment.phone} placeholder="555-555-5555" />
@@ -116,7 +115,6 @@ const AppointmentModal = ({showModal, onClose, handleChange, newAppointment, han
 					<button className='submit' type='submit'>Submit</button>
 				</form>
 			</div>
-		</div>
 	)
 }
 

@@ -11,12 +11,19 @@ const Devise = ({setAuthorizationToken}) => {
 	}
 
 	return (
-		<section className="sign-container card-effect">
-			{register ?
-			<Registration {...{toggleRegistration, setAuthorizationToken}}/>
-			:
-			<SignIn {...{toggleRegistration, setAuthorizationToken}}/>
-			}
+		<section>
+			<div className="sigin-nav-container">
+				<div className="signin-nav-content">
+				<h1>Open Scheduler</h1>
+				</div>
+			</div>
+			<div className="signin-container">
+				{register ?
+				<Registration {...{toggleRegistration, setAuthorizationToken}}/>
+				:
+				<SignIn {...{toggleRegistration, setAuthorizationToken}}/>
+				}
+			</div>
 		</section>
 	)
 }

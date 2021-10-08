@@ -45,7 +45,7 @@ const Profile = () => {
 					})
 			})
 			.catch(response => {
-			if (response.response.status === 401) global.setSignedIn(false); 
+				if (response.response.status === 401) global.setSignedIn(false); 
 				global.setError("You have been signed out");
 				global.flashError();
 			})
@@ -113,19 +113,21 @@ const Profile = () => {
 		return (
 			<section>
 				<div className="profile-container">
-				{profileUpdate ?
-				<ProfileUpdate {...{setProfileUpdate, profileChange, editedProfile, updateProfile}} />
-				:
-				<ProfileShow {...{profile, FontAwesomeIcon, setProfileUpdate}}/>
-				}
-				{logInUpdate ?
-				<LogInUpdate {...{setLogInUpdate, logInChange, editedLogIn, updateLogIn}}/>
-				:
-				<LogInShow {...{currentUser, FontAwesomeIcon, setLogInUpdate}}/>
-				}
-				<div className="delete-container">
-				<button onClick={()=>{global.setShowWarning(true); global.setDeleteFunction(()=>()=>handleDelete())}} className="delete-account">Delete Account</button>
-				</div>
+					<div className="profile-content">
+						{profileUpdate ?
+						<ProfileUpdate {...{setProfileUpdate, profileChange, editedProfile, updateProfile}} />
+						:
+						<ProfileShow {...{profile, FontAwesomeIcon, setProfileUpdate}}/>
+						}
+						{logInUpdate ?
+						<LogInUpdate {...{setLogInUpdate, logInChange, editedLogIn, updateLogIn}}/>
+						:
+						<LogInShow {...{currentUser, FontAwesomeIcon, setLogInUpdate}}/>
+						}
+						<div className="delete-container">
+							<button onClick={()=>{global.setShowWarning(true); global.setDeleteFunction(()=>()=>handleDelete())}} className="delete-account">Delete Account</button>
+						</div>
+					</div>
 				</div>
 			</section>
 		)

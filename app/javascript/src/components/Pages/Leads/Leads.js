@@ -161,7 +161,9 @@ const Leads = () => {
 					{...{updateModal, handleUpdateChange, handleUpdateSubmit, updateLead, errorMessage}} 
 					/>
 				<div className="all-leads">
+					<div className="lead-grid">
 					{indexLeads}
+				</div>
 				</div>
 			</div>
 		</section>

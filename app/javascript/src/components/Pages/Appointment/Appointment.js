@@ -90,19 +90,23 @@ const Appointment = () => {
 	}
 
 	return (
-		<section className="show-appointment">
-			{ loaded &&
-				<div className="appointment-card shadow-effect">
-					{!update ?
-						<>
-					<ViewAppointment {...{appointment, FontAwesomeIcon, showEdit, setShowLead}}/>
-					<AppointmentLead {...{lead, showLead}} />
-					</>
-					:
-					<UpdateAppointment {...{hideEdit, handleChange, handleUpdate, editedAppointment, appointment, errorMessage}}/>
+		<section>
+			<div className="thisappointment-container">
+				<div className="show-appointment">
+					{ loaded &&
+						<div className="appointment-card shadow-effect">
+							{!update ?
+							<>
+								<ViewAppointment {...{appointment, FontAwesomeIcon, showEdit, setShowLead}}/>
+								<AppointmentLead {...{lead, showLead}} />
+								</>
+							:
+							<UpdateAppointment {...{hideEdit, handleChange, handleUpdate, editedAppointment, appointment, errorMessage}}/>
+							}
+						</div>
 					}
 				</div>
-			}
+			</div>
 		</section>
 	)
 }

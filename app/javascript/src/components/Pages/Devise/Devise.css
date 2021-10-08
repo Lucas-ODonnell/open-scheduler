@@ -1,12 +1,35 @@
-.sign-container {
-	position: fixed;
-	top: 10%;
-	left: 50%;
-	transform: translate(-50%);
-	width: 40%;
-	min-width: 2rem;
-	border-radius: .25rem;
+.signin-nav-container {
+	display: flex;
+	justify-content: center;
+}
+
+.signin-nav-content {
+	background: var(--navBarColor);
+}
+
+.signin-nav-content h1 {
+	align-self: center;
+	font-size: 3rem;
+	padding: .2em 0;
+	color: white;
+	text-align: center;
+}
+
+.signin-nav h1 {
+	font-size: 3rem;
+	font-weight: bold;
+}
+.signin-container {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 3em;
+}
+
+.sign-content {
+	margin-top: 5em;
 	background-color: white;
+	width: 100%;
+	max-width: 50rem;
 }
 
 .sign-header {
@@ -15,7 +38,7 @@
 	justify-content: center;
 	align-items: center;
 	border-radius: .25rem .25rem 0 0;
-	padding: 1rem 0;
+	padding: 1em 0;
 }
 
 .sign-header h1 {
@@ -24,13 +47,13 @@
 }
 
 .sign-form {
-	padding: 1.875rem 2.5rem;
+	padding: 2em 2.5em;
 }
 
 .switcher {
 	display: flex;
 	justify-content: flex-end;
-	margin-top: 1rem;
+	margin-top: 1em;
 }
 
 .switcher-vert {
@@ -41,7 +64,7 @@
 
 .switcher button {
 	font-size: 1rem;
-	padding: .1875rem .3125rem;
+	padding: .2em .3em;
 	border: 1px solid transparent;
 	background-color: white;
 }
@@ -53,12 +76,11 @@
 .password-reset {
 	display: flex;
 	justify-content: flex-end;
-	margin-top: -2.1875;
 }
 
 .password-reset form {
 	width: 70%;
-	padding: 1.875rem 2.5rem;
+	padding: 2em 2.5em;
 	display: flex;
 	flex-direction: column;
 }
@@ -70,7 +92,7 @@
 
 .reset button {
 	font-size: 1rem;
-	padding: .1875rem .3125rem;
+	padding: .2em .3em;
 	color: white;
 	background-color: rgb(53,116,179);
 	border: 1px solid rgb(53,116,179);
@@ -83,11 +105,11 @@
 
 .password-change {
 	width: 80%;
-	padding: 30px 40px;
+	padding: 2em 3em;
 }
 
 .password-change input {
-	margin-bottom: 8px;
+	margin-bottom: 1em;
 }
 
 .password-change button {
@@ -96,12 +118,11 @@
 	color: white;
 	background-color: rgb(53, 116, 179);
 	border: 1px solid rgb(53,116,179);
-	padding: 10px 1.3125rem;
+	padding: .5em 1em;
 }
 
 .password-change button:hover {
 	color: rgb(53,116,179);
 	background-color: white;
 }
-
 

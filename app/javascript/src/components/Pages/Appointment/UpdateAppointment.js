@@ -11,7 +11,7 @@ const UpdateAppointment = ({hideEdit, handleChange, handleUpdate, editedAppointm
 				<label>Address:</label>
 				<input onChange={handleChange} value={editedAppointment.street_address} type="text" name="street_address"  />
 			</div>
-			<div className="city-info">
+			<div className="multi-input">
 				<div className="field">
 					<label>City:</label>
 					<input onChange={handleChange} value={editedAppointment.city} type="text" name="city"  />
@@ -31,13 +31,13 @@ const UpdateAppointment = ({hideEdit, handleChange, handleUpdate, editedAppointm
 						}
 				</div>
 			</div>
-			<div className="country-row">
+			<div className="multi-input">
 				<div className="field">
 					<label>Country:</label>
 					<input onChange={handleChange} value={editedAppointment.country} type="text" name="country" />
 				</div>
 							</div>
-			<div className="contact-information">
+			<div className="multi-input">
 				<div className="field">
 					<label>Phone:</label>
 					<input onChange={handleChange} value={editedAppointment.phone} type="text" name="phone" />

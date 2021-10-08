@@ -5,7 +5,7 @@ const CreateLead = ({onClose, createModal,handleChange, handleSubmit, newLead, e
 	return (
 		<div className="modal-background">
 			<div className="lead-modal">
-				<div className="modal-content">
+				<div className="lead-content">
 					<div className="header">
 						<div>
 							<h2>Create a New Lead</h2>

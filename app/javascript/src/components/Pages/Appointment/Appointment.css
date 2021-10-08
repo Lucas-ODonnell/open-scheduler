@@ -1,45 +1,37 @@
-.show-appointment {
-	width: 900px;
-	max-width: 100%;
-	position: absolute;
-	top: 10%;
+.appointment-card {
+	border-radius: 4px;
+}
+
+.thisappointment-container {
+	top: 0;
 	left: 50%;
 	transform: translate(-50%);
+	width: 100%;
+	max-width: 55rem;
+	z-index: 10;
+	position: fixed;
+	padding-top: 9em;
 }
-
-.exit {
+.show-appointment {
+	position: relative;
+	overflow: hidden;
+	border-radius: 4px;
+	margin: 0 auto;
 	display: flex;
-	justify-content: flex-end;
+	flex-direction: column;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
-.exit button {
-	border: 2px solid transparent;
-	background-color: var(--cardColor);
-	font-size: 17px;
-	font-weight: bold;
+.show-appointment form {
+	max-height: calc(100vh - 15rem);
+  overflow-y: auto;
 }
 
-.exit button:hover {
-	border: 2px solid white;
-}
-
-.update-appointment h2 {
-	text-align: center;
-	font-size: 2rem;
-	font-weight: bold;
-	margin-bottom: 16px;
-}
-
-.attributes {
-	margin-bottom: 16px;
-}
-
-.hoverable {
-	cursor: pointer;
-}
-
-.update-btn {
-	margin-top: 16px;
+.view-appointment {
+	max-height: calc(100vh - 17rem);
+  overflow-y: auto;
+	background: var(--cardColor);
+	padding: 3em 5em;
 }
 
 .show-edit {
@@ -51,7 +43,7 @@
 	border: 2px solid transparent;
 	background-color: var(--cardColor);
 	color: var(--cardColorComplement);
-	padding: 3px 5px;
+	padding: .3em .5em;
 }
 
 .show-edit button:hover {
@@ -65,17 +57,97 @@
 .show-lead {
 	display: flex;
 	justify-content: center;
-	margin-top: 32px;
+	margin-top: 2em;
 }
 
 .lead-container {
 	background-color: var(--manila);
-	padding: 30px 40px;
+	padding: 3em 5em;
 	width: 90%;
 }
 
-.name-row {
-	display: flex;
-	justify-content: space-around;
-	margin-bottom: 32px;
+.update-appointment h2 {
+	text-align: center;
+	font-size: 2rem;
+	font-weight: bold;
+	padding-bottom: 1em;
 }
+
+.update-appointment form {
+	background-color: white;
+	padding: 3em 5em;
+}
+
+.attributes {
+	margin-bottom: 1em;
+}
+
+.exit {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.exit button {
+	border: 2px solid transparent;
+	background-color: var(--cardColor);
+	font-size: 1rem;
+	font-weight: bold;
+	padding-right: .5em;
+	padding-top: .5em;
+}
+
+.exit button:hover {
+	border: 2px solid white;
+}
+
+.exit,
+.update-appointment h2 {
+ background-color: rgb(127,127,127);
+}
+
+
+
+.company-title {
+	display: flex;
+	justify-content: center;
+}
+
+.company-title h2 {
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.alt-title h2 {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.street {
+	display: flex;
+	justify-content: flex-start;
+	margin-bottom: 1em;
+	margin-top: 1em;
+}
+
+.notes {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.notes p {
+	font-size: 1rem;
+}
+
+.attribute {
+	font-size: 1rem;
+}
+
+.hoverable {
+	cursor: pointer;
+}
+
+.update-btn {
+	margin-top: 1em;
+}
+
+

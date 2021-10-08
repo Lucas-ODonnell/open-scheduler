@@ -7,7 +7,6 @@ import Profile from './components/Pages/Profile/Profile';
 import Leads from './components/Pages/Leads/Leads';
 import Documents from './components/Pages/Documents/Documents';
 import Devise from './components/Pages/Devise/Devise';
-import FakeNav from './components/FakeNav';
 import SignOut from './components/SignOut';
 import Alert from './components/Alert';
 import Warning from './components/Warning';
@@ -25,7 +24,7 @@ const App = () => {
 	const [showWarning, setShowWarning] = useState(false); //Warning to delete
 	const [deleteFunction, setDeleteFunction] = useState(() => () => {return}); //writing it like this prevents function from firing before actually clicking on a confirmation button
 	const [error, setError] = useState(null);
-
+	
 	useEffect(() => {
 		if (localStorage.Authorization !== undefined) {
 			const AuthorizedToken = localStorage.getItem('Authorization')
@@ -59,24 +58,33 @@ const App = () => {
 	return (
 		<>
 			<AppContext.Provider value={global}>
-				<Alert {...{showError}}/>
-				<Warning />
 				{!signedIn ?
 				<section>
-					<FakeNav />
 					<Devise {...{setAuthorizationToken}}/>
 				</section>
 				:
 				<>
-					<SignOut />
 					<Routes>
-						<Nav />
+						<Nav {...{FontAwesomeIcon}}/>
+						<Alert {...{showError}}/>
+						<Warning />
+						<SignOut />
 						<Switch>
-							<Route exact path="/" component={Appointments}/>
-							<Route exact path="/appointments/:slug" component={Appointment}/>
-							<Route exact path="/leads" component={Leads} />
-							<Route exact path="/profile" component={Profile} />
-							<Route exact path="/documents" component={Documents} />
+							<Route exact path="/">
+								<Appointments />
+							</Route>
+							<Route exact path="/appointments/:slug">
+								<Appointment />
+							</Route>
+							<Route exact path="/leads">
+								<Leads />
+							</Route>
+							<Route exact path="/profile" >
+								<Profile />
+							</Route>
+							<Route exact path="/documents">
+								<Documents />
+							</Route>
 						</Switch>
 					</Routes>
 					</>

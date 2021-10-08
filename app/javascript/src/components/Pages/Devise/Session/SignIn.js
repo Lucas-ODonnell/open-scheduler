@@ -47,7 +47,7 @@ const SignIn = ({toggleRegistration, setAuthorizationToken}) => {
 	}
 
 	return (
-		<section>
+		<div className="sign-content">
 			<div className='sign-header'>
 				<h1>Sign In</h1>
 			</div>
@@ -74,7 +74,7 @@ const SignIn = ({toggleRegistration, setAuthorizationToken}) => {
 			<>
 				</>
 			}
-		</section>
+			</div>
 	)
 }
 
