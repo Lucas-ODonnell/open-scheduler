@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
     end
   end
+  #passwords_controller.rb
   post 'api/v1/forgot_password' => "api/v1/passwords#forgot"
   post 'api/v1/reset_password' => "api/v1/passwords#reset"
 end

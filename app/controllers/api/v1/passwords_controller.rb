@@ -1,3 +1,4 @@
+#send_password_reset reset_password methods in models/user.rb
 module Api
   module V1
     class PasswordsController < ApplicationController
